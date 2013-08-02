@@ -4,9 +4,9 @@ Studhub::Application.routes.draw do
 	get 'about' => 'pages#about'
 	get 'terms' => 'pages#terms'
 
-	match 'auth/:provider/callback', to: 'sessions#create'
-	match 'auth/failure', to: redirect('/')
-	match 'signout', to: 'sessions#destroy', as: 'signout'
+	match 'auth/:provider/callback', to: 'sessions#create', :via => [:get, :post]
+	get 'auth/failure' => redirect('/')
+	match 'signout', to: 'sessions#destroy', as: 'signout', :via => [:get, :post]
 
 	# The priority is based upon order of creation: first created -> highest priority.
 	# See how all your routes lay out with "rake routes".
