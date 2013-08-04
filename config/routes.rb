@@ -1,9 +1,14 @@
 Studhub::Application.routes.draw do
 
+	#static routes
 	root :to => 'pages#home'
 	get 'about' => 'pages#about'
 	get 'terms' => 'pages#terms'
 
+	#earring routes
+	resources :earrings
+
+	#facebook routes
 	match 'auth/:provider/callback', to: 'sessions#create', :via => [:get, :post]
 	get 'auth/failure' => redirect('/')
 	match 'signout', to: 'sessions#destroy', as: 'signout', :via => [:get, :post]

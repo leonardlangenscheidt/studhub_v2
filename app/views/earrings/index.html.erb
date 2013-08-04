@@ -1,0 +1,22 @@
+<h1>Index </h1>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Earring</th>
+			<th>Size</th>
+			<th>Price</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @earrings.each do |earring| %>
+			<tr>
+				<td><%= link_to "#{earring.vendor} #{earring.collection} #{earring.design} #{earring.material}", earring_path(earring)%></td>
+				<td><%=earring.size%>mm</td>
+				<td>$<%=earring.price%></td>
+				<td><%=earring.description%></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

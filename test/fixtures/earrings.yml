@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  vendor: MyString
+  collection: MyString
+  design: MyString
+  material: MyString
+  size: 1
+  price: 1
+  sku: MyString
+  inventory: 1
+
+two:
+  vendor: MyString
+  collection: MyString
+  design: MyString
+  material: MyString
+  size: 1
+  price: 1
+  sku: MyString
+  inventory: 1

@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130802153157) do
+ActiveRecord::Schema.define(version: 20130804183347) do
+
+  create_table "earrings", force: true do |t|
+    t.string   "vendor"
+    t.string   "collection"
+    t.string   "design"
+    t.string   "material"
+    t.integer  "size"
+    t.integer  "price"
+    t.string   "sku"
+    t.integer  "inventory"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "description"
+  end
 
   create_table "users", force: true do |t|
     t.string   "provider"
