@@ -63,6 +63,6 @@ class EarringsController < ApplicationController
 	end
 
 	def earring_params
-			params.require(:earring).permit(:vendor, :collection, :design, :material, :size, :price, :sku, :inventory, :description)
+			params.require(:earring).permit(:vendor, :collection, :design, :material, :size, :price, :sku, :inventory, :description, :image)
 	end
 end

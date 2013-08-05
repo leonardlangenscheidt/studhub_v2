@@ -6,6 +6,9 @@
 			<th>Size</th>
 			<th>Price</th>
 			<th>Description</th>
+			<th>Image</th>
+			<th></th>
+			<th></th>
 		</tr>
 	</thead>
 
@@ -16,6 +19,9 @@
 				<td><%=earring.size%>mm</td>
 				<td>$<%=earring.price%></td>
 				<td><%=earring.description%></td>
+				<td><%= image_tag earring.image(:medium) %></td>
+				<td><%= link_to 'Edit', edit_earring_path(earring) %></td>
+				<td><%= link_to 'Destroy', earring, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 			</tr>
 		<% end %>
 	</tbody>
