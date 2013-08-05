@@ -1,0 +1,17 @@
+<%= simple_form_for(@earring, html: { class: "form-horizontal"}) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :vendor, as: :string%>
+  <%= f.input :collection, as: :string%>
+  <%= f.input :design, as: :string%>
+  <%= f.input :material, as: :string%>
+  <%= f.input :size, as: :integer%>
+  <%= f.input :price, as: :integer%>
+  <%= f.input :sku, as: :string%>
+  <%= f.input :inventory, as: :integer%>
+  <%= f.input :description, as: :text, input_html: { rows: "3" } %>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-primary" %>
+  </div>
+<% end %>

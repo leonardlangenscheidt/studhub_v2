@@ -1,3 +1,12 @@
-<h1><%=@earring.vendor%> <%=@earring.collection%> <%=@earring.design%> <%=@earring.material%></h1>
+<strong>Vendor:</strong> <%=@earring.vendor%></br>
+<strong>Collection:</strong> <%=@earring.collection%></br>
+<strong>Design:</strong> <%=@earring.design%></br>
+<strong>Material:</strong> <%=@earring.material%></br>
+<strong>Size:</strong> <%=@earring.size%></br>
+<strong>Price:</strong> <%=@earring.price%></br>
+<strong>SKU:</strong> <%=@earring.sku%></br>
+<strong>Inventory:</strong> <%=@earring.inventory%></br>
+<strong>Description:</strong>  <%=@earring.description%></br></br>
 
+<%= link_to 'Edit', edit_earring_path(@earring) %>
 <%= link_to 'Back', earrings_path %>
