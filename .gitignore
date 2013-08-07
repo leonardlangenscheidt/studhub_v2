@@ -17,3 +17,6 @@
 
 #ignore facebook secrets
 /config/initializers/constants.rb
+
+#ignore samples
+/sampleimages
