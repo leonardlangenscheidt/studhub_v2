@@ -1,4 +1,14 @@
 <h1>Index </h1>
+
+<div id="earrings">
+	<% @earrings.each do |earring| %>
+		<div class="box">
+			<%= image_tag earring.image(:medium) %>
+			<%= "#{earring.vendor} #{earring.collection} #{earring.design} #{earring.material}" %>
+		</div>
+	<% end %>
+</div>
+
 <table class="table table-striped">
 	<thead>
 		<tr>
