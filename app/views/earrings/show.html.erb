@@ -1,5 +1,6 @@
 <div class="center hero-unit">
-	<strong>Image:</strong> <%= image_tag @earring.image(:medium) %></br>
+
+	<%= image_tag @earring.image(:medium) %></br>
 	<strong>Vendor:</strong> <%=@earring.vendor%></br>
 	<strong>Collection:</strong> <%=@earring.collection%></br>
 	<strong>Design:</strong> <%=@earring.design%></br>
@@ -9,6 +10,24 @@
 	<strong>SKU:</strong> <%=@earring.sku%></br>
 	<strong>Inventory:</strong> <%=@earring.inventory%></br>
 	<strong>Description:</strong>  <%=@earring.description%></br>
+
+</br>
+</br>
+	<p><strong>Instructions for Payment Testing</strong> Use 4242 4242 4242 4242, any cvc, any name, any date in the future.</p>
+
+	<%= form_tag charges_path do %>
+	<!--   <article>
+	    <label class="amount">
+	      <span>Amount: $<%=@earring.price%>.00</span>
+	    </label>
+	  </article> -->
+	<script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+		data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+		data-name="Studhub"
+		data-description="<%=@earring.design%> ($<%=@earring.price%>.00)"
+		data-amount="<%=@earring.price%>00"
+		data-image="<%=@earring.image(:medium)%>"></script>
+	<% end %>
 </div>
 
 <%= link_to 'Edit', edit_earring_path(@earring) %>

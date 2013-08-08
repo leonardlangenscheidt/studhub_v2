@@ -8,6 +8,9 @@ Studhub::Application.routes.draw do
 	#earring routes
 	resources :earrings
 
+	#stripe
+	resources :charges
+
 	#facebook routes
 	match 'auth/:provider/callback', to: 'sessions#create', :via => [:get, :post]
 	get 'auth/failure' => redirect('/')
