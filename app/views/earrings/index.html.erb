@@ -1,12 +1,8 @@
 <h1>Index </h1>
 
-<!-- <div id="items">
-	<% @earrings.each do |earring|%>
-		<div class="item">
-			<%= image_tag earring.image(:medium) %>
-		</div>
-	<%end%>
-</div> -->
+<% if notice %>
+	<p class="alert alert-success" id="notice"><%= notice %></p>
+<%end%>
 
 <div id="earrings">
 	<% @earrings.each do |earring| %>

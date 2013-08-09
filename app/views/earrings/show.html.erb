@@ -1,3 +1,6 @@
+<% if notice %>
+	<p class="alert alert-failure" id="notice"><%= notice %></p>
+<%end%>
 <div class="center hero-unit">
 
 	<%= image_tag @earring.image(:medium) %></br>
