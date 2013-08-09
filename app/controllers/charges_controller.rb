@@ -3,13 +3,12 @@ class ChargesController < ApplicationController
 	end
 
 	def create
-	  	#@earring = Earring.find(params[:id])
-	  	# Amount in cents
-	  	#@amount =@earring.price
-	  	@amount = 500
+	  	@earring = Earring.find(params[:earring_id])
+	  	@amount =@earring.price
+	  	@user = current_user
 
 	  	customer = Stripe::Customer.create(
-	    	:email => 'example@stripe.com',
+	    	:email => @user.email,
 	    	:card  => params[:stripeToken]
 	  	)
 

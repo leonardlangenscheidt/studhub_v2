@@ -6,10 +6,10 @@ Studhub::Application.routes.draw do
 	get 'terms' => 'pages#terms'
 
 	#earring routes
-	resources :earrings
+	resources :earrings do
+		resource :charges
+	end
 
-	#stripe
-	resources :charges
 
 	#facebook routes
 	match 'auth/:provider/callback', to: 'sessions#create', :via => [:get, :post]
