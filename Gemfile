@@ -27,6 +27,7 @@ gem 'omniauth-facebook'
 gem 'paperclip', '~> 3.0'
 gem 'simple_form', '3.0.0.rc'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'aws-sdk'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
