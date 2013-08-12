@@ -11,5 +11,7 @@ class User < ActiveRecord::Base
 			end
 	end
 
+	has_many :orders
+
 	has_attached_file :image, styles: { medium: "320x240>", :small => "160x120>"}
 end

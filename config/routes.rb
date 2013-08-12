@@ -6,7 +6,9 @@ Studhub::Application.routes.draw do
 	get 'terms' => 'pages#terms'
 
 	#profile
-	resources :users
+	resources :users do
+		resource :orders
+	end
 
 	#earring routes
 	resources :earrings do

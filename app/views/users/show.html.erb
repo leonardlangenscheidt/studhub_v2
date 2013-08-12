@@ -1,3 +1,22 @@
 <h1>Profile</h1>
 <%=@user.name%>
 <%= image_tag @user.image(:medium) %>
+
+<% if notice %>
+	<p class="alert alert-success" id="notice"><%= notice %></p>
+<%end%>
+
+<h2>Prior Orders:</h2>
+<div id="earrings">
+	<% @orders.each do |order| %>
+		<div class="box box-large">
+			<%= link_to (image_tag order.earring.image(:medium)),  earring_path(order.earring)%></br>
+			<div class="description">
+				Type: <%=order.earring.vendor%> <%=order.earring.collection%> <%=order.earring.material%> <%=order.earring.design%></br>
+				Purchased: <%=order.created_at%></br>
+				Status: <%=order.status%></br>
+			</div>
+		</div>
+	<% end %>
+</div>
+<%= link_to "New Order", user_orders_path(@user), :method => :post %>
