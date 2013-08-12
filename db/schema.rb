@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130805132431) do
+ActiveRecord::Schema.define(version: 20130812134436) do
 
   create_table "earrings", force: true do |t|
     t.string   "vendor"
@@ -39,6 +39,10 @@ ActiveRecord::Schema.define(version: 20130805132431) do
     t.datetime "oauth_expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
 end

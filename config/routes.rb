@@ -5,6 +5,9 @@ Studhub::Application.routes.draw do
 	get 'about' => 'pages#about'
 	get 'terms' => 'pages#terms'
 
+	#profile
+	resources :users
+
 	#earring routes
 	resources :earrings do
 		resource :charges
