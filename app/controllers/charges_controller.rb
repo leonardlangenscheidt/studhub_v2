@@ -5,7 +5,11 @@ class ChargesController < ApplicationController
 	def create
 	  	@earring = Earring.find(params[:earring_id])
 	  	@amount =@earring.price
-	  	@user = current_user
+	  	if current_user
+		  	@user = current_user
+		else
+		  	@user = User.find(1)
+		end
 
 	  	customer = Stripe::Customer.create(
 	    	:email => 'user@example.com',
@@ -20,8 +24,14 @@ class ChargesController < ApplicationController
 	  	)
 
 	  	if charge
-	  		# flash[:notice] = "Thank you! You just purchased the #{@earring.material} #{@earring.design} earring from the #{@earring.vendor} #{@earring.collection} collection for $#{@amount}.00!"
-	  		redirect_to "/users/#{@user.id}/#{@earring.id}/order", :method => :post
+	  		order = Order.create(
+			:user_id => @user.id,
+			:earring_id => @earring.id,
+			:price_paid => @earring.price,
+			:status => "shipping"
+			)
+	  		flash[:notice] = "Thank you! You just purchased the #{@earring.material} #{@earring.design} earring from the #{@earring.vendor} #{@earring.collection} collection for $#{@amount}.00!"
+	  		redirect_to user_path(@user)
 	  	else
 	  		flash[:notice] = Stripe::CardError.message
 	  		redirect_to earring_path(@earring)
