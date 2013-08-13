@@ -30,6 +30,7 @@ class ChargesController < ApplicationController
 			:price_paid => @earring.price,
 			:status => "shipping"
 			)
+			@earring.inventory -= 1
 	  		flash[:notice] = "Thank you! You just purchased the #{@earring.material} #{@earring.design} earring from the #{@earring.vendor} #{@earring.collection} collection for $#{@amount}.00!"
 	  		redirect_to user_path(@user)
 	  	else

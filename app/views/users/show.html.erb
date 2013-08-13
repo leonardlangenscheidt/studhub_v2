@@ -1,22 +1,56 @@
-<h1>Profile</h1>
-<%=@user.name%>
-<%= image_tag @user.image(:medium) %>
-
 <% if notice %>
 	<p class="alert alert-success" id="notice"><%= notice %></p>
 <%end%>
 
-<h2>Prior Orders:</h2>
-<div id="earrings">
-	<% @orders.each do |order| %>
-		<div class="box box-large">
-			<%= link_to (image_tag order.earring.image(:medium)),  earring_path(order.earring)%></br>
-			<div class="description">
-				Type: <%=order.earring.vendor%> <%=order.earring.collection%> <%=order.earring.material%> <%=order.earring.design%></br>
-				Purchased: <%=order.created_at%></br>
-				Status: <%=order.status%></br>
+<div class="container">
+	<div class="row">
+		<div class="span3">
+			<h2>Account</h2>
+		</div>
+		<div class="span9">
+			<h2>Prior Orders:</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span3">
+			<table class="table">
+				<thead>
+					<tr><th colspan="2">Basic Information</th></tr>
+				</thead>
+				<tbody>
+					<tr><td>Name:</td><td><%=@user.name%></td>
+					<tr><td>Address:</td><td><%=@user.name%></td>
+				</tbody>
+			</table>
+			<table class="table">
+				<thead>
+					<tr><th colspan="2">Shipping Address</th></tr>
+				</thead>
+				<tbody>
+					<tr><td>Street:</td><td><%=@user.name%></td>
+					<tr><td></td><td><%=@user.name%></td>
+					<tr><td>City:</td><td><%=@user.name%></td>
+					<tr><td>State:</td><td><%=@user.name%></td>
+					<tr><td>ZIP Code:</td><td><%=@user.name%></td>
+				</tbody>
+			</table>
+
+		</div>
+		<div class="span9">
+			<div id="earrings">
+				<% @orders.reverse.each do |order| %>
+					<div class="box box-large">
+						<div class="description">
+							Purchased: <%=order.created_at%></br>
+						</div>
+						<%= link_to (image_tag order.earring.image(:medium)),  earring_path(order.earring)%></br>
+						<div class="description">
+							Type: <%=order.earring.vendor%> <%=order.earring.collection%> <%=order.earring.material%> <%=order.earring.design%></br>
+							Status: <%=order.status%></br>
+						</div>
+					</div>
+				<% end %>
 			</div>
 		</div>
-	<% end %>
+	</div>
 </div>
-<%= link_to "New Order", "/users/#{@user.id}/17/order", :method => :post %>
