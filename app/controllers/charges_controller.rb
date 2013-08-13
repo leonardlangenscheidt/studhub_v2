@@ -21,7 +21,7 @@ class ChargesController < ApplicationController
 
 	  	if charge
 	  		# flash[:notice] = "Thank you! You just purchased the #{@earring.material} #{@earring.design} earring from the #{@earring.vendor} #{@earring.collection} collection for $#{@amount}.00!"
-	  		redirect_to user_orders_path(@user)
+	  		redirect_to "/users/#{@user.id}/#{@earring.id}/order"
 	  	else
 	  		flash[:notice] = Stripe::CardError.message
 	  		redirect_to earring_path(@earring)

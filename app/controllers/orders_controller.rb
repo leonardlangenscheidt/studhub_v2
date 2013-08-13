@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
 
 	def create
 		@user = User.find(params[:user_id])
-		@earring = Earring.find(17)
+		@earring = Earring.find(params[:earring_id])
 		order = Order.create(
 			:user_id => @user.id,
 			:earring_id => @earring.id,
