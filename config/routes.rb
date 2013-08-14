@@ -14,7 +14,7 @@ Studhub::Application.routes.draw do
 		resource :charges
 	end
 
-	match 'earrings/:earring_id/:buyorsell/users/:user_id' => 'users#edit', :via =>[:get, :patch]
+	match 'earrings/:earring_id/:buyorsell/users/:user_id' => 'users#edit', :via =>[:get, :patch, :post]
 	get 'earrings/:earring_id/:buyorsell/summary' => 'earrings#summary'
 
 
