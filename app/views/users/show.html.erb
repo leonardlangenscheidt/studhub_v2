@@ -43,7 +43,8 @@
 						<div class="description">
 							Purchased: <%=order.created_at.strftime("%d-%m-%Y")%></br>
 						</div>
-						<%= link_to (image_tag order.earring.image(:medium)),  earring_path(order.earring)%></br>
+						<%= image_tag order.earring.image(:medium)%></br>
+						<% link_to (image_tag order.earring.image(:medium)),  earring_path(order.earring)%></br>
 						<div class="description">
 							Type: <%=order.earring.vendor%> <%=order.earring.collection%> <%=order.earring.material%> <%=order.earring.design%></br>
 							Status: <%=order.status%></br>

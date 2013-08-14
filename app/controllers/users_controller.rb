@@ -5,4 +5,8 @@ class UsersController < ApplicationController
 	end
 	def index
 	end
+	def edit
+		@user = current_user
+		@earring = Earring.find(params[:earring_id])
+	end
 end
