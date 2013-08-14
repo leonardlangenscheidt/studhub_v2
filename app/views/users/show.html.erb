@@ -19,7 +19,7 @@
 				</thead>
 				<tbody>
 					<tr><td>Name:</td><td><%=@user.name%></td>
-					<tr><td>Address:</td><td><%=@user.name%></td>
+					<tr><td>Email:</td><td><%=@user.email%></td>
 				</tbody>
 			</table>
 			<table class="table">
@@ -27,11 +27,11 @@
 					<tr><th colspan="2">Shipping Address</th></tr>
 				</thead>
 				<tbody>
-					<tr><td>Street:</td><td><%=@user.name%></td>
-					<tr><td></td><td><%=@user.name%></td>
-					<tr><td>City:</td><td><%=@user.name%></td>
-					<tr><td>State:</td><td><%=@user.name%></td>
-					<tr><td>ZIP Code:</td><td><%=@user.name%></td>
+					<tr><td>Street:</td><td><%=@user.street%></td>
+					<tr><td></td><td><%=@user.street2%></td>
+					<tr><td>City:</td><td><%=@user.city%></td>
+					<tr><td>State:</td><td><%=@user.state%></td>
+					<tr><td>ZIP Code:</td><td><%=@user.zip%></td>
 				</tbody>
 			</table>
 
@@ -47,6 +47,7 @@
 						<div class="description">
 							Type: <%=order.earring.vendor%> <%=order.earring.collection%> <%=order.earring.material%> <%=order.earring.design%></br>
 							Status: <%=order.status%></br>
+							<%= link_to 'Destroy', user_orders_path(:user_id=>@user.id, :order_id=>order.id), method: :delete, data: { confirm: 'Are you sure?' } %>
 						</div>
 					</div>
 				<% end %>

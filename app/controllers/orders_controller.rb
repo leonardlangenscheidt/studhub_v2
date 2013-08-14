@@ -20,6 +20,13 @@ class OrdersController < ApplicationController
 	#   		redirect_to user_path(@user)
 	#   	end
 	# end
+	def destroy
+		@user = User.find(params[:user_id])
+		@orders = @user.orders
+		@order = @orders.find(params[:order_id])
+		@order.destroy
+		redirect_to user_path(@user)
+	end
 
 	private
 
