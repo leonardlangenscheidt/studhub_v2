@@ -7,31 +7,29 @@
 		<h1><%=@earring.vendor%> <%=@earring.collection%> <%=@earring.material%> <%=@earring.design%></h1>
 	</div>
 	<div class="row-fluid">
-		<div class="span6">
+		<div class="span4">
 			<div id="earrings">
 				<div class="box box-large">
 					<%= image_tag @earring.image(:medium)%>
 				</div>
 			</div>
 		</div>
-		<div class="span6">
-			<strong>Vendor:</strong> <%=@earring.vendor%></br>
-			<strong>Collection:</strong> <%=@earring.collection%></br>
-			<strong>Design:</strong> <%=@earring.design%></br>
-			<strong>Material:</strong> <%=@earring.material%></br>
-			<strong>Size:</strong> <%=@earring.size%>mm</br>
-			<strong>Price:</strong> $<%=@earring.price%>.00</br>
-			<strong>SKU:</strong> <%=@earring.sku%></br>
-			<strong>Inventory:</strong> <%=@earring.inventory%></br>
-			<strong>Description:</strong>  <%=@earring.description%></br></br>
-			<%= form_tag earring_charges_path(@earring) do %>
-				<script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
-				data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-				data-name="Studhub"
-				data-description="<%=@earring.design%> ($<%=@earring.price%>.00)"
-				data-amount="<%=@earring.price%>00"
-				data-image="<%=@earring.image(:medium)%>"></script>
-			<% end %>
+		<div class="span4">
+			<div>
+				<strong>Vendor:</strong> <%=@earring.vendor%></br>
+				<strong>Collection:</strong> <%=@earring.collection%></br>
+				<strong>Design:</strong> <%=@earring.design%></br>
+				<strong>Material:</strong> <%=@earring.material%></br>
+				<strong>Size:</strong> <%=@earring.size%>mm</br>
+				<strong>Price:</strong> $<%=@earring.price%>.00</br>
+				<strong>SKU:</strong> <%=@earring.sku%></br>
+				<strong>Inventory:</strong> <%=@earring.inventory%></br>
+				<strong>Description:</strong>  <%=@earring.description%></br>
+			</div>
+		</div>
+		<div class="span4">
+			<%=link_to "Buy the match now for $#{@earring.price*0.6}0", "/earrings/#{@earring.id}/buy/users/#{@user.id}", class:"btn btn-large btn-primary btn-action"%>
+			<%=link_to "Sell your single earring for $#{@earring.price*0.4}0", "/earrings/#{@earring.id}/sell/users/#{@user.id}", class:"btn btn-large btn-primary btn-action"%>
 		</div>
 	</div>
 	<!-- <div class="row-fluid">

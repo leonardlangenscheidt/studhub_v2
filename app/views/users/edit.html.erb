@@ -1,1 +1,12 @@
-edit
+
+
+<%if @action=="buy"%>
+	<%= form_tag earring_charges_path(@earring) do %>
+		<script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+		data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+		data-name="Studhub"
+		data-description="<%=@earring.design%> ($<%=@earring.price%>.00)"
+		data-amount="<%=@earring.price%>00"
+		data-image="<%=@earring.image(:medium)%>"></script>
+	<% end %>
+<%end%>

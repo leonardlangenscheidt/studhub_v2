@@ -6,6 +6,11 @@ class EarringsController < ApplicationController
 	end
 
 	def show
+		if current_user
+			@user = current_user
+		else
+			@user = User.find(1)
+		end
 	end
 
 	def new
