@@ -41,7 +41,7 @@
 				<% @orders.reverse.each do |order| %>
 					<div class="box box-large">
 						<div class="description">
-							Purchased: <%=order.created_at%></br>
+							Purchased: <%=order.created_at.strftime("%d-%m-%Y")%></br>
 						</div>
 						<%= link_to (image_tag order.earring.image(:medium)),  earring_path(order.earring)%></br>
 						<div class="description">
