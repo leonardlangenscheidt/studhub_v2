@@ -14,7 +14,7 @@ Studhub::Application.routes.draw do
 		resource :charges
 	end
 
-	patch 'earring/:earring_id/user' => 'users#edit'
+	patch 'earrings/:earring_id/user' => 'users#edit'
 
 
 	#facebook routes
