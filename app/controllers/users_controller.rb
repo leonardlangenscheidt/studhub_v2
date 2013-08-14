@@ -9,7 +9,14 @@ class UsersController < ApplicationController
 		@user = User.find(params[:user_id])
 		@earring = Earring.find(params[:earring_id])
 		@action = params[:buyorsell]
-		if @user.update(user_params)
+		@user.update(
+			@user.street = params[:street],
+			@user.street2 = params[:street2],
+			@user.city = params[:city],
+			@user.state = params[:state],
+			@user.zip = params[:zip]
+			)
+		if @user.update
 			redirect_to "/earrings/#{@earring.id}/#{@action}/summary"
 		else
 			# flash[:notice] =
@@ -19,7 +26,9 @@ class UsersController < ApplicationController
 
 	private
 
-	def user_params
-		params.require(:user).permit(:street, :street2, :city, :state, :zip)
-	end
+
+
+	# def user_params
+	# 	params.require(:user).permit(:street, :street2, :city, :state, :zip)
+	# end
 end
