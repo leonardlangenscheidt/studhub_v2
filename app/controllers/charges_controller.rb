@@ -12,7 +12,7 @@ class ChargesController < ApplicationController
 		end
 
 	  	customer = Stripe::Customer.create(
-	    	:email => @user.email,
+	    	:email => 'user@example.com',
 	    	:card  => params[:stripeToken]
 	  	)
 
