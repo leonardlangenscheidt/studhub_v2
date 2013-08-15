@@ -6,8 +6,7 @@ class UsersController < ApplicationController
 	def index
 	end
 	def edit
-		@user = User.find(params[:user_id])
+		@user = current_user
 		@earring = Earring.find(params[:earring_id])
-		@action = params[:buyorsell]
 	end
 end
