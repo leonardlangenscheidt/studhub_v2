@@ -56,6 +56,11 @@ class EarringsController < ApplicationController
 		end
 	end
 
+	def confirm
+		@earring = Earring.find(params[:earring_id])
+		@address = Address.find(params[:address_id])
+	end
+
 	private
 
 	def set_earring

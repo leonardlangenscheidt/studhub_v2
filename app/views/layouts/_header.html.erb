@@ -11,8 +11,13 @@
 				<div class="nav-collapse">
 					<ul class="nav">
 						<li>
-							<%= link_to 'Home',  root_path %>
+							<%= link_to 'Earrings',  root_path %>
 						</li>
+						<%if current_user%>
+							<li>
+								<%= link_to 'Profile', current_user %>
+							</li>
+						<%end%>
 					</ul>
 					<ul class="nav pull-right">
 						<% if current_user %>

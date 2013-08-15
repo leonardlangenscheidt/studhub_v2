@@ -5,17 +5,21 @@ Studhub::Application.routes.draw do
 	get 'about' => 'pages#about'
 	get 'terms' => 'pages#terms'
 
+	resources :addresses
+
+
 	#profile
 	resources :users do
-		resource :orders
+		resources :orders
 	end
-	post 'users/:user_id/:earring_id/order' => 'orders#create', :via => [:post]
+
+	# post 'users/:user_id/:earring_id/order' => 'orders#create', :via => [:post]
 
 	#earring routes
 	resources :earrings do
 		resource :charges
 	end
-
+	get 'earrings/:earring_id/:address_id/confirm' => 'earrings#confirm'
 
 	#facebook routes
 	match 'auth/:provider/callback', to: 'sessions#create', :via => [:get, :post]

@@ -1,0 +1,35 @@
+<h1>Enter Shipping Address</h1></br>
+
+<%= simple_form_for(@address, html: { class: "form-horizontal"}) do |f| %>
+  <%= f.error_notification %>
+
+<%unless @lastaddress.street==nil%>
+
+  <div class="form-inputs">
+      <%= f.input :street, :input_html => { :value => @lastaddress.street} %>
+      <%= f.input :street2, :input_html => { :value => @lastaddress.street2} %>
+      <%= f.input :city, :input_html => { :value => @lastaddress.city} %>
+      <%= f.input :state, :input_html => { :value => @lastaddress.state} %>
+      <%= f.input :zip, :input_html => { :value => @lastaddress.zip} %>
+      <%= f.hidden_field :earring_id, :value => @earring.id %>
+  </div>
+
+<% else %>
+
+    <div class="form-inputs">
+      <%= f.input :street%>
+      <%= f.input :street2%>
+      <%= f.input :city%>
+      <%= f.input :state%>
+      <%= f.input :zip%>
+      <%= f.hidden_field :earring_id, :value => @earring.id %>
+  </div>
+
+<% end %>
+
+  <div class="form-actions" style="background-color:white">
+    <%= f.button :submit, "Show Order Summary" %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', addresses_path %>

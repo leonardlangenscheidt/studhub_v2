@@ -4,22 +4,15 @@
 
 <div class="container">
 	<div class="row">
-		<div class="span3">
+		<div class="span4">
 			<h2>Account</h2>
-		</div>
-		<div class="span9">
-			<h2>Prior Orders:</h2>
-		</div>
-	</div>
-	<div class="row">
-		<div class="span3">
 			<table class="table">
 				<thead>
 					<tr><th colspan="2">Basic Information</th></tr>
 				</thead>
 				<tbody>
-					<tr><td>Name:</td><td><%=@user.name%></td>
-					<tr><td>Email:</td><td><%=@user.email%></td>
+					<tr><td>Name:</td><td><%=@user.name%></td></tr>
+					<tr><td>Email:</td><td><%=@user.email%></td></tr>
 				</tbody>
 			</table>
 			<table class="table">
@@ -27,19 +20,24 @@
 					<tr><th colspan="2">Shipping Address</th></tr>
 				</thead>
 				<tbody>
-
+					<tr><td>Street:</td><td><%=@addresses.last.street%></td></tr>
+					<tr><td></td><td><%=@addresses.last.street2%></td></tr>
+					<tr><td>City:</td><td><%=@addresses.last.city%></td></tr>
+					<tr><td>State:</td><td><%=@addresses.last.state%></td></tr>
+					<tr><td>ZIP Code:</td><td><%=@addresses.last.zip%></td></tr>
 				</tbody>
 			</table>
 
 		</div>
-		<div class="span9">
+		<div class="span8">
+			<h2>Prior Orders:</h2>
 			<div id="earrings">
 				<% @orders.reverse.each do |order| %>
 					<div class="box box-large">
 						<div class="description">
-							Purchased: <%=order.created_at.strftime("%d-%m-%Y")%></br>
+							Purchased: <%=order.created_at.strftime("%d-%m-%Y at %H:%M")%></br>
 						</div>
-						<%= link_to (image_tag order.earring.image(:medium)),  earring_path(order.earring)%></br>
+						<%= link_to (image_tag order.earring.image(:medium)),  "/users/#{@user.id}/orders/#{order.id}"%></br>
 						<div class="description">
 							Type: <%=order.earring.vendor%> <%=order.earring.collection%> <%=order.earring.material%> <%=order.earring.design%></br>
 							Status: <%=order.status%></br>

@@ -1,0 +1,35 @@
+<h1 style="text-align:center">Your Order</h1>
+</br>
+<div class="container">
+	<div class="row">
+		<div class="box box-large">
+			<%= image_tag @order.earring.image(:medium)%>
+		</div>
+		<div class="span4">
+			<h3>Details:</h3>
+			<strong>Purchased:</strong> <%=@order.created_at.strftime("%d-%m-%Y at %H:%M")%></br>
+			<strong>Vendor:</strong> <%=@order.earring.vendor%></br>
+			<strong>Collection:</strong> <%=@order.earring.collection%></br>
+			<strong>Design:</strong> <%=@order.earring.design%></br>
+			<strong>Material:</strong> <%=@order.earring.material%></br>
+			<strong>Size:</strong> <%=@order.earring.size%>mm</br>
+			<strong>Price:</strong> $<%=@order.earring.price%>.00</br>
+			<strong>Description:</strong>  <%=@order.earring.description%></br></br>
+		</div>
+		<div class="span4">
+			<h3>Shipping Information:</h3>
+			<table>
+				<tr><td>Street:</td><td><%=@order.address.street%></td></tr>
+				<tr><td></td><td><%=@order.address.street2%></td></tr>
+				<tr><td>City:</td><td><%=@order.address.city%></td></tr>
+				<tr><td>State:</td><td><%=@order.address.state%></td></tr>
+				<tr><td>ZIP Code:</td><td><%=@order.address.zip%></td></tr>
+				<tr><td>Status:</td><td> <%=@order.status%></td></td>
+			</table>
+		</div>
+	</div>
+	<div class="row" style="text-align:center">
+		<%=link_to "Back to Profile", current_user %>
+	</div>
+</div>
+
