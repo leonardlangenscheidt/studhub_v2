@@ -1,13 +1,4 @@
-<h1>Please Enter your Shipping Information</h1>
-<%= simple_form_for(:user, html: { class: "form-horizontal"}) do |f| %>
-	<%= f.error_notification %>
-	<%= f.input :street %>
-	<%= f.input :street2 %>
-	<%= f.input :city %>
-	<%= f.input :state %>
-	<%= f.input :zip %>
-	<%= f.submit "Show Order Summary", class:"btn btn-primary" %>
-	<%end%>
+
 
 <%if @action=="buy"%>
 	<%= form_tag earring_charges_path(@earring) do %>

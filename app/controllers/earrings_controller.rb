@@ -61,9 +61,6 @@ class EarringsController < ApplicationController
 		end
 	end
 
-	def summary
-	end
-
 	private
 
 	def set_earring

@@ -7,7 +7,7 @@ Studhub::Application.routes.draw do
 
 	#profile
 	resources :users
-	# post 'users/:user_id/:earring_id/order' => 'orders#create', :via => [:post]
+	post 'users/:user_id/:earring_id/order' => 'orders#create', :via => [:post]
 
 	#earring routes
 	resources :earrings do
@@ -15,7 +15,6 @@ Studhub::Application.routes.draw do
 	end
 
 	match 'earrings/:earring_id/:buyorsell/users/:user_id' => 'users#edit', :via =>[:get, :patch]
-	get 'earrings/:earring_id/:buyorsell/summary' => 'earrings#summary'
 
 
 	#facebook routes
