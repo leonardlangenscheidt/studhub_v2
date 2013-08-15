@@ -6,10 +6,8 @@ Studhub::Application.routes.draw do
 	get 'terms' => 'pages#terms'
 
 	#profile
-	resources :users do
-		resource :orders
-	end
-	post 'users/:user_id/:earring_id/order' => 'orders#create', :via => [:post]
+	resources :users
+	# post 'users/:user_id/:earring_id/order' => 'orders#create', :via => [:post]
 
 	#earring routes
 	resources :earrings do
