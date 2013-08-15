@@ -1,9 +1,12 @@
 <div class="center hero-unit">
 	<h1>Welcome!</h1>
 	<p>to <%= link_to 'Studhub.com', '#' %></p>
+	<p style="text-align:right">
+		</br>
+		Studhub is an online community for people who want to buy or sell their single earrings. We match your lonesome earrings to their soul mates – A Romeo for your Juliet, a Lancelot to your Guinever – and give you the opportunity to sell your single earrings back to the community so they can find a new home. Read more on the about page.
+	</p>
+</br>
 	<%unless current_user%>
-		<p><%= link_to 'Sign up with Facebook!', '/auth/facebook', class:"btn btn-large btn-primary" %></p>
+		<p style="text-align:center"><%= link_to 'Sign up with Facebook!', '/auth/facebook', class:"btn btn-large" %></p>
 	<%end%>
-	<p>Check out the <%= link_to 'Earrings Page', earrings_path %></p>
-
 </div>
