@@ -6,9 +6,11 @@
 
 <div id="earrings">
 	<% @earrings.each do |earring| %>
-		<div class="box">
-			<%= link_to (image_tag earring.image(:medium)),  earring_path(earring)%>
-		</div>
+		<%unless earring.inventory==0%>
+			<div class="box">
+				<%= link_to (image_tag earring.image(:medium)),  earring_path(earring)%>
+			</div>
+		<%end%>
 	<% end %>
 </div>
 
