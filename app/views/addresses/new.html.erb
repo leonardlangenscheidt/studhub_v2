@@ -3,7 +3,7 @@
 <%= simple_form_for(@address, html: { class: "form-horizontal"}) do |f| %>
   <%= f.error_notification %>
 
-<%unless @lastaddress.street==nil%>
+<%unless current_user.addresses.count==0%>
 
   <div class="form-inputs">
       <%= f.input :street, :input_html => { :value => @lastaddress.street} %>

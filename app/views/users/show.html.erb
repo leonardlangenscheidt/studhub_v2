@@ -21,11 +21,11 @@
 						<tr><th colspan="2">Shipping Address</th></tr>
 					</thead>
 					<tbody>
-						<tr><td>Street:</td><td><%=@addresses.last.street%></td></tr>
-						<tr><td></td><td><%=@addresses.last.street2%></td></tr>
-						<tr><td>City:</td><td><%=@addresses.last.city%></td></tr>
-						<tr><td>State:</td><td><%=@addresses.last.state%></td></tr>
-						<tr><td>ZIP Code:</td><td><%=@addresses.last.zip%></td></tr>
+						<tr><td>Street:</td><td><%=@user.addresses.last.street%></td></tr>
+						<tr><td></td><td><%=@user.addresses.last.street2%></td></tr>
+						<tr><td>City:</td><td><%=@user.addresses.last.city%></td></tr>
+						<tr><td>State:</td><td><%=@user.addresses.last.state%></td></tr>
+						<tr><td>ZIP Code:</td><td><%=@user.addresses.last.zip%></td></tr>
 					</tbody>
 				</table>
 			<%else%>
