@@ -20,3 +20,6 @@
 
 #ignore samples
 /sampleimages
+
+#ignore image uploads
+/public/system/earrings
