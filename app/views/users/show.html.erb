@@ -15,7 +15,7 @@
 					<tr><td>Email:</td><td><%=@user.email%></td></tr>
 				</tbody>
 			</table>
-			<% if @addresses %>
+			<% unless @addresses == nil %>
 				<table class="table">
 					<thead>
 						<tr><th colspan="2">Shipping Address</th></tr>
