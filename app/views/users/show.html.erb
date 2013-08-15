@@ -15,7 +15,7 @@
 					<tr><td>Email:</td><td><%=@user.email%></td></tr>
 				</tbody>
 			</table>
-			<% unless @addresses == nil %>
+			<% unless @user.addresses.count == 0 %>
 				<table class="table">
 					<thead>
 						<tr><th colspan="2">Shipping Address</th></tr>
@@ -26,6 +26,19 @@
 						<tr><td>City:</td><td><%=@addresses.last.city%></td></tr>
 						<tr><td>State:</td><td><%=@addresses.last.state%></td></tr>
 						<tr><td>ZIP Code:</td><td><%=@addresses.last.zip%></td></tr>
+					</tbody>
+				</table>
+			<%else%>
+				<table class="table">
+					<thead>
+						<tr><th colspan="2">Shipping Address</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>Street:</td><td></td></tr>
+						<tr><td></td><td></td></tr>
+						<tr><td>City:</td><td></td></tr>
+						<tr><td>State:</td><td></td></tr>
+						<tr><td>ZIP Code:</td><td></td></tr>
 					</tbody>
 				</table>
 			<%end%>
