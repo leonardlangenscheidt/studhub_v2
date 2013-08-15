@@ -27,11 +27,15 @@ class UsersController < ApplicationController
 	end
 
 	def update
-	      	if @user.update(user_params)
-			redirect_to @user, notice: 'User was successfully updated.'
-	      	else
-		        	render action: 'edit'
-	      	end
+	    	respond_to do |format|
+		      	if @user.update(user_params)
+			        	format.html { redirect_to @user, notice: 'User was successfully updated.' }
+			        	format.json { head :no_content }
+		      	else
+			        	format.html { render action: 'edit' }
+			        	format.json { render json: @user.errors, status: :unprocessable_entity }
+		      	end
+	    	end
   	end
 
 	private
