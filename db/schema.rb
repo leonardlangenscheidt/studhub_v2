@@ -48,16 +48,7 @@ ActiveRecord::Schema.define(version: 20130813154743) do
     t.datetime "oauth_expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
     t.string   "email"
-    t.string   "street"
-    t.string   "street2"
-    t.string   "city"
-    t.string   "state"
-    t.integer  "zip"
   end
 
 end
