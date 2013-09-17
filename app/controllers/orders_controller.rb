@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
 	def destroy
 		@user = User.find(params[:user_id])
 		@orders = @user.orders
-		@order = @orders.find(params[:order_id])
+		@order = @orders.find(params[:id])
 		@order.destroy
 		redirect_to user_path(@user)
 	end

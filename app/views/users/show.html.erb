@@ -56,7 +56,8 @@
 						<div class="description">
 							Type: <%=order.earring.vendor%> <%=order.earring.collection%> <%=order.earring.material%> <%=order.earring.design%></br>
 							Status: <%=order.status%></br>
-							<%= link_to 'Destroy', user_orders_path(:user_id=>@user.id, :order_id=>order.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+							<!-- <%= link_to 'Destroy', user_orders_path(:user_id=>@user.id, :order_id=>order.id), method: :delete, data: { confirm: 'Are you sure?' } %> -->
+							<%= link_to 'Destroy', "/users/#{@user.id}/orders/#{order.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
 						</div>
 					</div>
 				<% end %>

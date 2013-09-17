@@ -1,37 +1,48 @@
-<h1>Enter Shipping Address</h1></br>
+<h1 style="text-align:center">Enter Shipping Address</h1>
+<div class="container">
+	<div class="row">
+		<div>
+			<div class="box box-large" style="margin:0 10px 10px">
+				<%= image_tag @earring.image(:medium)%>
+				<div class="description">
+					<strong>Vendor:</strong> <%=@earring.vendor%></br>
+					<strong>Collection:</strong> <%=@earring.collection%></br>
+					<strong>Design:</strong> <%=@earring.design%></br>
+					<strong>Material:</strong> <%=@earring.material%></br>
+				</div>
+			</div>
+		</div>
 
-<%= simple_form_for(@address, html: { class: "form-horizontal"}) do |f| %>
-  <%= f.error_notification %>
+		<div class="span6">
+			<%= simple_form_for(@address, html: { class: "form-horizontal"}) do |f| %>
+			<%= f.error_notification %>
 
-<%unless current_user.addresses.count==0%>
-
-  <div class="form-inputs">
-      <%= f.input :street, :input_html => { :value => @lastaddress.street} %>
-      <%= f.input :street2, :input_html => { :value => @lastaddress.street2} %>
-      <%= f.input :city, :input_html => { :value => @lastaddress.city} %>
-      <%= f.input :state, :input_html => { :value => @lastaddress.state} %>
-      <%= f.input :zip, :input_html => { :value => @lastaddress.zip} %>
-      <%= f.hidden_field :earring_id, :value => @earring.id %>
-  </div>
-
-<% else %>
-
-    <div class="form-inputs">
-      <%= f.input :street%>
-      <%= f.input :street2%>
-      <%= f.input :city%>
-      <%= f.input :state%>
-      <%= f.input :zip%>
-      <%= f.hidden_field :earring_id, :value => @earring.id %>
-  </div>
-
-<% end %>
-
-  <div class="form-actions" style="background-color:white">
-    <%= f.button :submit, "Show Order Summary" %>
-  </div>
-<% end %>
-
-<div style="text-aling:center">
-  <%= link_to 'Back to Earring', earring_path(@earring) %>
+			<%unless current_user.addresses.count==0%>
+				<div class="form-inputs">
+						<%= f.input :street, :input_html => { :value => @lastaddress.street} %>
+						<%= f.input :street2, :input_html => { :value => @lastaddress.street2} %>
+						<%= f.input :city, :input_html => { :value => @lastaddress.city} %>
+						<%= f.input :state, :input_html => { :value => @lastaddress.state} %>
+						<%= f.input :zip, :input_html => { :value => @lastaddress.zip} %>
+						<%= f.hidden_field :earring_id, :value => @earring.id %>
+				</div>
+			<% else %>
+					<div class="form-inputs">
+						<%= f.input :street%>
+						<%= f.input :street2%>
+						<%= f.input :city%>
+						<%= f.input :state%>
+						<%= f.input :zip%>
+						<%= f.hidden_field :earring_id, :value => @earring.id %>
+				</div>
+			<% end %>
+				<div class="form-actions" style="background-color:white;">
+					<%= f.button :submit, "Show Order Summary" %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+	<div style="text-align: center">
+		<%= link_to 'Back to Earring', earring_path(@earring) %>
+	</div>
 </div>
