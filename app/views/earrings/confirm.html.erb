@@ -35,10 +35,10 @@
 					data-amount="<%=@earring.price%>00"
 					data-image="<%=@earring.image(:medium)%>"></script>
 				<% end %>
-				<script src="https://www.dwolla.com/scripts/button.min.js" class="dwolla_button" type="text/javascript"
+				<script src="https://www.dwolla.com/scripts/button.min.js" class="stripe-button" type="text/javascript"
 					data-key="2LmL+pFFDCzm9HBmZr5MRFIq4SaMuNiUNg6BpwsnublGgyO6NZ"
 					data-redirect="http://agile-peak-7882.herokuapp.com/earrings"
-					data-label="Buy Now"
+					data-label="Sell Now via Dwolla"
 					data-name="Earring Name"
 					data-description="Earring Description"
 					data-amount="10"
@@ -46,6 +46,7 @@
 					data-tax="1"
 					data-guest-checkout="true"
 					data-type="simple"></script>
+				<p>Don't use sell function yet as testing variables aren't set up correctly.</p>
 			</div>
 		</div>
 
