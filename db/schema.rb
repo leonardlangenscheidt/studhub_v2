@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130815170149) do
+ActiveRecord::Schema.define(version: 20131002160406) do
 
   create_table "addresses", force: true do |t|
     t.string   "street"
@@ -24,6 +24,18 @@ ActiveRecord::Schema.define(version: 20130815170149) do
     t.integer  "user_id"
     t.integer  "earring_id"
   end
+
+  create_table "counties", force: true do |t|
+    t.integer  "state_id"
+    t.string   "abbr"
+    t.string   "name"
+    t.string   "county_seat"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "counties", ["name"], name: "index_counties_on_name"
+  add_index "counties", ["state_id"], name: "index_counties_on_state_id"
 
   create_table "earrings", force: true do |t|
     t.string   "vendor"
@@ -53,6 +65,15 @@ ActiveRecord::Schema.define(version: 20130815170149) do
     t.integer  "address_id"
   end
 
+  create_table "states", force: true do |t|
+    t.string   "abbr",       limit: 2
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "states", ["abbr"], name: "index_states_on_abbr"
+
   create_table "users", force: true do |t|
     t.string   "provider"
     t.string   "uid"
@@ -63,5 +84,22 @@ ActiveRecord::Schema.define(version: 20130815170149) do
     t.datetime "updated_at"
     t.string   "email"
   end
+
+  create_table "zipcodes", force: true do |t|
+    t.string   "code"
+    t.string   "city"
+    t.integer  "state_id"
+    t.integer  "county_id"
+    t.string   "area_code"
+    t.decimal  "lat",        precision: 15, scale: 10
+    t.decimal  "lon",        precision: 15, scale: 10
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "zipcodes", ["code"], name: "index_zipcodes_on_code"
+  add_index "zipcodes", ["county_id"], name: "index_zipcodes_on_county_id"
+  add_index "zipcodes", ["lat", "lon"], name: "index_zipcodes_on_lat_and_lon"
+  add_index "zipcodes", ["state_id"], name: "index_zipcodes_on_state_id"
 
 end
