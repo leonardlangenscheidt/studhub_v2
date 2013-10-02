@@ -27,7 +27,8 @@
 		</div>
 		<div class="span4" style="text-align:center">
 			<%if current_user%>
-				<%= link_to "Buy for $#{@earring.price}.00", new_address_path(:earring_id => @earring.id), class:'btn btn-large'%>
+				<%= link_to "Buy for $#{@earring.price}.00", new_address_path(:earring_id => @earring.id, :buyorsell => "buy"), class:'btn btn-large'%>
+				<%= link_to "Sell for $#{@earring.price-10}.00", new_address_path(:earring_id => @earring.id, :buyorsell => "sell"), class:'btn btn-large'%>
 			<%else%>
 				To continue please</br>
 				<%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in", class:'btn btn-large' %>

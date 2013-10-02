@@ -3,6 +3,7 @@ class AddressesController < ApplicationController
   # GET /addresses/new
   def new
     @earring = Earring.find(params[:earring_id])
+    @buyorsell = params[:buyorsell]
     @lastaddress = current_user.addresses.last
     @address = current_user.addresses.new
   end
