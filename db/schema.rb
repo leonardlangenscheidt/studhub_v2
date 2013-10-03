@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131002160406) do
+ActiveRecord::Schema.define(version: 20131003150309) do
 
   create_table "addresses", force: true do |t|
     t.string   "street"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20131002160406) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "earring_id"
+    t.boolean  "buy"
   end
 
   create_table "counties", force: true do |t|

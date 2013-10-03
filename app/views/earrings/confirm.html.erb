@@ -1,4 +1,5 @@
 <h1 style="text-align:center">Order Confirmation</h1>
+<%= @buy %>
 <div class="container">
 	<div class="row">
 		<div>
@@ -27,26 +28,31 @@
 				</tbody>
 			</table>
 			<div style="text-align:center">
-				<%= form_tag earring_charges_path(:earring_id =>@earring.id, :address_id =>@address.id) do %>
-					<script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
-					data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-					data-name="Studhub"
-					data-description="<%=@earring.design%> ($<%=@earring.price%>.00)"
-					data-amount="<%=@earring.price%>00"
-					data-image="<%=@earring.image(:medium)%>"></script>
+				<% if @buy == "true" %>
+					<%= form_tag earring_charges_path(:earring_id =>@earring.id, :address_id =>@address.id) do %>
+						<script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+						data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+						data-name="Studhub"
+						data-description="<%=@earring.design%> ($<%=@earring.price%>.00)"
+						data-amount="<%=@earring.price%>00"
+						data-image="<%=@earring.image(:medium)%>"></script>
+					<% end %>
+				<% else %>
+					<script
+  src="https://www.dwolla.com/scripts/button.min.js" class="dwolla_button" type="text/javascript"
+  data-key="2LmL+pFFDCzm9HBmZr5MRFIq4SaMuNiUNg6BpwsnublGgyO6NZ"
+  data-redirect="http://agile-peak-7882.herokuapp.com/earrings"
+  data-label="Buy now"
+  data-name="Earring"
+  data-description="Earring Description"
+  data-amount="10"
+  data-shipping="1"
+  data-tax="1"
+  data-guest-checkout="true"
+  data-type="simple"
+>
+</script>
 				<% end %>
-				<script src="https://www.dwolla.com/scripts/button.min.js" class="stripe-button" type="text/javascript"
-					data-key="2LmL+pFFDCzm9HBmZr5MRFIq4SaMuNiUNg6BpwsnublGgyO6NZ"
-					data-redirect="http://agile-peak-7882.herokuapp.com/earrings"
-					data-label="Sell Now via Dwolla"
-					data-name="Earring Name"
-					data-description="Earring Description"
-					data-amount="10"
-					data-shipping="1"
-					data-tax="1"
-					data-guest-checkout="true"
-					data-type="simple"></script>
-				<p>Don't use sell function yet as testing variables aren't set up correctly.</p>
 			</div>
 		</div>
 

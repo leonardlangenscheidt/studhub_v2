@@ -59,7 +59,7 @@ class EarringsController < ApplicationController
 	def confirm
 		@earring = Earring.find(params[:earring_id])
 		@address = current_user.addresses.last
-		@buyorsell = params[:buyorsell]
+		@buy = params[:buy]
 	end
 
 	private

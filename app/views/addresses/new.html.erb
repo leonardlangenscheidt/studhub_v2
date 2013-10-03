@@ -25,7 +25,7 @@
 						<%= f.input :state, :input_html => { :value => @lastaddress.state} %>
 						<%= f.input :zip, :input_html => { :value => @lastaddress.zip} %>
 						<%= f.hidden_field :earring_id, :value => @earring.id %>
-						<%= hidden_field_tag :buyorsell, :value => "#{@buyorsell}" %>
+						<%= f.hidden_field :buy, :value => @buy %>
 				</div>
 			<% else %>
 					<div class="form-inputs">
@@ -35,7 +35,7 @@
 						<%= f.input :state%>
 						<%= f.input :zip%>
 						<%= f.hidden_field :earring_id, :value => @earring.id %>
-						<%= hidden_field_tag :buyorsell, :value => "#{@buyorsell}" %>
+						<%= f.hidden_field :buy, :value => @buy %>
 				</div>
 			<% end %>
 				<div class="form-actions" style="background-color:white;">
