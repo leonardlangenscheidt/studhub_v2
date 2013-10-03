@@ -26,8 +26,12 @@ gem 'jbuilder', '~> 1.2'
 gem 'omniauth-facebook'
 gem 'paperclip', '~> 3.0'
 gem 'simple_form', '3.0.0.rc'
-gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'aws-sdk'
+
+#payment systems
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'dwolla'
+gem 'dwolla-ruby'
 
 
 group :doc do
