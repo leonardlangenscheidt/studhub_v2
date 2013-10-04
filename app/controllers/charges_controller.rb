@@ -34,7 +34,7 @@ class ChargesController < ApplicationController
 			)
 			@earring.inventory = @earring.inventory - 1
 			@earring.save
-	  		flash[:notice] = "Thank you! You just purchased the #{@earring.material} #{@earring.design} earring from the #{@earring.vendor} #{@earring.collection} collection for $#{@amount}.00!"
+	  		flash[:notice] = "Thank you! You just purchased the #{@earring.material} #{@earring.design} earring from the #{@earring.vendor} #{@earring.collection} collection for $#{@amount}.00! <a href='www.facebook.com'>Share!</a>"
 	  		redirect_to user_path(@user)
 	  	else
 	  		flash[:notice] = Stripe::CardError.message

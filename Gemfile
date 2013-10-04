@@ -30,8 +30,7 @@ gem 'aws-sdk'
 
 #payment systems
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
-gem 'dwolla'
-gem 'dwolla-ruby'
+gem "dwolla-ruby", "~> 2.4.7"
 
 
 group :doc do

@@ -59,9 +59,6 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     debug_inspector (0.0.2)
-    dwolla (0.0.14)
-      faraday (>= 0.7.6)
-      multi_json (~> 1.0)
     dwolla-ruby (2.4.7)
       addressable (>= 2)
       multi_json (>= 1.0.4, < 2)
@@ -194,8 +191,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   coffee-rails (~> 4.0.0)
-  dwolla
-  dwolla-ruby
+  dwolla-ruby (~> 2.4.7)
   jbuilder (~> 1.2)
   jquery-rails
   omniauth-facebook
