@@ -1,8 +1,14 @@
 class SessionsController < ApplicationController
   	def create
-    		user = User.from_omniauth(env["omniauth.auth"])
-    		session[:user_id] = user.id
-    		redirect_to root_url
+    		if params[:provider] == 'facebook'
+ 	   		user = User.from_omniauth(env["omniauth.auth"])
+    			session[:user_id] = user.id
+    			redirect_to root_url
+    		else
+    			user = User.from_omniauth(params[:code])
+    			session[:user_id] = user.id
+    			redirect_to root_url
+    		end
   	end
 
   	def destroy
