@@ -59,6 +59,9 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     debug_inspector (0.0.2)
+    dwolla (0.0.14)
+      faraday (>= 0.7.6)
+      multi_json (~> 1.0)
     dwolla-ruby (2.4.7)
       addressable (>= 2)
       multi_json (>= 1.0.4, < 2)
@@ -99,6 +102,10 @@ GEM
     omniauth (1.1.4)
       hashie (>= 1.2, < 3)
       rack
+    omniauth-dwolla (0.0.14)
+      dwolla (>= 0.0.14)
+      omniauth (~> 1.1.4)
+      omniauth-oauth2 (~> 1.1.1)
     omniauth-facebook (1.4.1)
       omniauth-oauth2 (~> 1.1.0)
     omniauth-oauth2 (1.1.1)
@@ -194,6 +201,7 @@ DEPENDENCIES
   dwolla-ruby (~> 2.4.7)
   jbuilder (~> 1.2)
   jquery-rails
+  omniauth-dwolla
   omniauth-facebook
   paperclip (~> 3.0)
   pg
