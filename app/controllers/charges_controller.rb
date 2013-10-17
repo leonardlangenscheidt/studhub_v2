@@ -39,7 +39,7 @@ class ChargesController < ApplicationController
 			  'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fagile-peak-7882.herokuapp.com',
 			  'facebook-share-dialog',
 			  'width=626,height=436');
-			return false;">Share on Facebook</a>]
+			return false;">Share on Facebook</a>].html_safe
 	  		redirect_to profile_path(order)
 	  	else
 	  		flash[:notice] = Stripe::CardError.message
