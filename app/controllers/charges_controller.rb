@@ -40,7 +40,7 @@ class ChargesController < ApplicationController
 			  'facebook-share-dialog',
 			  'width=626,height=436');
 			return false;">Share on Facebook</a>]
-	  		redirect_to user_order_path(@user, order)
+	  		redirect_to profile_path(order)
 	  	else
 	  		flash[:notice] = Stripe::CardError.message
 	  		redirect_to earring_path(@earring)
