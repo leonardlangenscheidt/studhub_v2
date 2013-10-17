@@ -34,7 +34,7 @@ class ChargesController < ApplicationController
 			)
 			@earring.inventory = @earring.inventory - 1
 			@earring.save
-	  		flash[:notice] = %Q[Thank you! You just purchased the <%=@earring.material%> <%=@earring.design%> earring from the <%=@earring.vendor%> <%=@earring.collection%> collection for $<%=@amount%>.00! <a href="#" onclick="
+	  		flash[:notice] = %Q[Thank you! You just purchased the #{@earring.material} #{@earring.design} earring from the #{@earring.vendor} #{@earring.collection} collection for $#{@amount}.00! <a href="#" onclick="
 			window.open(
 			  'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fagile-peak-7882.herokuapp.com',
 			  'facebook-share-dialog',
