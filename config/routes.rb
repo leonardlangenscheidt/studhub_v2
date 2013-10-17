@@ -7,11 +7,14 @@ Studhub::Application.routes.draw do
 
 	resources :addresses
 
+	#profile
+	get 'profile' => 'users#show'
+
 
 	#profile
-	resources :users do
-		resources :orders
-	end
+	# resources :users do
+	# 	resources :orders
+	# end
 
 	# post 'users/:user_id/:earring_id/order' => 'orders#create', :via => [:post]
 

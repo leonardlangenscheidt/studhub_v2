@@ -198,7 +198,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   coffee-rails (~> 4.0.0)
-  dwolla-ruby (~> 2.4.7)
+  dwolla-ruby
   jbuilder (~> 1.2)
   jquery-rails
   omniauth-dwolla
