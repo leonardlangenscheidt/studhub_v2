@@ -1,14 +1,14 @@
 class OrdersController < ApplicationController
 
 	def show
-		@order = Order.find(params[:id])
+		@order = Order.find(params[:order_id])
 		@user = current_user
 	end
 
 	def destroy
-		@user = User.find(params[:user_id])
+		@user = current_user
 		@orders = @user.orders
-		@order = @orders.find(params[:id])
+		@order = @orders.find(params[:order_id])
 		@order.destroy
 		redirect_to user_path(@user)
 	end

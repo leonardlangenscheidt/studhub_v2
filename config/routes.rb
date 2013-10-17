@@ -9,7 +9,8 @@ Studhub::Application.routes.draw do
 
 	#profile
 	get 'profile' => 'users#show'
-
+	get 'profile/orders/:order_id' => 'orders#show'
+	# match 'profile/orders/:order_id', to: 'sessions#destroy', as: 'signout', :via => [:get, :post]
 
 	#profile
 	# resources :users do
