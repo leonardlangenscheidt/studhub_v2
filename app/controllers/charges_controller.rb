@@ -36,11 +36,11 @@ class ChargesController < ApplicationController
 			@earring.save
 	  		flash[:notice] = %Q[Thank you! You just purchased the #{@earring.material} #{@earring.design} earring from the #{@earring.vendor} #{@earring.collection} collection for $#{@amount}.00! <a href="#" onclick="
 			window.open(
-			  'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fagile-peak-7882.herokuapp.com',
+			  'http://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://agile-peak-7882.herokuapp.com/&p[images][0]=&p[title]=Stud%20&%20Found&p[summary]=I%20just%20bought%20a%20match%20for%20the%20single%20earring%20I%20had%20left%20over.%20Woohoo!',
 			  'facebook-share-dialog',
 			  'width=626,height=436');
 			return false;">Share on Facebook</a>].html_safe
-	  		redirect_to profile_path(order)
+	  		redirect_to "/profile/order/#{order.id}"
 	  	else
 	  		flash[:notice] = Stripe::CardError.message
 	  		redirect_to earring_path(@earring)

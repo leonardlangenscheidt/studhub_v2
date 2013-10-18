@@ -12,11 +12,11 @@
 	</head>
 	<body>
 		<%= render 'layouts/header' %>
-		<% if notice %>
-			<p class="alert alert-success" id="notice"><%= notice %></p>
-		<%end%>
 		<div class="container">
 			<div class="row">
+				<% if notice %>
+					<p class="alert alert-success" id="notice"><%= notice %></p>
+				<%end%>
 				<div class="span12">
 					<%= yield %>
 				</div>
