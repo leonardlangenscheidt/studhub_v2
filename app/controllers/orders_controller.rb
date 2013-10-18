@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
 		@orders = @user.orders
 		@order = @orders.find(params[:order_id])
 		@order.destroy
-		redirect_to user_path(@user)
+		redirect_to user_path
 	end
 
 	private

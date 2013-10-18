@@ -8,16 +8,14 @@ Studhub::Application.routes.draw do
 	resources :addresses
 
 	#profile
+	resource :user do
+		resources :orders
+	end
+
+	#profile
 	get 'profile' => 'users#show'
 	get 'profile/orders/:order_id' => 'orders#show'
 	match 'profile/orders/:order_id', to: 'orders#destroy', :via => [:get, :post]
-
-	#profile
-	# resources :users do
-	# 	resources :orders
-	# end
-
-	# post 'users/:user_id/:earring_id/order' => 'orders#create', :via => [:post]
 
 	#earring routes
 	resources :earrings do
