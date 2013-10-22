@@ -10,3 +10,6 @@ class SessionsController < ApplicationController
     		redirect_to root_url
   	end
 end
+
+ # uid = request.env['omniauth.auth'].uid
+ #    user = User.where(uid: uid).first_or_create

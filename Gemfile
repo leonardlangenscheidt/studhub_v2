@@ -24,7 +24,6 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'omniauth-facebook'
-gem 'omniauth-dwolla'
 gem 'paperclip', '~> 3.0'
 gem 'simple_form', '3.0.0.rc'
 gem 'aws-sdk'
@@ -32,6 +31,8 @@ gem 'aws-sdk'
 #payment systems
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'dwolla-ruby'
+gem 'omniauth-dwolla'
+gem "omniauth-paypal"
 
 
 
