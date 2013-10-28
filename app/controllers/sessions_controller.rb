@@ -48,7 +48,8 @@ class SessionsController < ApplicationController
 
 	def destroy
 		self.current_user = nil
-		redirect_to root_url, notice: "Signed out!"
+		flash[:notice] = "Signed out!"
+		redirect_to root_url
 	end
 
 	# def destroy
