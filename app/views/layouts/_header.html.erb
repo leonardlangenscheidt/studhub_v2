@@ -20,13 +20,13 @@
 						<%end%>
 					</ul>
 					<ul class="nav pull-right">
-						<% if current_user %>
+
 							<li><%= link_to current_user.name, '/user'%></li>
 							<li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
-						<% else %>
+
 							<li><%= link_to "Sign in with Facebook", '/auth/facebook' %></li>
 							<li><%= link_to "Sign in with Paypal", '/auth/paypal' %></li>
-						<% end %>
+
 					</ul>
 				</div>
 		</div>
