@@ -37,6 +37,7 @@ class SessionsController < ApplicationController
 			else
 				# No user associated with the identity so we need to create a new one
 				@user = User.create_with_omniauth(auth)
+				@identity.user = @user
 				flash[:notice] = "Signed up!"
 				redirect_to root_url
 			end
