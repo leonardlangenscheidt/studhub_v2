@@ -3,10 +3,10 @@ class SessionsController < ApplicationController
 
 	def create
 		 auth = request.env['omniauth.auth']
-			# Find an identity here
-			@identity = Identity.find_with_omniauth(auth)
+		# Find an identity here
+		@identity = Identity.find_with_omniauth(auth)
 
-			if @identity.nil?
+		if @identity.nil?
 			# If no identity was found, create a brand new one here
 			@identity = Identity.create_with_omniauth(auth)
 		end
@@ -34,10 +34,10 @@ class SessionsController < ApplicationController
 			self.current_user = @identity.user
 			flash[:notice] = "Signed in!"
 			redirect_to root_url
-			else
-			# No user associated with the identity so we need to create a new one
-			flas[:notice] = "Please finish registering"
-			redirect_to new_user_url
+			# else
+			# # No user associated with the identity so we need to create a new one
+			# flash[:notice] = "Please finish registering"
+			# redirect_to new_user_url
 			end
 		  end
 
