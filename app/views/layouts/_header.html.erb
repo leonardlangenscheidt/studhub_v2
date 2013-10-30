@@ -22,12 +22,12 @@
 							<li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
 						<%end%>
 						<%if current_user.identities.first.provider == 'facebook' || current_user.identities.last.provider == 'facebook'%>
-							<li>'Signed in via Facebook'</li>
+							<li><%= link_to 'Signed in via Facebook', '/user' %></li>
 						<%else%>
 							<li><%= link_to "Sign in with Facebook", '/auth/facebook' %></li>
 						<%end%>
 						<%if current_user.identities.first.provider == 'paypal' || current_user.identities.last.provider == 'paypal'%>
-							<li>'Signed in via Paypal'</li>
+							<li><%= link_to 'Signed in via Paypal', '/user' %></li>
 						<%else%>
 							<li><%= link_to "Sign in with Paypal", '/auth/paypal' %></li>
 						<%end%>
