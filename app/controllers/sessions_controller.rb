@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 			@identity = Identity.create_with_omniauth(auth)
 		end
 
-		if signed_in?
+		if current_user
 			if @identity.user == current_user
 				# User is signed in so they are trying to link an identity with their
 				# account. But we found the identity and the user associated with it
@@ -38,6 +38,7 @@ class SessionsController < ApplicationController
 				# No user associated with the identity so we need to create a new one
 				@user = User.create_with_omniauth(auth)
 				@identity.user_id = @user.id
+				@identity.save()
 				flash[:notice] = "Signed up!"
 				redirect_to root_url
 			end
