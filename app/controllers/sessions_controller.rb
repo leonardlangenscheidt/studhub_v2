@@ -45,7 +45,7 @@ class SessionsController < ApplicationController
 		  end
 
 		# user = User.from_omniauth(auth)
-		session[:user_id] = user.id
+		session[:user_id] = @user.id
 		redirect_to root_url
 	end
 
