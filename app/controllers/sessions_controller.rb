@@ -39,13 +39,14 @@ class SessionsController < ApplicationController
 				@user = User.create_with_omniauth(auth)
 				@identity.user_id = @user.id
 				@identity.save()
+				self.current_user = @identity.user
 				flash[:notice] = "Signed up! Case 4"
 				# redirect_to root_url
 			end
 		  end
 
 		# user = User.from_omniauth(auth)
-		session[:user_id] = @user.id
+		# session[:user_id] = @user.id
 		redirect_to root_url
 	end
 
