@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 			@identity = Identity.create_with_omniauth(auth)
 		end
 
-		if current_user
+		if signed_in?
 			if @identity.user == current_user
 				# User is signed in so they are trying to link an identity with their
 				# account. But we found the identity and the user associated with it
