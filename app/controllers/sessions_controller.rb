@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
 			else
 				# The identity is not associated with the current_user so lets
 				# associate the identity
-				@identity.user = current_user
+				@identity.user_id = current_user.id
 				@identity.save()
 				flash[:notice] = "Successfully linked that account!"
 				redirect_to root_url
@@ -37,7 +37,7 @@ class SessionsController < ApplicationController
 			else
 				# No user associated with the identity so we need to create a new one
 				@user = User.create_with_omniauth(auth)
-				@identity.user = @user
+				@identity.user_id = @user.id
 				flash[:notice] = "Signed up!"
 				redirect_to root_url
 			end
