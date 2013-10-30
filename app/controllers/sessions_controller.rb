@@ -11,20 +11,20 @@ class SessionsController < ApplicationController
 			@identity = Identity.create_with_omniauth(auth)
 		end
 
-		if current_user
-			if @identity.user == current_user
+		unless current_user == nil
+			if @identity.user_id == current_user.id
 				# User is signed in so they are trying to link an identity with their
 				# account. But we found the identity and the user associated with it
 				# is the current user. So the identity is already associated with
 				# this user. So let's display an error message.
-				flash[:notice] = "Already linked that account!"
+				flash[:notice] = "Already linked that account! Case 1"
 				redirect_to root_url
 			else
 				# The identity is not associated with the current_user so lets
 				# associate the identity
 				@identity.user_id = current_user.id
 				@identity.save()
-				flash[:notice] = "Successfully linked that account!"
+				flash[:notice] = "Successfully linked that account! Case 2"
 				redirect_to root_url
 			end
 		  else
@@ -32,14 +32,14 @@ class SessionsController < ApplicationController
 				# The identity we found had a user associated with it so let's
 				# just log them in here
 				self.current_user = @identity.user
-				flash[:notice] = "Signed in!"
+				flash[:notice] = "Signed in! Case 3"
 				redirect_to root_url
 			else
 				# No user associated with the identity so we need to create a new one
 				@user = User.create_with_omniauth(auth)
 				@identity.user_id = @user.id
 				@identity.save()
-				flash[:notice] = "Signed up!"
+				flash[:notice] = "Signed up! Case 4"
 				redirect_to root_url
 			end
 		  end
@@ -51,7 +51,7 @@ class SessionsController < ApplicationController
 
 	def destroy
 		self.current_user = nil
-		flash[:notice] = "Signed out!"
+		flash[:notice] = "Signed out! Case 5"
 		redirect_to root_url
 	end
 

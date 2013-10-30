@@ -1,9 +1,5 @@
 <h1>Our Earrings </h1>
 
-<% if notice %>
-	<p class="alert alert-success" id="notice"><%= notice %></p>
-<%end%>
-
 <div id="earrings">
 	<% @earrings.each do |earring| %>
 		<%unless earring.inventory==0%>
