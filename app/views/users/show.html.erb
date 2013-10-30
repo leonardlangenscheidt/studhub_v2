@@ -11,34 +11,37 @@
 					<tr><td>Email:</td><td><%=@user.email%></td></tr>
 				</tbody>
 			</table>
-			<% unless @user.addresses.count == 0 %>
 				<table class="table">
 					<thead>
 						<tr><th colspan="2">Shipping Address</th></tr>
 					</thead>
 					<tbody>
-						<tr><td>Street:</td><td><%=@user.addresses.last.street%></td></tr>
-						<tr><td></td><td><%=@user.addresses.last.street2%></td></tr>
-						<tr><td>City:</td><td><%=@user.addresses.last.city%></td></tr>
-						<tr><td>State:</td><td><%=@user.addresses.last.state%></td></tr>
-						<tr><td>ZIP Code:</td><td><%=@user.addresses.last.zip%></td></tr>
+						<% unless @user.addresses.count == 0 %>
+							<tr><td>Street:</td><td><%=@user.addresses.last.street%></td></tr>
+							<tr><td></td><td><%=@user.addresses.last.street2%></td></tr>
+							<tr><td>City:</td><td><%=@user.addresses.last.city%></td></tr>
+							<tr><td>State:</td><td><%=@user.addresses.last.state%></td></tr>
+							<tr><td>ZIP Code:</td><td><%=@user.addresses.last.zip%></td></tr>
+						<%else%>
+							<tr><td>Street:</td><td></td></tr>
+							<tr><td> </td><td></td></tr>
+							<tr><td>City:</td><td></td></tr>
+							<tr><td>State:</td><td></td></tr>
+							<tr><td>ZIP Code:</td><td></td></tr>
+						<%end%>
+							<tr><%= link_to "Sign out", signout_path, id: "sign_out" %></tr>
+						<%if @user.identities.first.provider == 'facebook' || @user.identities.last.provider == 'facebook'%>
+							<tr>'Signed in via Facebook'</tr>
+						<%else%>
+							<tr><%= link_to "Sign in with Facebook", '/auth/facebook' %></tr>
+						<%end%>
+						<%if @user.identities.first.provider == 'paypal' || @user.identities.last.provider == 'paypal'%>
+							<tr>'Signed in via Paypal'</tr>
+						<%else%>
+							<tr><%= link_to "Sign in with Paypal", '/auth/paypal' %></tr>
+						<%end%>
 					</tbody>
 				</table>
-			<%else%>
-				<table class="table">
-					<thead>
-						<tr><th colspan="2">Shipping Address</th></tr>
-					</thead>
-					<tbody>
-						<tr><td>Street:</td><td></td></tr>
-						<tr><td> </td><td></td></tr>
-						<tr><td>City:</td><td></td></tr>
-						<tr><td>State:</td><td></td></tr>
-						<tr><td>ZIP Code:</td><td></td></tr>
-					</tbody>
-				</table>
-			<%end%>
-
 		</div>
 		<div class="span8">
 			<h2>Prior Orders:</h2>
