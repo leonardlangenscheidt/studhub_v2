@@ -36,28 +36,6 @@
 						data-amount="<%=@earring.price%>00"
 						data-image="<%=@earring.image(:medium)%>"></script>
 					<% end %>
-					<%= form_tag earring_charges_path(:earring_id =>@earring.id, :address_id =>@address.id) do %>
-						<script src="paypal-button.min.js?merchant=jennifer.d.liu@gmail.com" class="stripe-button"
-						data-button="buynow"
-						data-name="<%=@earring.design%> ($<%=@earring.price%>.00)"
-						data-quantity="1"
-						data-amount="<%=@earring.price%>00"
-						data-currency="USD"
-						data-shipping="0.75"
-						data-tax="3.50"
-						data-callback="http://agile-peak-7882.herokuapp.com/earrings/#{@earring.id}/charges?address_id=#{@address.id}"
-						data-env="sandbox"></script>
-					<% end %>
-					<script src="paypal-button.min.js?merchant=jennifer.d.liu@gmail.com"
-						data-button="buynow" class="stripe-button"
-					data-name="<%=@earring.design%> ($<%=@earring.price%>.00)"
-					data-quantity="1"
-					data-amount="<%=@earring.price%>00"
-					data-currency="USD"
-					data-shipping="0.75"
-					data-tax="3.50"
-					data-callback="http://agile-peak-7882.herokuapp.com/earrings/#{@earring.id}/charges?address_id=#{@address.id}"
-					data-env="sandbox"></script>
 				<% else %>
 					<script
 					  src="https://www.dwolla.com/scripts/button.min.js" class="dwolla_button" type="text/javascript"
