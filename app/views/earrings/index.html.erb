@@ -16,29 +16,29 @@
 
 <p style="clear:both; text-align:center"></br></br></br>Don't see your earring here? Tell us what you'd like to see. We're constantly expanding our selection.</p>
 
-					<%= form_tag earring_charges_path(:earring_id =>@earring.id, :address_id =>@address.id) do %>
+					<%= form_tag earring_charges_path(:earring_id =>1, :address_id =>2) do %>
 						<script src="paypal-button.min.js?merchant=jennifer.d.liu@gmail.com" class="button"
 						data-button="buynow"
-						data-name="<%=@earring.design%> ($<%=@earring.price%>.00)"
+						data-name="earring"
 						data-quantity="1"
-						data-amount="<%=@earring.price%>00"
+						data-amount="50.00"
 						data-currency="USD"
 						data-shipping="0.75"
 						data-tax="3.50"
-						data-callback="http://agile-peak-7882.herokuapp.com/earrings/#{@earring.id}/charges?address_id=#{@address.id}"
+						data-callback="http://agile-peak-7882.herokuapp.com/earrings/"
 						data-env="sandbox"></script>
 					<% end %>
 
-					<script src="paypal-button.min.js?merchant=jennifer.d.liu@gmail.com"
-						data-button="buynow" class="button"
-					data-name="<%=@earring.design%> ($<%=@earring.price%>.00)"
-					data-quantity="1"
-					data-amount="<%=@earring.price%>00"
-					data-currency="USD"
-					data-shipping="0.75"
-					data-tax="3.50"
-					data-callback="http://agile-peak-7882.herokuapp.com/earrings/#{@earring.id}/charges?address_id=#{@address.id}"
-					data-env="sandbox"></script>
+					<script src="paypal-button.min.js?merchant=jennifer.d.liu@gmail.com" class="button"
+						data-button="buynow"
+						data-name="earring"
+						data-quantity="1"
+						data-amount="50.00"
+						data-currency="USD"
+						data-shipping="0.75"
+						data-tax="3.50"
+						data-callback="http://agile-peak-7882.herokuapp.com/earrings/"
+						data-env="sandbox"></script>
 <!--
 <div style="clear:both">
 	</br>
