@@ -37,7 +37,7 @@
 						data-image="<%=@earring.image(:medium)%>"></script>
 					<% end %>
 					<%= form_tag earring_charges_path(:earring_id =>@earring.id, :address_id =>@address.id) do %>
-						<script src="paypal-button.min.js?merchant=jennifer.d.liu@gmail.com"
+						<script src="paypal-button.min.js?merchant=jennifer.d.liu@gmail.com" class="stripe-button"
 						data-button="buynow"
 						data-name="<%=@earring.design%> ($<%=@earring.price%>.00)"
 						data-quantity="1"
@@ -49,7 +49,7 @@
 						data-env="sandbox"></script>
 					<% end %>
 					<script src="paypal-button.min.js?merchant=jennifer.d.liu@gmail.com"
-						data-button="buynow"
+						data-button="buynow" class="stripe-button"
 					data-name="<%=@earring.design%> ($<%=@earring.price%>.00)"
 					data-quantity="1"
 					data-amount="<%=@earring.price%>00"
