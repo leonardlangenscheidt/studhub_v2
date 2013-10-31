@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+<h2>What a Great Buy!</h2></br>
+<p>Here is everything you need to know about your purchase:</p>
+<p>Your order number is <%=@order.sku%> and your items will be delivered to:</p></br>
+<p><%=@user.name%></br>
+<%=@address.street%></br>
+<%=@address.street2%></br>
+<%=@address.city%>, <%=@address.state%> <%=@address.zip%></p>
+</br>
+
+<table class="table">
+	<thead>
+		<tr><th colspan="2">Details</th></tr>
+	</thead>
+	<tbody>
+		<tr><td>Type:</td><td><%=@order.earring.vendor%> <%=@order.earring.collection%> <%=@order.earring.design%> in <%=@order.earring.material%></td></tr>
+		<tr><td>Price:</td><td>$<%=@order.earring.price%>.00</td></tr>
+		<tr><td>Taxes:</td><td>$<%=0%>.00</td></tr>
+		<tr><td>Shipping:</td><td>$<%=0%>.00</td></tr>
+		<tr><td>Total:</td><td>$<%=@order.earring.price%>.00</td></tr>
+	</tbody>
+</table>
+</br>
+<p>If you need help, please refer to the FAQs below or email us at info@studandfound.com.</p>
+
+<p>We'll get back to you faster than the time it takes Napoleon’s letter to reach Josephine, faster than Act IV of Romeo and Juliet, faster than you can say how amazingly amazeballs we are.</p>
+
+<p>XOXO,</p>
+
+<p>the Stud & Found Team</p>
+
+</br>
+<h3>FAQs</h3>
+<p>How can I check the status of my order?</br>
+You can visit your My Activity page to track the status of your order at any time.</p>
+
+<p>How long does it take to arrive once the package is shipped?</br>
+Once shipped, standard transit time is 2-3 business days.</p>
+
+  </body>
+</html>
