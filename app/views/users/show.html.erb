@@ -38,7 +38,6 @@
 					<tr><th colspan="1">Sign In Status</th></tr>
 				</thead>
 				<tbody>
-					<tr><td><%= link_to "Sign out", signout_path, id: "sign_out" %></td></tr>
 					<%if @user.identities.first.provider == 'facebook' || @user.identities.last.provider == 'facebook'%>
 						<tr><td>Signed in via Facebook</td></tr>
 					<%else%>
@@ -49,6 +48,7 @@
 					<%else%>
 						<tr><td><%= link_to "Sign in with Paypal", '/auth/paypal' %></td></tr>
 					<%end%>
+					<tr><td><%= link_to "Sign out", signout_path, id: "sign_out" %></td></tr>
 				</tbody>
 			</table>
 		</div>
