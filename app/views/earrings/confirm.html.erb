@@ -51,23 +51,14 @@
 					<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 					<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
 					</form>
-
-
 				<% else %>
-					<script
-					  src="https://www.dwolla.com/scripts/button.min.js" class="dwolla_button" type="text/javascript"
-					  data-key="2LmL+pFFDCzm9HBmZr5MRFIq4SaMuNiUNg6BpwsnublGgyO6NZ"
-					  data-redirect="http://agile-peak-7882.herokuapp.com/earrings"
-					  data-label="Buy now"
-					  data-name="Earring"
-					  data-description="Earring Description"
-					  data-amount="10"
-					  data-shipping="1"
-					  data-tax="1"
-					  data-guest-checkout="true"
-					  data-type="simple"
-					>
-					</script>
+					<%= simple_form_for(@order, html: { class: "form-horizontal"}) do |f| %>
+						<%= f.hidden_field :earring_id, :value => @earring.id %>
+						<%= f.hidden_field :address_id, :value => @earring.id %>
+						<div class="form-actions">
+						    <%= f.button :submit, class: "btn btn-primary" %>
+						  </div>
+					<% end %>
 				<% end %>
 			</div>
 		</div>

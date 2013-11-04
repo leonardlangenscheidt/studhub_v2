@@ -21,7 +21,6 @@ Studhub::Application.routes.draw do
 	resources :earrings do
 		resource :charges
 	end
-	# get 'earrings/:earring_id/:address_id/confirm' => 'earrings#confirm'
 	get 'earrings/:earring_id/:buy/confirm' => 'earrings#confirm'
 
 	#facebook routes
