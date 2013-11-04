@@ -7,7 +7,12 @@
 		</div>
 		<div class="span4">
 			<h3>Details:</h3>
-			<strong>Purchased:</strong> <%=@order.created_at.strftime("%d-%m-%Y at %H:%M")%></br>
+			<strong>
+			<% if order.buy=="true" %>
+				Purchased:
+			<% else %>
+				Sold:
+			<% end %></strong> <%=@order.created_at.strftime("%d-%m-%Y at %H:%M")%></br>
 			<strong>Vendor:</strong> <%=@order.earring.vendor%></br>
 			<strong>Collection:</strong> <%=@order.earring.collection%></br>
 			<strong>Design:</strong> <%=@order.earring.design%></br>

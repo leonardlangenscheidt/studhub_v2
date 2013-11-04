@@ -5,7 +5,7 @@ class ChargesController < ApplicationController
 	def create
 	  	@earring = Earring.find(params[:earring_id])
 	  	@address = Address.find(params[:address_id])
-	  	# @buy = params[:buy]
+	  	@buy = params[:buy]
 	  	@amount =@earring.price
 	  	@user = current_user
 
@@ -28,6 +28,7 @@ class ChargesController < ApplicationController
 			:price_paid => @earring.price,
 			:status => "shipping",
 			:address_id => @address.id
+			:buy => @buy
 			)
 			@earring.inventory = @earring.inventory - 1
 			@earring.save

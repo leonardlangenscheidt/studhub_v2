@@ -28,7 +28,7 @@
 			</table>
 			<div style="text-align:center">
 				<% if @buy == "true" %>
-					<%= form_tag earring_charges_path(:earring_id =>@earring.id, :address_id =>@address.id) do %>
+					<%= form_tag earring_charges_path(:earring_id =>@earring.id, :address_id =>@address.id, :buy => @buy) do %>
 						<script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
 						data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
 						data-name="Studhub"
@@ -52,7 +52,7 @@
 					<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
 					</form>
 				<% else %>
-					<%= link_to "Submit", user_orders_path(:earring_id =>@earring.id, :address_id =>@address.id), :method => :post, class:'btn btn-large' %>
+					<%= link_to "Submit", user_orders_path(:earring_id =>@earring.id, :address_id =>@address.id, :buy => @buy), :method => :post, class:'btn btn-large' %>
 				<% end %>
 			</div>
 		</div>
