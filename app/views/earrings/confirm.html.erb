@@ -52,13 +52,7 @@
 					<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
 					</form>
 				<% else %>
-					<%= simple_form_for(@order, html: { class: "form-horizontal"}) do |f| %>
-						<%= f.hidden_field :earring_id, :value => @earring.id %>
-						<%= f.hidden_field :address_id, :value => @earring.id %>
-						<div class="form-actions">
-						    <%= f.button :submit, class: "btn btn-primary" %>
-						  </div>
-					<% end %>
+					<%= link_to user_orders_path(:earring_id =>@earring.id, :address_id =>@address.id) %>
 				<% end %>
 			</div>
 		</div>
