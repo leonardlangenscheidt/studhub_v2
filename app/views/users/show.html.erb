@@ -59,7 +59,7 @@
 					<% @user.orders.reverse.each do |order| %>
 						<div class="box box-large">
 							<div class="description">
-								<% if order.buy=="true" %>
+								<% if order.buy==true %>
 									Purchased:
 								<% else %>
 									Sold:

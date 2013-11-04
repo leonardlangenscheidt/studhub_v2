@@ -8,19 +8,18 @@
 			</a>
 			 <a class="brand" href="/">Studhub</a>
 
-				<div class="nav-collapse">
-					<ul class="nav">
-						<li>
-							<%= link_to 'Earrings',  earrings_path %>
-						</li>
-						<%if current_user%>
-							<li><%= link_to 'Profile', '/user' %></li>
-						<%end%>
-					</ul>
-					<ul class="nav pull-right">
-						<%if current_user%>
-							<li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
-						<%end%>
+			<div class="nav-collapse">
+				<ul class="nav">
+					<li>
+						<%= link_to 'Earrings',  earrings_path %>
+					</li>
+					<%if current_user%>
+						<li><%= link_to 'Profile', '/user' %></li>
+					<%end%>
+				</ul>
+				<ul class="nav pull-right">
+					<%if current_user%>
+						<li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
 						<%if current_user.identities.first.provider == 'facebook' || current_user.identities.last.provider == 'facebook'%>
 							<li><%= link_to 'Signed in via Facebook', '/user' %></li>
 						<%else%>
@@ -31,8 +30,12 @@
 						<%else%>
 							<li><%= link_to "Sign in with Paypal", '/auth/paypal' %></li>
 						<%end%>
-					</ul>
-				</div>
+					<%else%>
+						<li><%= link_to "Sign in with Facebook", '/auth/facebook' %></li>
+						<li><%= link_to "Sign in with Paypal", '/auth/paypal' %></li>
+					<%end%>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>
