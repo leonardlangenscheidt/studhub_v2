@@ -26,7 +26,7 @@ class OrdersController < ApplicationController
 		:earring_id => @earring.id,
 		:price_paid => @earring.price,
 		:status => "shipping",
-		:address_id => @address.id
+		:address_id => @address.id,
 		:buy => @buy
 		)
 		if @order.save
