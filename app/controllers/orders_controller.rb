@@ -13,6 +13,9 @@ class OrdersController < ApplicationController
 		redirect_to user_path
 	end
 
+	def new
+	end
+
 	def create
 	  	@earring = Earring.find(params[:earring_id])
 	  	@address = Address.find(params[:address_id])
