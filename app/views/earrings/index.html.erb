@@ -16,32 +16,5 @@
 <!--
 <div style="clear:both">
 	</br>
-	<h1>Old Index</h1>
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>Earring</th>
-				<th>Size</th>
-				<th>Price</th>
-				<th>Description</th>
-				<th>Image</th>
-				<th></th>
-				<th></th>
-			</tr>
-		</thead>
 
-		<tbody>
-			<% @earrings.each do |earring| %>
-				<tr>
-					<td><%= link_to "#{earring.vendor} #{earring.collection} #{earring.design} #{earring.material}", earring_path(earring)%></td>
-					<td><%=earring.size%>mm</td>
-					<td>$<%=earring.price%></td>
-					<td><%=earring.description%></td>
-					<td><%= image_tag earring.image(:medium) %></td>
-					<td><%= link_to 'Edit', edit_earring_path(earring) %></td>
-					<td><%= link_to 'Destroy', earring, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
 </div> -->

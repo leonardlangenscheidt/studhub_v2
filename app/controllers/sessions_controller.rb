@@ -17,14 +17,14 @@ class SessionsController < ApplicationController
 				# account. But we found the identity and the user associated with it
 				# is the current user. So the identity is already associated with
 				# this user. So let's display an error message.
-				flash[:notice] = "Already linked that account! Case 1"
+				flash[:notice] = "Already linked that account!"
 				# redirect_to root_url
 			else
 				# The identity is not associated with the current_user so lets
 				# associate the identity
 				@identity.user_id = current_user.id
 				@identity.save()
-				flash[:notice] = "Successfully linked that account! Case 2"
+				flash[:notice] = "Successfully linked that account!"
 				# redirect_to root_url
 			end
 		  else
@@ -32,7 +32,7 @@ class SessionsController < ApplicationController
 				# The identity we found had a user associated with it so let's
 				# just log them in here
 				self.current_user = @identity.user
-				flash[:notice] = "Signed in! Case 3"
+				flash[:notice] = "Signed in!"
 				# redirect_to root_url
 			else
 				# No user associated with the identity so we need to create a new one
@@ -40,7 +40,7 @@ class SessionsController < ApplicationController
 				@identity.user_id = @user.id
 				@identity.save()
 				self.current_user = @identity.user
-				flash[:notice] = "Signed up! Case 4"
+				flash[:notice] = "Signed up!"
 				# redirect_to root_url
 			end
 		  end
@@ -52,7 +52,7 @@ class SessionsController < ApplicationController
 
 	def destroy
 		self.current_user = nil
-		flash[:notice] = "Signed out! Case 5"
+		flash[:notice] = "Signed out!"
 		redirect_to root_url
 	end
 

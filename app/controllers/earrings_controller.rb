@@ -5,6 +5,10 @@ class EarringsController < ApplicationController
 		@earrings = Earring.all
 	end
 
+	def inventory
+		@earrings = Earring.all
+	end
+
 	def show
 	end
 
