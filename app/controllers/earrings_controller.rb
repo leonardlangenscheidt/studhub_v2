@@ -6,14 +6,22 @@ class EarringsController < ApplicationController
 	end
 
 	def inventory
-		@earrings = Earring.all
+		if signed_in? && current_user.name = "Leonard Langenscheidt"
+			@earrings = Earring.all
+		else
+			redirect_to earrings_path
+		end
 	end
 
 	def show
 	end
 
 	def new
-		@earring = Earring.new
+		if signed_in? && current_user.name = "Leonard Langenscheidt"
+			@earring = Earring.new
+		else
+			redirect_to earrings_path
+		end
 	end
 
 	# GET /earrings/1/edit

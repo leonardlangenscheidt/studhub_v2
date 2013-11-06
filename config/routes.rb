@@ -22,6 +22,7 @@ Studhub::Application.routes.draw do
 		resource :charges
 	end
 	get 'earrings/:earring_id/:buy/confirm' => 'earrings#confirm'
+	get 'earrings/inventory' = > 'earrings#inventory'
 
 	#facebook routes
 	match 'auth/:provider/callback', to: 'sessions#create', :via => [:get, :post]

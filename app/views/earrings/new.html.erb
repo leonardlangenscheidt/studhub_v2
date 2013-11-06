@@ -1,5 +1,10 @@
-<% if current_user.name=="Leonard Langenscheidt" || current_user.name=="Jennifer Liu"%>
-<h1>Add Earring</h1>
-<%= render 'form' %>
-<%end%>
+
+		<h1>Add Earring</h1>
+		<%= render 'form' %>
+<!-- 	<% else%>
+	# <% if current_user %>
+	<% if current_user.name=="Leonard Langenscheidt" || current_user.name=="Jennifer Liu"%>
+		<h2>I believe you're not supposed to be here. Go buy and sell your single earrings!</h2>
+	<%end%>
+<%end%> -->
 <%= link_to 'Back', earrings_path %>
