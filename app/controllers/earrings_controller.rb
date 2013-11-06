@@ -6,7 +6,7 @@ class EarringsController < ApplicationController
 	end
 
 	def inventory
-		if current_user && current_user.name = "Leonard Langenscheidt"
+		if current_user && (current_user.name = "Leonard Langenscheidt" || current_user.name = "Jennifer Liu")
 			@earrings = Earring.all
 		else
 			redirect_to earrings_path
@@ -17,7 +17,7 @@ class EarringsController < ApplicationController
 	end
 
 	def new
-		if signed_in? && current_user.name = "Leonard Langenscheidt"
+		if current_user && (current_user.name = "Leonard Langenscheidt" || current_user.name = "Jennifer Liu")
 			@earring = Earring.new
 		else
 			redirect_to earrings_path
