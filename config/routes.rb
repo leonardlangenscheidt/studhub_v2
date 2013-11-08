@@ -13,6 +13,7 @@ Studhub::Application.routes.draw do
 	end
 	get 'orderindex' => 'orders#index'
 	get 'orders/:id/ship' => 'orders#ship'
+	get 'orders/:id/arrival' => 'orders#arrival'
 
 	#profile
 	get 'profile' => 'users#show'

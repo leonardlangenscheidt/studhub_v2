@@ -41,7 +41,7 @@
 			<th>Address</th>
 			<th>Earring ID</th>
 			<th>Status</th>
-			<th>Arrival</th>
+			<th>Received</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -57,7 +57,7 @@
 					</td>
 					<td><%=order.earring.id%></td>
 					<td><%=order.status %></td>
-					<td><%unless order.status=="Completed"%><%=link_to 'Arrived!', "/orders/#{order.id}/arrival", class:"btn"%><%end%></td>
+					<td><%unless order.status=="Received"%><%=link_to 'Received!', "/orders/#{order.id}/arrival", class:"btn"%><%end%></td>
 				</tr>
 			<%end%>
 		<%end%>

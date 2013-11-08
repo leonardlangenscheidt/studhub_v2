@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
 
 	def arrival
 		@order = Order.find(params[:id])
-		@order.status = "Completed"
+		@order.status = "Received"
 		@order.save
 		redirect_to "/orderindex"
 		UserMailer.arrival_email(@order).deliver
