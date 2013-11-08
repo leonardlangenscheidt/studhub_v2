@@ -7,6 +7,9 @@ class OrdersController < ApplicationController
 
 	def update
 		@order.update(order_params)
+		# @order.status = "Shipped"
+		# @order.tracking = params[:tracking]
+		@order.save
 		redirect_to '/orderindex'
 	end
 
