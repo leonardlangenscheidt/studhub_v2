@@ -24,7 +24,7 @@
 						<%=order.address.city%>, <%=order.address.state%> <%=order.address.zip%>
 					</td>
 					<td>ID: <%=order.earring.id%> - Sku: <%=order.earring.sku%></td>
-					<td><%=link_to earring_path(order.earring),  image_tag order.earring.image(:small) %></td>
+					<td><%= link_to (image_tag order.earring.image(:small)),  earring_path(order.earring)%></td>
 					<td><%=order.status %></td>
 					<td><%=order.tracking %></td>
 					<td>
