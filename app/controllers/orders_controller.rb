@@ -6,15 +6,14 @@ class OrdersController < ApplicationController
 	end
 
 	def update
-		@order.update(order_params)
-		redirect_to '/orderindex'
-	end
-
-	def ship
-		@order.status = "Shipped"
-		@order.save
-		redirect_to '/orderindex'
-		UserMailer.shipping_email(@order).deliver
+		unless @order.status == 'Shipped'
+			@order.update(order_params)
+			redirect_to '/orderindex'
+			UserMailer.shipping_email(@order).deliver
+		else
+			@order.update(order_params)
+			redirect_to '/orderindex'
+		end
 	end
 
 	def arrival
