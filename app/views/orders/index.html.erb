@@ -7,7 +7,7 @@
 	<tbody>
 		<% @orders.each do |order| %>
 			<%if order.buy == true %>
-				<tr><td><%=order.id%></td><td><%=order.status %></td><td><%unless order.status=="shipped"%><%=link_to 'Ship it!', "/orders/#{order.id}/ship", class:"btn"%><%end%></td></tr>
+				<tr><td><%=order.id%></td><td><%=order.status %></td><td><%unless order.status=="Shipped"%><%=link_to 'Ship it!', "/orders/#{order.id}/ship", class:"btn"%><%end%></td></tr>
 			<%end%>
 		<%end%>
 	</tbody>
