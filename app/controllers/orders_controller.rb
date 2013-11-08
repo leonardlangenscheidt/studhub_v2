@@ -1,7 +1,11 @@
 class OrdersController < ApplicationController
 	before_action :set_order, only: [:update, :ship, :arrival, :show, :destroy]
 
-	def index
+	def buy_index
+		@orders = Order.all
+	end
+
+	def sell_index
 		@orders = Order.all
 	end
 

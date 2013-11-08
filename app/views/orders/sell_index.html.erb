@@ -1,0 +1,31 @@
+<h4>User Sales</h4>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Order ID</th>
+			<th>User</th>
+			<th>Address</th>
+			<th>Earring ID</th>
+			<th>Status</th>
+			<th>Received</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @orders.each do |order| %>
+			<%if order.buy == false %>
+				<tr>
+					<td><%=order.id%></td>
+					<td><%=order.user.name%></td>
+					<td>
+						<%=order.address.street%><br>
+						<%=order.address.street2%><br>
+						<%=order.address.city%>, <%=order.address.state%> <%=order.address.zip%>
+					</td>
+					<td><%=order.earring.id%></td>
+					<td><%=order.status %></td>
+					<td><%unless order.status=="Received"%><%=link_to 'Received!', "/orders/#{order.id}/arrival", class:"btn"%><%end%></td>
+				</tr>
+			<%end%>
+		<%end%>
+	</tbody>
+</table>

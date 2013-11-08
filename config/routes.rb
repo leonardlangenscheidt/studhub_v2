@@ -12,7 +12,8 @@ Studhub::Application.routes.draw do
 		resources :orders
 	end
 	resources :orders
-	get 'orderindex' => 'orders#index'
+	get 'buy_index' => 'orders#buy_index'
+	get 'sell_index' => 'orders#sell_index'
 	get 'orders/:id/arrival' => 'orders#arrival'
 	match 'orders/:id/update' => 'order#update', :via => [:patch]
 
