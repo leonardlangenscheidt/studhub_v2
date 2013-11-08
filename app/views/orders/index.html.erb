@@ -1,26 +1,64 @@
 <h2>Index</h2>
 <h4>Sales</h4>
-<table>
+<table class="table table-striped">
 	<thead>
-		<tr><td>ID</td><td>Status</td><td>Ship It!</tr>
+		<tr>
+			<th>Order ID</th>
+			<th>User</th>
+			<th>Address</th>
+			<th>Earring ID</th>
+			<th>Status</th>
+			<th>Ship It!</th>
+		</tr>
 	</thead>
 	<tbody>
 		<% @orders.each do |order| %>
 			<%if order.buy == true %>
-				<tr><td><%=order.id%></td><td><%=order.status %></td><td><%unless order.status=="Shipped"%><%=link_to 'Ship it!', "/orders/#{order.id}/ship", class:"btn"%><%end%></td></tr>
+				<tr>
+					<td><%=order.id%></td>
+					<td><%=order.user.name%></td>
+					<td>
+						<%=order.address.street%><br>
+						<%=order.address.street2%><br>
+						<%=order.address.city%>, <%=order.address.state%> <%=order.address.zip%>
+					</td>
+					<td><%=order.earring.id%></td>
+					<td><%=order.status %></td>
+					<td><%unless order.status=="Shipped"%><%=link_to 'Ship it!', "/orders/#{order.id}/ship", class:"btn"%><%end%></td>
+				</tr>
 			<%end%>
 		<%end%>
 	</tbody>
 </table>
+<br>
+
 <h4>Buys</h4>
-<table>
+<table class="table table-striped">
 	<thead>
-		<tr><td>ID</td><td>Status</td>
+		<tr>
+			<th>Order ID</th>
+			<th>User</th>
+			<th>Address</th>
+			<th>Earring ID</th>
+			<th>Status</th>
+			<th>Arrival</th>
+		</tr>
 	</thead>
 	<tbody>
 		<% @orders.each do |order| %>
 			<%if order.buy == false %>
-				<tr><td><%=order.id%></td><td><%=order.status %></td></tr>
+				<tr>
+					<td><%=order.id%></td>
+					<td><%=order.user.name%></td>
+					<td>
+						<%=order.address.street%><br>
+						<%=order.address.street2%><br>
+						<%=order.address.city%>, <%=order.address.state%> <%=order.address.zip%>
+					</td>
+					<td><%=order.earring.id%></td>
+					<td><%=order.status %></td>
+					<td><%unless order.status=="Completed"%><%=link_to 'Arrived!', "/orders/#{order.id}/arrival", class:"btn"%><%end%></td>
+				</tr>
 			<%end%>
 		<%end%>
 	</tbody>

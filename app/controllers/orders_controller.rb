@@ -12,6 +12,14 @@ class OrdersController < ApplicationController
 		UserMailer.shipping_email(@order).deliver
 	end
 
+	def arrival
+		@order = Order.find(params[:id])
+		@order.status = "Completed"
+		@order.save
+		redirect_to "/orderindex"
+		UserMailer.arrival_email(@order).deliver
+	end
+
 	def show
 		@order = Order.find(params[:id])
 		@user = current_user
@@ -37,7 +45,7 @@ class OrdersController < ApplicationController
 		:user_id => @user.id,
 		:earring_id => @earring.id,
 		:price_paid => @earring.price,
-		:status => "shipping",
+		:status => "Awaiting Shipment",
 		:address_id => @address.id,
 		:buy => @buy
 		)

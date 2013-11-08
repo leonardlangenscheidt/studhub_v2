@@ -26,7 +26,7 @@ class ChargesController < ApplicationController
 			:user_id => @user.id,
 			:earring_id => @earring.id,
 			:price_paid => @earring.price,
-			:status => "shipping",
+			:status => "Confirmed",
 			:address_id => @address.id,
 			:buy => @buy
 			)

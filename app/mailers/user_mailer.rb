@@ -20,4 +20,9 @@ class UserMailer < ActionMailer::Base
   		@user = @order.user
   		mail(to: @user.email, subject: 'Your Order has shipped!')
   	end
+  	def arrival_email(order)
+  		@order = order
+  		@user = @order.user
+  		mail(to: @user.email, subject: 'Your earring has been received!')
+  	end
 end
