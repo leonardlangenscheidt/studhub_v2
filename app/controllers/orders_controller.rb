@@ -12,18 +12,18 @@ class OrdersController < ApplicationController
 	def update
 		unless @order.status == 'Shipped'
 			@order.update(order_params)
-			redirect_to 'orderpage/buy'
+			redirect_to '/orderpage/buy'
 			UserMailer.shipping_email(@order).deliver
 		else
 			@order.update(order_params)
-			redirect_to 'orderpage/buy'
+			redirect_to '/orderpage/buy'
 		end
 	end
 
 	def arrival
 		@order.status = "Received"
 		@order.save
-		redirect_to 'orderpage/sell'
+		redirect_to '/orderpage/sell'
 		UserMailer.arrival_email(@order).deliver
 	end
 

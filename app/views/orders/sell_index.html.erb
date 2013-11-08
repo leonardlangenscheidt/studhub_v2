@@ -5,7 +5,6 @@
 			<th>Order ID</th>
 			<th>User</th>
 			<th>Address</th>
-			<th>Earring ID</th>
 			<th>Sku</th>
 			<th>Picture</th>
 			<th>Status</th>
@@ -23,7 +22,6 @@
 						<%=order.address.street2%><br>
 						<%=order.address.city%>, <%=order.address.state%> <%=order.address.zip%>
 					</td>
-					<td><%=order.earring.id%></td>
 					<td><%=order.earring.sku%></td>
 					<td><%= link_to (image_tag order.earring.image(:small)),  earring_path(order.earring)%></td>
 					<td><%=order.status %></td>
