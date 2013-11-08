@@ -7,10 +7,12 @@ Studhub::Application.routes.draw do
 
 	resources :addresses
 
-	#profile
+	#profile and orders
 	resource :user do
 		resources :orders
 	end
+	get 'orderindex' => 'orders#index'
+	get 'orders/:id/ship' => 'orders#ship'
 
 	#profile
 	get 'profile' => 'users#show'

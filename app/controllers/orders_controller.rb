@@ -1,5 +1,17 @@
 class OrdersController < ApplicationController
 
+	def index
+		@orders = Order.all
+	end
+
+	def ship
+		@order = Order.find(params[:id])
+		@order.status = "Shipped"
+		@order.save
+		redirect_to "/orderindex"
+		UserMailer.shipping_email(@order).deliver
+	end
+
 	def show
 		@order = Order.find(params[:id])
 		@user = current_user
