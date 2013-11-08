@@ -11,6 +11,7 @@ Studhub::Application.routes.draw do
 	resource :user do
 		resources :orders
 	end
+	resources :orders
 	get 'orderindex' => 'orders#index'
 	get 'orders/:id/ship' => 'orders#ship'
 	get 'orders/:id/arrival' => 'orders#arrival'

@@ -1,12 +1,12 @@
 class OrdersController < ApplicationController
-	before_action :set_earring, only: [:update, :ship, :arrival, :show, :destroy]
+	before_action :set_order, only: [:update, :ship, :arrival, :show, :destroy]
 
 	def index
 		@orders = Order.all
 	end
 
 	def update
-		@order.update(earring_params)
+		@order.update(order_params)
 		redirect_to '/orderindex'
 	end
 
