@@ -30,11 +30,11 @@
 					<td><%unless order.status=="Shipped"%><%=link_to 'Ship it!', "/orders/#{order.id}/ship", class:"btn"%><%end%></td>
 					<td>
 						<%= simple_form_for(order, html: { class: "form-horizontal"}) do |f| %>
-						<%= f.input :tracking, as: :string%>
+						<%= f.input :tracking %>
 						<%= f.hidden_field :status, :value => 'Shipped' %>
-						  <div class="form-actions">
-						    <%= f.button :submit, class: "btn" %>
-						  </div>
+						<div class="form-actions">
+							<%= f.button :submit, class: "btn" %>
+						</div>
 						<% end %>
 					</td>
 				</tr>

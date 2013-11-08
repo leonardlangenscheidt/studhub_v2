@@ -7,9 +7,6 @@ class OrdersController < ApplicationController
 
 	def update
 		@order.update(order_params)
-		# @order.status = "Shipped"
-		# @order.tracking = params[:tracking]
-		@order.save
 		redirect_to '/orderindex'
 	end
 
@@ -78,6 +75,6 @@ class OrdersController < ApplicationController
 	end
 
 	def order_params
-			params.require(:order).permit(:user_id, :earring_id, :price_paid, :status)
+			params.require(:order).permit(:user_id, :earring_id, :price_paid, :status, :tracking)
 	end
 end
