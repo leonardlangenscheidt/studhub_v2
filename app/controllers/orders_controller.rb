@@ -1,34 +1,36 @@
 class OrdersController < ApplicationController
+	before_action :set_earring, only: [:update, :ship, :arrival, :show, :destroy]
 
 	def index
 		@orders = Order.all
 	end
 
+	def update
+		@order.update(earring_params)
+		redirect_to '/orderindex'
+	end
+
 	def ship
-		@order = Order.find(params[:id])
 		@order.status = "Shipped"
 		@order.save
-		redirect_to "/orderindex"
+		redirect_to '/orderindex'
 		UserMailer.shipping_email(@order).deliver
 	end
 
 	def arrival
-		@order = Order.find(params[:id])
 		@order.status = "Received"
 		@order.save
-		redirect_to "/orderindex"
+		redirect_to '/orderindex'
 		UserMailer.arrival_email(@order).deliver
 	end
 
 	def show
-		@order = Order.find(params[:id])
 		@user = current_user
 	end
 
 	def destroy
 		@user = current_user
 		@orders = @user.orders
-		@order = @orders.find(params[:id])
 		@order.destroy
 		redirect_to user_path
 	end
@@ -67,6 +69,10 @@ class OrdersController < ApplicationController
 	end
 
 	private
+
+	def set_order
+		@order = Order.find(params[:id])
+	end
 
 	def order_params
 			params.require(:order).permit(:user_id, :earring_id, :price_paid, :status)

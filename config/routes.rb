@@ -14,6 +14,7 @@ Studhub::Application.routes.draw do
 	get 'orderindex' => 'orders#index'
 	get 'orders/:id/ship' => 'orders#ship'
 	get 'orders/:id/arrival' => 'orders#arrival'
+	match 'orders/:id/update' => 'order#update', :via => [:patch]
 
 	#profile
 	get 'profile' => 'users#show'
