@@ -1,11 +1,27 @@
 <h2>Index</h2>
+<h4>Sales</h4>
 <table>
 	<thead>
 		<tr><td>ID</td><td>Status</td><td>Ship It!</tr>
 	</thead>
 	<tbody>
 		<% @orders.each do |order| %>
-			<tr><td><%=order.id%></td><td><%=order.status %></td><td><%=link_to 'Ship it!', "/orders/#{order.id}/ship", class:"btn"%></tr>
+			<%if order.buy == true %>
+				<tr><td><%=order.id%></td><td><%=order.status %></td><td><%unless order.status=="shipped"%><%=link_to 'Ship it!', "/orders/#{order.id}/ship", class:"btn"%><%end%></td></tr>
+			<%end%>
+		<%end%>
+	</tbody>
+</table>
+<h4>Buys</h4>
+<table>
+	<thead>
+		<tr><td>ID</td><td>Status</td>
+	</thead>
+	<tbody>
+		<% @orders.each do |order| %>
+			<%if order.buy == false %>
+				<tr><td><%=order.id%></td><td><%=order.status %></td></tr>
+			<%end%>
 		<%end%>
 	</tbody>
 </table>
