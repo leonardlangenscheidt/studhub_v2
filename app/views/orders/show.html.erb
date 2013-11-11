@@ -29,7 +29,8 @@
 				<tr><td>City:</td><td><%=@order.address.city%></td></tr>
 				<tr><td>State:</td><td><%=@order.address.state%></td></tr>
 				<tr><td>ZIP Code:</td><td><%=@order.address.zip%></td></tr>
-				<tr><td>Status:</td><td> <%=@order.status%></td></td>
+				<tr><td>Status:</td><td><%=@order.status%></td></td>
+				<tr><td>Tracking:</td><td><%=link_to @order.tracking, "https://tools.usps.com/go/TrackConfirmAction?tLabels=#{@order.tracking}" %></td>
 			</table>
 		</div>
 	</div>

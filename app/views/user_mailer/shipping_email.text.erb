@@ -1,1 +1,13 @@
-Your order shipped, yo! Order Number: <%=@order.id%>
+Hi <%=@order.user.name%>,
+
+Your purchase of:
+
+<%=@order.earring.vendor%> <%=@order.earring.collection%> <%=@order.earring.design%> in <%=@order.earring.material%>
+
+has been shipped!!! It'll be with you shortly, but if you want to keep an eye on it you can click <%=link_to 'here', "https://tools.usps.com/go/TrackConfirmAction?tLabels=#{@order.tracking}" %> to follow its journey.
+
+Your USPS tracking number is: <%=@order.tracking%>.
+
+XOXO,
+
+the Stud and Found team
