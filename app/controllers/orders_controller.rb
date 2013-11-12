@@ -50,11 +50,6 @@ class OrdersController < ApplicationController
 		:user_id => @user.id,
 		:earring_id => @earring.id,
 		:price_paid => @earring.price,
-		if @buy == true
-			:status => "Confirmed"
-		else
-			:status => "Awaiting Shipment"
-		end
 		:address_id => @address.id,
 		:buy => @buy
 		)
@@ -62,6 +57,8 @@ class OrdersController < ApplicationController
 			if @order.buy == true
 				@earring.inventory = @earring.inventory - 1
 				@earring.save
+				@order.status => "Confirmed"
+				@order.save
 				UserMailer.purchase_email(@order).deliver
 		  		flash[:notice] = %Q[Thank you! You just purchased the #{@earring.material} #{@earring.design} earring from the #{@earring.vendor} #{@earring.collection} collection for $#{@amount}.00! <a href="#" onclick="
 				window.open(
@@ -72,6 +69,8 @@ class OrdersController < ApplicationController
 			else
 				@earring.inventory = @earring.inventory + 1
 				@earring.save
+				@order.status => "Awaiting Shipment"
+				@order.save
 				UserMailer.sell_email(@order).deliver
 				flash[:notice] = %Q[Thank you! You just sold the #{@earring.material} #{@earring.design} earring from the #{@earring.vendor} #{@earring.collection} collection for $#{@earring.price}.00! <a href="#" onclick="
 				window.open(
