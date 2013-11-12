@@ -3,7 +3,7 @@
 		<thead>
 			<tr>
 				<th>Earring</th>
-				<th>Size</th>
+				<th>Inventory</th>
 				<th>Price</th>
 				<th>Description</th>
 				<th>Image</th>
@@ -16,7 +16,7 @@
 			<% @earrings.each do |earring| %>
 				<tr>
 					<td><%= link_to "#{earring.vendor} #{earring.collection} #{earring.design} #{earring.material}", earring_path(earring)%></td>
-					<td><%=earring.size%>mm</td>
+					<td><%=earring.inventory%>mm</td>
 					<td>$<%=earring.price%></td>
 					<td><%=earring.description%></td>
 					<td><%= image_tag earring.image(:medium) %></td>
