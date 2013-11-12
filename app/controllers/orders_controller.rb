@@ -53,7 +53,7 @@ class OrdersController < ApplicationController
 		if @buy == true
 			:status => "Confirmed"
 		else
-			:status => "Awaiting Shipment",
+			:status => "Awaiting Shipment"
 		end
 		:address_id => @address.id,
 		:buy => @buy
