@@ -4,7 +4,6 @@ Studhub::Application.routes.draw do
 	root :to => 'pages#home'
 	get 'about' => 'pages#about'
 	get 'terms' => 'pages#terms'
-	get 'paypalorder' => 'pages#paypalorder'
 
 	resources :addresses
 
@@ -17,6 +16,7 @@ Studhub::Application.routes.draw do
 	get 'orderpage/sell' => 'orders#sell_index'
 	get 'orders/:id/arrival' => 'orders#arrival'
 	match 'orders/:id/update' => 'order#update', :via => [:patch]
+	get 'orders/remotecreate' => 'order#remotecreate', :via => [:post]
 
 	#profile
 	get 'profile' => 'users#show'
