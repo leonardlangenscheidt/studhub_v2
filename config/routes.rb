@@ -15,8 +15,8 @@ Studhub::Application.routes.draw do
 	get 'orderpage/buy' => 'orders#buy_index'
 	get 'orderpage/sell' => 'orders#sell_index'
 	get 'orders/:id/arrival' => 'orders#arrival'
-	match 'orders/:id/update' => 'order#update', :via => [:patch]
-	get 'orders/remotecreate' => 'order#remotecreate', :via => [:post]
+	match 'orders/:id/update' => 'orders#update', :via => [:patch]
+	get 'remotecreate' => 'orders#remotecreate', :via => [:post]
 
 	#profile
 	get 'profile' => 'users#show'

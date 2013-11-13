@@ -22,7 +22,7 @@ class ChargesController < ApplicationController
 	  	)
 
 	  	if charge
-	  		redirect_to "/orders/remotecreate?earring_id=#{@earring.id}&address_id=#{@address.id}&buy=#{@buy}", :method => :post
+	  		redirect_to "/remotecreate?earring_id=#{@earring.id}&address_id=#{@address.id}&buy=#{@buy}", :method => :post
 	  # 		@order = Order.create(
 			# :user_id => @user.id,
 			# :earring_id => @earring.id,
