@@ -1,13 +1,6 @@
 class OrdersController < ApplicationController
 	before_action :set_order, only: [:update, :ship, :arrival, :show, :destroy]
 
-	def index
-		@earring = Earring.find(params[:earring_id])
-	  	@address = Address.find(params[:address_id])
-	  	@buy = params[:buy]
-		redirect_to user_orders_path(:earring_id =>@earring.id, :address_id =>@address.id, :buy => @buy), :method => :post
-	end
-
 	def buy_index
 		@orders = Order.all
 	end
