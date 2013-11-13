@@ -6,6 +6,7 @@ class ChargesController < ApplicationController
 	  	@earring = Earring.find(params[:earring_id])
 	  	@address = Address.find(params[:address_id])
 	  	@buy = params[:buy]
+	  	@used = params[:used]
 	  	@amount =@earring.price
 	  	@user = current_user
 
@@ -22,7 +23,7 @@ class ChargesController < ApplicationController
 	  	)
 
 	  	if charge
-	  		redirect_to "/remotecreate?earring_id=#{@earring.id}&address_id=#{@address.id}&buy=#{@buy}", :method => :post
+	  		redirect_to "/remotecreate?earring_id=#{@earring.id}&address_id=#{@address.id}&buy=#{@buy}&used=#{@used}", :method => :post
 	  	else
 	  		flash[:notice] = Stripe::CardError.message
 	  		redirect_to earring_path(@earring)

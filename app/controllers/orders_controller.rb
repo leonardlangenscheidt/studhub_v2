@@ -45,18 +45,22 @@ class OrdersController < ApplicationController
 	  	@earring = Earring.find(params[:earring_id])
 	  	@address = Address.find(params[:address_id])
 	  	@buy = params[:buy]
+	  	@used = params[:used]
 	  	@user = current_user
 		@order = Order.create(
 		:user_id => @user.id,
 		:earring_id => @earring.id,
 		:price_paid => @earring.price,
 		:address_id => @address.id,
-		:buy => @buy
+		:buy => @buy,
+		:used => @used
 		)
 		if @order.save
 			if @order.buy == true
-				@earring.inventory = @earring.inventory - 1
-				@earring.save
+				if @order.used == true
+					@earring.inventory = @earring.inventory - 1
+					@earring.save
+				end
 				@order.status = "Confirmed"
 				@order.save
 				UserMailer.purchase_email(@order).deliver
