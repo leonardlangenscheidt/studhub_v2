@@ -27,7 +27,7 @@
 				</tbody>
 			</table>
 			<div style="text-align:center">
-				<% if @buy == "true" %>
+				<% if @buy == true %>
 					<%= form_tag earring_charges_path(:earring_id =>@earring.id, :address_id =>@address.id) do %>
 						<script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
 						data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
