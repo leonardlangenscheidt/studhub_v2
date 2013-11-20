@@ -20,7 +20,7 @@
 			<strong>Size:</strong> <%=@order.earring.size%>mm</br>
 			<strong>Price:</strong> $<%=@order.earring.price%>.00</br>
 			<strong>Description:</strong>  <%=@order.earring.description%></br></br>
-			<%if @order.used==true%>
+			<%if @order.address.used==true%>
 				<strong>This order is for a used earring.</strong>
 			<%end%>
 		</div>
