@@ -44,23 +44,21 @@ class OrdersController < ApplicationController
 	def create
 	  	@earring = Earring.find(params[:earring_id])
 	  	@address = Address.find(params[:address_id])
-	  	@buy = params[:buy]
-	  	@used = params[:used]
 	  	@user = current_user
 		@order = Order.create(
 		:user_id => @user.id,
 		:earring_id => @earring.id,
 		:price_paid => @earring.price,
 		:address_id => @address.id,
-		:buy => @buy,
-		:used => @used
 		)
 		if @order.save
-			if @order.buy == true
-				if @order.used == true
+			if @order.address.buy == true
+				if @order.address.used == true
+					@earring.used_inventory = @earring.used_inventory - 1
+				else
 					@earring.inventory = @earring.inventory - 1
-					@earring.save
 				end
+				@earring.save
 				@order.status = "Confirmed"
 				@order.save
 				UserMailer.purchase_email(@order).deliver
@@ -71,7 +69,7 @@ class OrdersController < ApplicationController
 				  'width=626,height=436');
 				return false;">Share on Facebook</a>].html_safe
 			else
-				@earring.inventory = @earring.inventory + 1
+				@earring.used_inventory = @earring.used_inventory + 1
 				@earring.save
 				@order.status = "Awaiting Shipment"
 				@order.save

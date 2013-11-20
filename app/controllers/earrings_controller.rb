@@ -71,7 +71,9 @@ class EarringsController < ApplicationController
 	def confirm
 		@earring = Earring.find(params[:earring_id])
 		@address = current_user.addresses.last
-		@buy = params[:buy]
+		@buy = @address.buy
+		@right = @address.right
+		@used = @address.used
 	end
 
 	private
@@ -81,6 +83,6 @@ class EarringsController < ApplicationController
 	end
 
 	def earring_params
-			params.require(:earring).permit(:vendor, :collection, :design, :material, :size, :price, :sku, :inventory, :description, :image)
+			params.require(:earring).permit(:vendor, :collection, :design, :material, :size, :price, :sku, :inventory, :used_inventory, :description, :image, :sides, :easyRestock)
 	end
 end

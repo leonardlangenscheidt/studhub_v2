@@ -4,6 +4,8 @@ class AddressesController < ApplicationController
   def new
     @earring = Earring.find(params[:earring_id])
     @buy = params[:buy]
+    @right = params[:right]
+    @used = params[:used]
     @lastaddress = current_user.addresses.last
     @address = current_user.addresses.new
   end
@@ -14,11 +16,10 @@ class AddressesController < ApplicationController
   def create
     @address = current_user.addresses.new(address_params)
     @earring = Earring.find(address_params[:earring_id])
-    @buy = address_params[:buy]
 
     respond_to do |format|
       if @address.save
-        format.html { redirect_to "/earrings/#{@earring.id}/#{@buy}/confirm"}
+        format.html { redirect_to "/earrings/#{@earring.id}/confirm"
         format.json { render action: 'show', status: :created, location: @address }
       else
         format.html { render action: 'new' }
@@ -32,6 +33,6 @@ class AddressesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def address_params
-      params.require(:address).permit(:street, :street2, :city, :state, :zip, :earring_id, :buy)
+      params.require(:address).permit(:street, :street2, :city, :state, :zip, :earring_id, :buy, :right, :used)
     end
 end

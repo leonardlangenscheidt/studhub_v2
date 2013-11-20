@@ -13,7 +13,7 @@
 	</thead>
 	<tbody>
 		<% @orders.each do |order| %>
-			<%if order.buy == false %>
+			<%if order.address.buy == false %>
 				<tr>
 					<td><%=order.id%></td>
 					<td><%=order.user.name%></td>

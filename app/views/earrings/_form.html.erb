@@ -11,6 +11,9 @@
   <%= f.input :price, as: :integer%>
   <%= f.input :sku, as: :string%>
   <%= f.input :inventory, as: :integer%>
+  <%= f.input :used_inventory, as: :integer%>
+  <%= f.input :sides, as: :boolean%>
+  <%= f.input :easyRestock, as: :boolean%>
   <%= f.input :description, as: :text, input_html: { rows: "3" } %>
   <%= f.input :image, label: "Upload an image" %>
 

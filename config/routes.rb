@@ -14,6 +14,7 @@ Studhub::Application.routes.draw do
 	resources :orders
 	get 'orderpage/buy' => 'orders#buy_index'
 	get 'orderpage/sell' => 'orders#sell_index'
+	get 'inventory' => 'earrings#inventory'
 	get 'orders/:id/arrival' => 'orders#arrival'
 	match 'orders/:id/update' => 'orders#update', :via => [:patch]
 	get 'remotecreate' => 'orders#create', :via => [:post]
@@ -27,8 +28,7 @@ Studhub::Application.routes.draw do
 	resources :earrings do
 		resource :charges
 	end
-	get 'earrings/:earring_id/:buy/confirm' => 'earrings#confirm'
-	get 'inventory' => 'earrings#inventory'
+	get 'earrings/:earring_id/confirm' => 'earrings#confirm'
 
 	#facebook routes
 	match 'auth/:provider/callback', to: 'sessions#create', :via => [:get, :post]
