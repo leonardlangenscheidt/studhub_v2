@@ -19,7 +19,7 @@ class AddressesController < ApplicationController
 
     respond_to do |format|
       if @address.save
-        format.html { redirect_to "/earrings/#{@earring.id}/confirm"
+        format.html { redirect_to "/earrings/#{@earring.id}/confirm" }
         format.json { render action: 'show', status: :created, location: @address }
       else
         format.html { render action: 'new' }
