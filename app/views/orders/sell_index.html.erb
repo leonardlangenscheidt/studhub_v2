@@ -1,4 +1,5 @@
-<h4>User Sales</h4>
+<h3>User Sales / Receivables</h3>
+<h4>Outstanding</h4>
 <table class="table table-striped">
 	<thead>
 		<tr>
@@ -13,7 +14,41 @@
 	</thead>
 	<tbody>
 		<% @orders.each do |order| %>
-			<%if order.address.buy == false %>
+			<%if order.address.buy == false && order.status =! "Received"%>
+				<tr>
+					<td><%=order.id%></td>
+					<td><%=order.user.name%></td>
+					<td>
+						<%=order.address.street%><br>
+						<%=order.address.street2%><br>
+						<%=order.address.city%>, <%=order.address.state%> <%=order.address.zip%>
+					</td>
+					<td><%=order.earring.sku%></td>
+					<td><%= link_to (image_tag order.earring.image(:small)),  earring_path(order.earring)%></td>
+					<td><%=order.status %></td>
+					<td><%unless order.status=="Received"%><%=link_to 'Received!', "/orders/#{order.id}/arrival", class:"btn"%><%end%></td>
+				</tr>
+			<%end%>
+		<%end%>
+	</tbody>
+</table>
+<br>
+<h4>Completed</h4>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Order ID</th>
+			<th>User</th>
+			<th>Address</th>
+			<th>Sku</th>
+			<th>Picture</th>
+			<th>Status</th>
+			<th>Received</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @orders.each do |order| %>
+			<%if order.address.buy == false && order.status == "Received"%>
 				<tr>
 					<td><%=order.id%></td>
 					<td><%=order.user.name%></td>

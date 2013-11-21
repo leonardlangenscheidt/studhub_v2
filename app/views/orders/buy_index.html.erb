@@ -1,11 +1,12 @@
-<h4>User Buys</h4>
+<h3>User Buys / Deliverables</h3>
+<h4>Outstanding</h4>
 <table class="table table-striped">
 	<thead>
 		<tr>
 			<th>Order ID</th>
 			<th>User</th>
 			<th>Address</th>
-			<th>Sku</th>
+			<th>Earring SKU</th>
 			<th>Picture</th>
 			<th>Status</th>
 			<th>Tracking</th>
@@ -14,7 +15,49 @@
 	</thead>
 	<tbody>
 		<% @orders.each do |order| %>
-			<%if order.address.buy == true %>
+			<%if order.address.buy == true && order.tracking == nil%>
+				<tr>
+					<td><%=order.id%></td>
+					<td><%=order.user.name%></td>
+					<td>
+						<%=order.address.street%><br>
+						<%=order.address.street2%><br>
+						<%=order.address.city%>, <%=order.address.state%> <%=order.address.zip%>
+					</td>
+					<td><%=order.earring.sku%></td>
+					<td><%= link_to (image_tag order.earring.image(:small)),  earring_path(order.earring)%></td>
+					<td><%=order.status %></td>
+					<td><%=order.tracking %></td>
+					<td>
+						<%= simple_form_for(order) do |f| %>
+						<%= f.input :tracking, label: false, placeholder: 'Tracking Number' %>
+						<%= f.hidden_field :status, :value => 'Shipped' %>
+						<%= f.button :submit, class: "btn" %>
+						<% end %>
+					</td>
+				</tr>
+			<%end%>
+		<%end%>
+	</tbody>
+</table>
+<br>
+<h4>Completed</h4>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Order ID</th>
+			<th>User</th>
+			<th>Address</th>
+			<th>Earring SKU</th>
+			<th>Picture</th>
+			<th>Status</th>
+			<th>Tracking</th>
+			<th>Update</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @orders.each do |order| %>
+			<%if order.address.buy == true && order.tracking != nil %>
 				<tr>
 					<td><%=order.id%></td>
 					<td><%=order.user.name%></td>

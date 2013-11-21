@@ -4,8 +4,8 @@
 			<tr>
 				<th>Earring</th>
 				<th>Inventory</th>
+				<th>Used Inventory</th>
 				<th>Price</th>
-				<th>Description</th>
 				<th>Image</th>
 				<th></th>
 				<th></th>
@@ -16,9 +16,21 @@
 			<% @earrings.each do |earring| %>
 				<tr>
 					<td><%= link_to "#{earring.vendor} #{earring.collection} #{earring.design} #{earring.material}", earring_path(earring)%></td>
-					<td><%=earring.inventory%>mm</td>
+					<td>
+						<%if earring.sided%>
+							<%=earring.inventory%1000%>R and <%=(earring.inventory-earring.inventory%1000)/1000%>L
+						<%else%>
+							<%=earring.inventory%>
+						<%end%>
+					</td>
+					<td>
+						<%if earring.sided%>
+							<%=earring.used_inventory%1000%>R and <%=(earring.used_inventory-earring.used_inventory%1000)/1000%>L
+						<%else%>
+							<%=earring.inventory%>
+						<%end%>
+					</td>
 					<td>$<%=earring.price%></td>
-					<td><%=earring.description%></td>
 					<td><%= image_tag earring.image(:medium) %></td>
 					<td><%= link_to 'Edit', edit_earring_path(earring) %></td>
 					<td><%= link_to 'Destroy', earring, method: :delete, data: { confirm: 'Are you sure?' } %></td>
