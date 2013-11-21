@@ -90,6 +90,7 @@ class EarringsController < ApplicationController
 			@earring.inventory = @earring.inventory+1
 		end
 		@earring.save
+		puts "ran"
 		redirect_to '/inventory'
 	end
 
