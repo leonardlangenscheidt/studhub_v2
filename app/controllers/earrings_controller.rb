@@ -1,5 +1,5 @@
 class EarringsController < ApplicationController
-	before_action :set_earring, only: [:show, :edit, :update, :destroy]
+	before_action :set_earring, only: [:show, :update, :destroy, :restock, :confirm]
 
 	def index
 		@earrings = Earring.all
@@ -9,6 +9,7 @@ class EarringsController < ApplicationController
 		if current_user && (current_user.name = "Leonard Langenscheidt" || current_user.name = "Jennifer Liu")
 			@earrings = Earring.all
 		else
+			flash[:notice] = "Please don't mess around with our backend!"
 			redirect_to earrings_path
 		end
 	end
@@ -20,12 +21,19 @@ class EarringsController < ApplicationController
 		if current_user && (current_user.name = "Leonard Langenscheidt" || current_user.name = "Jennifer Liu")
 			@earring = Earring.new
 		else
+			flash[:notice] = "Please don't mess around with our backend!"
 			redirect_to earrings_path
 		end
 	end
 
 	# GET /earrings/1/edit
 	def edit
+		if current_user && (current_user.name = "Leonard Langenscheidt" || current_user.name = "Jennifer Liu")
+			@earring = Earring.find(params[:id])
+		else
+			flash[:notice] = "Please don't mess around with our backend!"
+			redirect_to earrings_path
+		end
 	end
 
 	# POST /earrings
@@ -49,7 +57,7 @@ class EarringsController < ApplicationController
 	def update
 		respond_to do |format|
 			if @earring.update(earring_params)
-				format.html { redirect_to @earring, notice: 'Earring was successfully updated.' }
+				format.html { redirect_to '/inventory', notice: 'Earring was successfully updated.' }
 				format.json { head :no_content }
 			else
 				format.html { render action: 'edit' }
@@ -69,11 +77,20 @@ class EarringsController < ApplicationController
 	end
 
 	def confirm
-		@earring = Earring.find(params[:earring_id])
 		@address = current_user.addresses.last
 		@buy = @address.buy
 		@right = @address.right
 		@used = @address.used
+	end
+
+	def restock
+		if @earring.sides
+			@earring.inventory = @earring.inventory + 1001
+		else
+			@earring.inventory = @earring.inventory +2
+		end
+		@earring.save
+		redirect_to 'inventory'
 	end
 
 	private

@@ -7,6 +7,7 @@
 				<th>Used Inventory</th>
 				<th>Price</th>
 				<th>Image</th>
+				<th>Restock</th>
 				<th></th>
 				<th></th>
 			</tr>
@@ -31,7 +32,8 @@
 						<%end%>
 					</td>
 					<td>$<%=earring.price%></td>
-					<td><%= image_tag earring.image(:medium) %></td>
+					<td><%= image_tag earring.image(:small) %></td>
+					<td><%=link_to 'Bought a pair', "/earrings/#{earring.id}/restock", class:"btn"%></td>
 					<td><%= link_to 'Edit', edit_earring_path(earring) %></td>
 					<td><%= link_to 'Destroy', earring, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 				</tr>
