@@ -85,8 +85,10 @@ class EarringsController < ApplicationController
 
 	def restock
 		@earring.inventory = 1+@earring.inventory
-		@earring.save
-		redirect_to '/inventory'
+		if @earring.save
+			flash[:notice] = "successfully restocked"
+			redirect_to '/inventory'
+		end
 	end
 
 	private
