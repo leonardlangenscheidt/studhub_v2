@@ -88,8 +88,9 @@ class EarringsController < ApplicationController
 		# 	@earring.inventory = @earring.inventory + 1001
 		# 	@earring.save
 		# else
-			@earring.inventory = @earring.inventory +2
-			@earring.save
+		@newinv = 2 +@earring.inventory
+		@earring.inventory = @newinv
+		@earring.save
 		# end
 		redirect_to '/inventory'
 	end
