@@ -28,7 +28,7 @@
 						<%if earring.sides%>
 							<%=earring.used_inventory%1000%>R and <%=(earring.used_inventory-earring.used_inventory%1000)/1000%>L
 						<%else%>
-							<%=earring.inventory%>
+							<%=earring.used_inventory%>
 						<%end%>
 					</td>
 					<td>$<%=earring.price%></td>
