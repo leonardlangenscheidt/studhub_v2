@@ -18,18 +18,20 @@
 				<tr>
 					<td><%= link_to "#{earring.vendor} #{earring.collection} #{earring.design} #{earring.material}", earring_path(earring)%></td>
 					<td>
-						<%if earring.sides%>
+<!-- 						<%if earring.sides%>
 							<%=earring.inventory%1000%>R and <%=(earring.inventory-earring.inventory%1000)/1000%>L
 						<%else%>
 							<%=earring.inventory%>
-						<%end%>
+						<%end%> -->
+						<%=earring.inventory%>
 					</td>
 					<td>
-						<%if earring.sides%>
+						<!--<%if earring.sides%>
 							<%=earring.used_inventory%1000%>R and <%=(earring.used_inventory-earring.used_inventory%1000)/1000%>L
 						<%else%>
 							<%=earring.used_inventory%>
-						<%end%>
+						<%end%>-->
+						<%=earring.used_inventory%>
 					</td>
 					<td>$<%=earring.price%></td>
 					<td><%= image_tag earring.image(:small) %></td>
