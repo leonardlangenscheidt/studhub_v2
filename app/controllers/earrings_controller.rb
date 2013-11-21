@@ -90,7 +90,7 @@ class EarringsController < ApplicationController
 			@earring.inventory = @earring.inventory +2
 		end
 		@earring.save
-		redirect_to 'inventory'
+		redirect_to '/inventory'
 	end
 
 	private
