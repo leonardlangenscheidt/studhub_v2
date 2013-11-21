@@ -83,17 +83,6 @@ class EarringsController < ApplicationController
 		@used = @address.used
 	end
 
-	def restock
-		if @earring.sides == true
-			@earring.inventory = @earring.inventory+500.5
-		else
-			@earring.inventory = @earring.inventory+1
-		end
-		@earring.save
-		puts "ran"
-
-	end
-
 	private
 
 	def set_earring

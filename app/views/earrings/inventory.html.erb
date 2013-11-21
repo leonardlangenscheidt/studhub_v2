@@ -7,7 +7,8 @@
 				<th>Used Inventory</th>
 				<th>Price</th>
 				<th>Image</th>
-				<th>Restock</th>
+				<th>Restock Version 1</th>
+				<th>Restock Version 2</th>
 				<th></th>
 				<th></th>
 			</tr>
@@ -33,7 +34,18 @@
 					</td>
 					<td>$<%=earring.price%></td>
 					<td><%= image_tag earring.image(:small) %></td>
-					<td><%=link_to 'Bought a pair', "/earrings/#{earring.id}/restock", class:"btn"%></td>
+					<td>
+						<%= simple_form_for(earring) do |f| %>
+						<%= f.input :inventory, label: false, placeholder: earring.inventory+2 %>
+						<%= f.button :submit, class: "btn" %>
+						<% end %>
+					</td>
+					<td>
+						<%= simple_form_for(earring) do |f| %>
+						<%= f.hidden_field :inventory, :value => earring.inventory+2 %>
+						<%= f.button :submit, class: "btn" %>
+						<% end %>
+					</td>
 					<td><%= link_to 'Edit', edit_earring_path(earring) %></td>
 					<td><%= link_to 'Destroy', earring, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 				</tr>
