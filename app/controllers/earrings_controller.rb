@@ -84,13 +84,13 @@ class EarringsController < ApplicationController
 	end
 
 	def restock
-		if @earring.sides == true
-			@earring.inventory = @earring.inventory + 1001
-			@earring.save
-		else
+		# if @earring.sides == true
+		# 	@earring.inventory = @earring.inventory + 1001
+		# 	@earring.save
+		# else
 			@earring.inventory = @earring.inventory +2
 			@earring.save
-		end
+		# end
 		redirect_to '/inventory'
 	end
 
