@@ -91,7 +91,7 @@ class EarringsController < ApplicationController
 		end
 		@earring.save
 		puts "ran"
-		redirect_to '/inventory'
+
 	end
 
 	private
