@@ -19,24 +19,16 @@
 				<tr>
 					<td><%= link_to "#{earring.vendor} #{earring.collection} #{earring.design} #{earring.material}", earring_path(earring)%></td>
 					<td>
-						<%if earring.sides%>
-							<%=(earring.inventory-earring.inventory%1000)/1000%>L and <%=earring.inventory%1000%>R
-						<%else%>
-							<%=earring.inventory%>
-						<%end%>
+						<%=earring.inventory%>
 					</td>
 					<td>
-						<%if earring.sides%>
-							 <%=(earring.used_inventory-earring.used_inventory%1000)/1000%>L and <%=earring.used_inventory%1000%>R
-						<%else%>
-							<%=earring.used_inventory%>
-						<%end%>
+						<%=earring.used_inventory%>
 					</td>
 					<td>$<%=earring.price%></td>
 					<td><%= image_tag earring.image(:small) %></td>
 					<td>
 						<%= simple_form_for(earring) do |f| %>
-						<%= f.input :inventory, label: false, placeholder: earring.inventory+2 %>
+						<%= f.input :inventory, label: false, placeholder: "#{earring.inventory+2}" %>
 						<%= f.button :submit, class: "btn" %>
 						<% end %>
 					</td>
