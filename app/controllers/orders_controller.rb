@@ -40,12 +40,12 @@ class OrdersController < ApplicationController
 
 	def new
 		@earring = Earring.find(params[:earring_id])
-		@order = Order.new
+		@order = Earring.orders.new
 	end
 
 	def create
 		@earring = Earring.find(params[:earring_id])
-		@order = Order.new(order_params)
+		@order = Earring.orders.new(order_params)
 		if @order.save
 			flash[:notice] = 'Receipt was successfully created.'
 			redirect_to "/inv/inventory"
