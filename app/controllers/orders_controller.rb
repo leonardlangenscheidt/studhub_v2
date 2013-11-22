@@ -12,18 +12,18 @@ class OrdersController < ApplicationController
 	def update
 		unless @order.status == 'Shipped'
 			@order.update(order_params)
-			redirect_to '/inv/deliverables'
+			redirect_to inv_deliverables_path
 			UserMailer.shipping_email(@order).deliver
 		else
 			@order.update(order_params)
-			redirect_to '/inv/deliverables'
+			redirect_to inv_deliverables_path
 		end
 	end
 
 	def arrival
 		@order.status = "Received"
 		@order.save
-		redirect_to '/inv/receivables'
+		redirect_to inv_reveivables_path
 		UserMailer.arrival_email(@order).deliver
 	end
 
@@ -46,10 +46,9 @@ class OrdersController < ApplicationController
 	def create
 		@earring = Earring.find(params[:earring_id])
 		@order = Order.new(order_params)
-		if @order.save
-			flash[:notice] = 'Receipt was successfully created.'
-			redirect_to "/inv/inventory"
-		end
+		@order.save
+		flash[:notice] = 'Receipt was successfully created.'
+		redirect_to inv_inventory_path
 	end
 
 	def remotecreate
