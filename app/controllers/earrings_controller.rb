@@ -43,7 +43,7 @@ class EarringsController < ApplicationController
 
 		respond_to do |format|
 			if @earring.save
-				format.html { redirect_to earrings_url, notice: 'Earring was successfully created.' }
+				format.html { redirect_to '/inv/inventory', notice: 'Earring was successfully created.' }
 				format.json { render action: 'index', status: :created, location: @earring }
 			else
 				format.html { render action: 'new' }
@@ -94,6 +94,6 @@ class EarringsController < ApplicationController
 	end
 
 	def earring_params
-		params.require(:earring).permit(:vendor, :collection, :design, :material, :size, :price, :sku, :inv/inventory, :used_inv/inventory, :description, :image, :sides, :easyRestock)
+		params.require(:earring).permit(:vendor, :collection, :design, :material, :size, :price, :sku, :inventory, :used_inv/inventory, :description, :image, :sides, :easyRestock)
 	end
 end
