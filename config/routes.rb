@@ -8,10 +8,11 @@ Studhub::Application.routes.draw do
 	resources :addresses
 
 	#profile and orders
-	resource :user do
-		resources :orders
-	end
-	resources :orders
+	resource :user
+	# resource :user do
+	# 	resources :orders
+	# end
+	# resources :orders
 
 	#inventory system
 	get 'inv' => 'pages#dashboard'
@@ -24,14 +25,11 @@ Studhub::Application.routes.draw do
 	get 'orders/:id/arrival' => 'orders#arrival'
 	match 'orders/:id/update' => 'orders#update', :via => [:patch]
 	get 'remotecreate' => 'orders#remotecreate', :via => [:post]
-
-	#profile
-	get 'profile' => 'users#show'
-	get 'profile/orders/:order_id' => 'orders#show'
-	match 'profile/orders/:order_id', to: 'orders#destroy', :via => [:get, :post]
+	get 'user/orders/:id' => 'order#show'
 
 	#earring routes
 	resources :earrings do
+		resources :orders
 		resource :charges
 	end
 	get 'earrings/:id/confirm' => 'earrings#confirm'
