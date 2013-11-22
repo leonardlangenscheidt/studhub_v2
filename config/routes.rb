@@ -27,7 +27,7 @@ Studhub::Application.routes.draw do
 	get 'remotecreate' => 'orders#remotecreate', :via => [:post]
 	get 'user/orders/:id' => 'orders#show'
 	get 'earrings/:earring_id/orders/new' => 'orders#new'
-	match 'earrings/:earring_id/orders' => 'orders#create', :via => [:post]
+	match 'earrings/:earring_id/orders' => 'orders#create', :via => [:get, :post]
 
 	#earring routes
 	resources :earrings do
