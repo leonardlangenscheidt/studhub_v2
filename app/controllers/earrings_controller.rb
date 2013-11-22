@@ -67,6 +67,7 @@ class EarringsController < ApplicationController
 	end
 
 	def pastorders
+		@orders = Order.all
 	end
 
 	# DELETE /earrings/1
@@ -74,7 +75,7 @@ class EarringsController < ApplicationController
 	def destroy
 		@earring.destroy
 		respond_to do |format|
-			format.html { redirect_to earrings_url }
+			format.html { redirect_to 'inv/inventory' }
 			format.json { head :no_content }
 		end
 	end
