@@ -16,4 +16,5 @@ class PagesController < ApplicationController
 			flash[:notice] = "Please don't mess around with our backend!"
 			redirect_to root_path
 		end
+	end
 end
