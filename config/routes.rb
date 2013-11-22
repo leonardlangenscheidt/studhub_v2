@@ -26,10 +26,10 @@ Studhub::Application.routes.draw do
 	match 'orders/:id/update' => 'orders#update', :via => [:patch]
 	get 'remotecreate' => 'orders#remotecreate', :via => [:post]
 	get 'user/orders/:id' => 'orders#show'
+	resources :orders
 
 	#earring routes
 	resources :earrings do
-		resources :orders
 		resource :charges
 	end
 	get 'earrings/:id/confirm' => 'earrings#confirm'
