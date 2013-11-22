@@ -44,6 +44,7 @@ class OrdersController < ApplicationController
 	end
 
 	def create
+		@earring = Earring.find(params[:earring_id])
 		@order = Order.new(order_params)
 		if @order.save
 			format.html { redirect_to "/inv/inventory", notice: 'Receipt was successfully created.' }
