@@ -13,31 +13,33 @@
 	<tbody>
 		<%@orders.each do |order| %>
 			<%if order.earring.id == @earring.id %>
-				<td><%=order.number%></td>
-				<td><%=order.price_paid + order.tax%></td>
-				<td>
-					<%if order.address.id==73%>
-						Receipt
-					<%else%>
-						Ticket
-					<%end%>
-				</td>
-				<td>
-					<%if order.address.buy==true%>
-						Deliverable
-					<%else%>
-						Receivable
-					<%end%>
-				</td>
-				<td><%=order.user.id%></td>
-				<td><%=order.id%></td>
-				<td>
-					<%= simple_form_for(order) do |f| %>
-						<%= f.input :tracking, label: false, placeholder: 'Tracking Number' %>
-						<%= f.hidden_field :status, :value => 'Shipped' %>
-						<%= f.button :submit, class: "btn" %>
-					<% end %>
-				</td>
+				<tr>
+					<td><%=order.number%></td>
+					<td><%=order.price_paid + order.tax%></td>
+					<td>
+						<%if order.address.id==73%>
+							Receipt
+						<%else%>
+							Ticket
+						<%end%>
+					</td>
+					<td>
+						<%if order.address.buy==true%>
+							Deliverable
+						<%else%>
+							Receivable
+						<%end%>
+					</td>
+					<td><%=order.user.id%></td>
+					<td><%=order.id%></td>
+					<td>
+						<%= simple_form_for(order) do |f| %>
+							<%= f.input :tracking, label: false, placeholder: 'Tracking Number' %>
+							<%= f.hidden_field :status, :value => 'Shipped' %>
+							<%= f.button :submit, class: "btn" %>
+						<% end %>
+					</td>
+				</tr>
 			<%end%>
 		<%end%>
 	</tbody>
