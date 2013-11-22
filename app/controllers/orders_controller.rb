@@ -47,11 +47,8 @@ class OrdersController < ApplicationController
 		@earring = Earring.find(params[:earring_id])
 		@order = Order.new(order_params)
 		if @order.save
-			format.html { redirect_to "/inv/inventory", notice: 'Receipt was successfully created.' }
-			format.json { render action: 'index', status: :created, location: @order }
-		else
-			format.html { render action: 'new' }
-			format.json { render json: @order.errors, status: :unprocessable_entity }
+			flash[:notice] = 'Receipt was successfully created.'
+			redirect_to "/inv/inventory"
 		end
 	end
 
