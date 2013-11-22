@@ -41,7 +41,7 @@ class OrdersController < ApplicationController
 	def new
 	end
 
-	def create
+	def remotecreate
 	  	@earring = Earring.find(params[:earring_id])
 	  	@address = Address.find(params[:address_id])
 	  	@user = current_user
@@ -50,6 +50,8 @@ class OrdersController < ApplicationController
 		:earring_id => @earring.id,
 		:price_paid => @earring.price,
 		:address_id => @address.id,
+		:tax => 0,
+		:number => 1
 		)
 		if @order.save
 			if @order.address.buy == true
@@ -95,6 +97,6 @@ class OrdersController < ApplicationController
 	end
 
 	def order_params
-			params.require(:order).permit(:user_id, :earring_id, :price_paid, :status, :tracking)
+			params.require(:order).permit(:user_id, :earring_id, :price_paid, :status, :tracking, :tax, :number)
 	end
 end
