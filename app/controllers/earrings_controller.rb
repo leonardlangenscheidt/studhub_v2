@@ -1,5 +1,5 @@
 class EarringsController < ApplicationController
-	before_action :set_earring, only: [:show, :update, :destroy, :restock, :confirm]
+	before_action :set_earring, only: [:show, :update, :destroy, :restock, :confirm, :pastorders]
 
 	def index
 		@earrings = Earring.all
@@ -57,13 +57,16 @@ class EarringsController < ApplicationController
 	def update
 		respond_to do |format|
 			if @earring.update(earring_params)
-				format.html { redirect_to '/inventory', notice: 'Earring was successfully updated.' }
+				format.html { redirect_to '/inv/inventory', notice: 'Earring was successfully updated.' }
 				format.json { head :no_content }
 			else
 				format.html { render action: 'edit' }
 				format.json { render json: @earring.errors, status: :unprocessable_entity }
 			end
 		end
+	end
+
+	def pastorders
 	end
 
 	# DELETE /earrings/1
@@ -90,6 +93,6 @@ class EarringsController < ApplicationController
 	end
 
 	def earring_params
-		params.require(:earring).permit(:vendor, :collection, :design, :material, :size, :price, :sku, :inventory, :used_inventory, :description, :image, :sides, :easyRestock)
+		params.require(:earring).permit(:vendor, :collection, :design, :material, :size, :price, :sku, :inv/inventory, :used_inv/inventory, :description, :image, :sides, :easyRestock)
 	end
 end

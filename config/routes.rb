@@ -12,9 +12,15 @@ Studhub::Application.routes.draw do
 		resources :orders
 	end
 	resources :orders
-	get 'orderpage/buy' => 'orders#buy_index'
-	get 'orderpage/sell' => 'orders#sell_index'
-	get 'inventory' => 'earrings#inventory'
+
+	#inventory system
+	get 'inv' => 'pages#dashboard'
+	get 'inv/deliverables' => 'orders#deliverables'
+	get 'inv/receivables' => 'orders#receivables'
+	get 'inv/inventory' => 'earrings#inventory'
+	get 'earrings/:id/pastorders' => 'earrings#pastorders'
+
+	#ordercreation
 	get 'orders/:id/arrival' => 'orders#arrival'
 	match 'orders/:id/update' => 'orders#update', :via => [:patch]
 	get 'remotecreate' => 'orders#create', :via => [:post]

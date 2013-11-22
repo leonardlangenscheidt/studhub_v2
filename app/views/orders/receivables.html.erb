@@ -1,4 +1,4 @@
-<h3>User Buys / Deliverables</h3>
+<h3>Receivables</h3>
 <h4>Outstanding</h4>
 <table class="table table-striped">
 	<thead>
@@ -6,16 +6,15 @@
 			<th>Order ID</th>
 			<th>User</th>
 			<th>Address</th>
-			<th>Earring SKU</th>
+			<th>Sku</th>
 			<th>Picture</th>
 			<th>Status</th>
-			<th>Tracking</th>
-			<th>Update</th>
+			<th>Received</th>
 		</tr>
 	</thead>
 	<tbody>
 		<% @orders.each do |order| %>
-			<%if order.address.buy == true && order.tracking == nil%>
+			<%if order.address.buy == false && order.status =! "Received"%>
 				<tr>
 					<td><%=order.id%></td>
 					<td><%=order.user.name%></td>
@@ -27,14 +26,7 @@
 					<td><%=order.earring.sku%></td>
 					<td><%= link_to (image_tag order.earring.image(:small)),  earring_path(order.earring)%></td>
 					<td><%=order.status %></td>
-					<td><%=order.tracking %></td>
-					<td>
-						<%= simple_form_for(order) do |f| %>
-						<%= f.input :tracking, label: false, placeholder: 'Tracking Number' %>
-						<%= f.hidden_field :status, :value => 'Shipped' %>
-						<%= f.button :submit, class: "btn" %>
-						<% end %>
-					</td>
+					<td><%unless order.status=="Received"%><%=link_to 'Received!', "/orders/#{order.id}/arrival", class:"btn"%><%end%></td>
 				</tr>
 			<%end%>
 		<%end%>
@@ -48,16 +40,15 @@
 			<th>Order ID</th>
 			<th>User</th>
 			<th>Address</th>
-			<th>Earring SKU</th>
+			<th>Sku</th>
 			<th>Picture</th>
 			<th>Status</th>
-			<th>Tracking</th>
-			<th>Update</th>
+			<th>Received</th>
 		</tr>
 	</thead>
 	<tbody>
 		<% @orders.each do |order| %>
-			<%if order.address.buy == true && order.tracking != nil %>
+			<%if order.address.buy == false && order.status == "Received"%>
 				<tr>
 					<td><%=order.id%></td>
 					<td><%=order.user.name%></td>
@@ -69,17 +60,9 @@
 					<td><%=order.earring.sku%></td>
 					<td><%= link_to (image_tag order.earring.image(:small)),  earring_path(order.earring)%></td>
 					<td><%=order.status %></td>
-					<td><%=order.tracking %></td>
-					<td>
-						<%= simple_form_for(order) do |f| %>
-						<%= f.input :tracking, label: false, placeholder: 'Tracking Number' %>
-						<%= f.hidden_field :status, :value => 'Shipped' %>
-						<%= f.button :submit, class: "btn" %>
-						<% end %>
-					</td>
+					<td><%unless order.status=="Received"%><%=link_to 'Received!', "/orders/#{order.id}/arrival", class:"btn"%><%end%></td>
 				</tr>
 			<%end%>
 		<%end%>
 	</tbody>
 </table>
-<br>

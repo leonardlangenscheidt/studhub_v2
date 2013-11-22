@@ -1,29 +1,29 @@
 class OrdersController < ApplicationController
 	before_action :set_order, only: [:update, :ship, :arrival, :show, :destroy]
 
-	def buy_index
+	def deliverables
 		@orders = Order.all
 	end
 
-	def sell_index
+	def receivables
 		@orders = Order.all
 	end
 
 	def update
 		unless @order.status == 'Shipped'
 			@order.update(order_params)
-			redirect_to '/orderpage/buy'
+			redirect_to '/inv/deliverables'
 			UserMailer.shipping_email(@order).deliver
 		else
 			@order.update(order_params)
-			redirect_to '/orderpage/buy'
+			redirect_to '/inv/deliverables'
 		end
 	end
 
 	def arrival
 		@order.status = "Received"
 		@order.save
-		redirect_to '/orderpage/sell'
+		redirect_to '/inv/receivables'
 		UserMailer.arrival_email(@order).deliver
 	end
 
