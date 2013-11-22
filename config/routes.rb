@@ -28,10 +28,11 @@ Studhub::Application.routes.draw do
 	get 'user/orders/:id' => 'orders#show'
 	# match 'earrings/:earring_id/orders' => 'orders#create', :via => [:get, :post]
 
+	resources :orders
+
 	#earring routes
 	resources :earrings do
 		resource :charges
-		resources :orders
 	end
 	get 'earrings/:id/confirm' => 'earrings#confirm'
 
