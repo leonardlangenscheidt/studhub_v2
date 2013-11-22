@@ -1,7 +1,8 @@
 <h3>Past orders for earring <%= @earring.id %></h3>
-<h4>New</h4>
+<h4>New - Currently <%=@earring.inventory%> in stock</h4>
 <table class="table">
 	<thead>
+		<th>Date</th>
 		<th>Amount</th>
 		<th>Paid per Earring</th>
 		<th>Type</th>
@@ -14,7 +15,14 @@
 		<%@orders.each do |order| %>
 			<%if order.earring.id == @earring.id && order.address.used == false%>
 				<tr>
-					<td><%=order.number%></td>
+					<td><%=order.created_at.strftime("%d-%m-%Y at %H:%M")%></td>
+					<td>
+						<%if order.address.buy==true%>
+							-<%=order.number%>
+						<%else%>
+							+<%=order.number%>
+						<%end%>
+					</td>
 					<td><%=order.price_paid + order.tax%></td>
 					<td>
 						<%if order.address.id==73%>
@@ -33,11 +41,15 @@
 					<td><%=order.user.id%></td>
 					<td><%=order.id%></td>
 					<td>
-						<%= simple_form_for(order) do |f| %>
-							<%= f.input :tracking, label: false, placeholder: 'Tracking Number' %>
-							<%= f.hidden_field :status, :value => 'Shipped' %>
-							<%= f.button :submit, class: "btn" %>
-						<% end %>
+						<%if order.tracking == nil %>
+							<%= simple_form_for(order) do |f| %>
+								<%= f.input :tracking, label: false, placeholder: 'Tracking Number' %>
+								<%= f.hidden_field :status, :value => 'Shipped' %>
+								<%= f.button :submit, class: "btn" %>
+							<% end %>
+						<%else%>
+							<%= order.tracking %>
+						<%end%>
 					</td>
 				</tr>
 			<%end%>
@@ -45,7 +57,7 @@
 	</tbody>
 </table>
 <br>
-<h4>Used</h4>
+<h4>Used - Currently <%=@earring.used_inventory%> in stock</h4>
 <table class="table">
 	<thead>
 		<th>Amount</th>
@@ -60,7 +72,13 @@
 		<%@orders.each do |order| %>
 			<%if order.earring.id == @earring.id && order.address.used == true%>
 				<tr>
-					<td><%=order.number%></td>
+					<td>
+						<%if order.address.buy==true%>
+							-<%=order.number%>
+						<%else%>
+							+<%=order.number%>
+						<%end%>
+					</td>
 					<td><%=order.price_paid + order.tax%></td>
 					<td>
 						<%if order.address.id==73%>
@@ -79,11 +97,15 @@
 					<td><%=order.user.id%></td>
 					<td><%=order.id%></td>
 					<td>
-						<%= simple_form_for(order) do |f| %>
-							<%= f.input :tracking, label: false, placeholder: 'Tracking Number' %>
-							<%= f.hidden_field :status, :value => 'Shipped' %>
-							<%= f.button :submit, class: "btn" %>
-						<% end %>
+						<%if order.tracking == nil %>
+							<%= simple_form_for(order) do |f| %>
+								<%= f.input :tracking, label: false, placeholder: 'Tracking Number' %>
+								<%= f.hidden_field :status, :value => 'Shipped' %>
+								<%= f.button :submit, class: "btn" %>
+							<% end %>
+						<%else%>
+							<%= order.tracking %>
+						<%end%>
 					</td>
 				</tr>
 			<%end%>
