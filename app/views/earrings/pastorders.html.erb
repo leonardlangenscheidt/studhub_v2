@@ -1,7 +1,23 @@
-Past orders for earring <%= @earring.id %>
-
-<ul>
-	<%@orders.each do |order| %>
-		<li><%=order.id%></li>
-	<%end%>
-</ul>
+<h3>Past orders for earring <%= @earring.id %></h3>
+<h4>New</h4>
+<table>
+	<thead>
+		<th>Amount</th>
+		<th>Type</th>
+		<th>Del/Rec</th>
+		<th>User</th>
+		<th>Order ID</th>
+		<th>Tracking</th>
+	</thead>
+	<tbody>
+		<%@orders.each do |order| %>
+			<%if order.earring.id == @earring.id %>
+				<td>gotta update db</td>
+				<td>
+					<%if order.address.id==73%>
+						Receipt
+						<%else%>
+				</td>
+		<%end%>
+	</tbody>
+</table>
