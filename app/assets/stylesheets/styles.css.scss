@@ -32,7 +32,7 @@ form {
 
 .box {
     margin: 5px;
-    padding: 5px;
+    padding: 15px;
     font-size: 11px;
     line-height: 1.4em;
     float: left;
@@ -41,8 +41,8 @@ form {
     border-radius: 5px;
     box-shadow: 1px 1px 10px #444;*/
     width: 180px;
-    /*background-color: #87c2c4;*/
-    background-color: #85bfc2;
+
+    background-color: #ddd;
 }
 
 .box-large {
@@ -57,10 +57,10 @@ form {
 }
 
 .description {
-    /*font-size: 1em;*/
+    font-size: 1.3em;
     padding: 5px 0;
     text-align: center;
-    color: purple;
+    color: #888;
 /*    -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;*/
