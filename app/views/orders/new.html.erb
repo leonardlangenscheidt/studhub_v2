@@ -19,7 +19,7 @@
         <%= f.full_error :image_file_size, class: "alert alert-error" %>
         <%= f.full_error :image_content_type, class: "alert alert-error" %>
 
-        <%= f.input :number, as: :integer%>
+        <%= f.input :number, :label => 'Quantity', as: :integer%>
         <%= f.input :price_paid, as: :integer%>
         <%= f.input :tax, as: :integer%>
         <%= f.hidden_field :earring_id, :value => @earring.id %>
