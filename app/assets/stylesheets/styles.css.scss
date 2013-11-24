@@ -31,11 +31,12 @@ form {
 /* required for jquery masonry*/
 
 .box {
-    margin: 15px auto;
+    margin: 15px;
     padding: 3px;
     font-size: 11px;
     line-height: 1.4em;
     float: left;
+
 /*    -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -68,5 +69,11 @@ form {
 
 .container {
     margin: auto;
+}
+
+.inner-container {
+    width:auto;
+    margin-left:auto;
+    margin-right:auto;
 }
 
