@@ -31,8 +31,8 @@ form {
 /* required for jquery masonry*/
 
 .box {
-    margin: 5px;
-    padding: 15px;
+    margin: 15px;
+    padding: 3px;
     font-size: 11px;
     line-height: 1.4em;
     float: left;
@@ -46,7 +46,7 @@ form {
 }
 
 .box-large {
-    width: 300px;
+    width: 250px;
 }
 
 .box img {
@@ -64,5 +64,9 @@ form {
 /*    -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;*/
+}
+
+.container {
+    margin-left:45px;
 }
 
