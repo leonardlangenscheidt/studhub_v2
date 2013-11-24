@@ -1,14 +1,4 @@
 <h3>Receivables</h3>
-first try <br>
-<%@orders.each do |order|%>
-	<%= order.id %>
-<%end%><br>
-second try<br>
-<%@orders.each do |order|%>
-	<%if order.address.buy == false %>
-		<%= order.status %>
-	<%end%>
-<%end%><br>
 <h4>Outstanding</h4>
 <table class="table table-striped">
 	<thead>
@@ -58,7 +48,7 @@ second try<br>
 	</thead>
 	<tbody>
 		<% @orders.each do |order| %>
-			<%if order.address.buy == false && order.status == "Received"%>
+			<%if order.address.buy == false%>
 				<tr>
 					<td><%=order.id%></td>
 					<td><%=order.user.name%></td>
