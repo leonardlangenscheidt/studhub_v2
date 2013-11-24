@@ -47,7 +47,7 @@ class OrdersController < ApplicationController
 		@order = Order.new(order_params)
 		@order.save
 		flash[:notice] = 'Receipt was successfully created.'
-		redirect_to inv_inventory_path
+		redirect_to inv_reveivables_path
 	end
 
 	def remotecreate
