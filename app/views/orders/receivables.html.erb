@@ -1,4 +1,14 @@
 <h3>Receivables</h3>
+first try <br>
+<%@orders.each do |order|%>
+	<%= order.id %>
+<%end%><br>
+second try<br>
+<%@orders.each do |order|%>
+	<%if order.address.buy == false %>
+		<%= order.id %>
+	<%end%>
+<%end%><br>
 <h4>Outstanding</h4>
 <table class="table table-striped">
 	<thead>
