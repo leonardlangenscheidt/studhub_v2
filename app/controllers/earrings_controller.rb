@@ -18,12 +18,12 @@ class EarringsController < ApplicationController
 	end
 
 	def new
-		if current_user && (current_user.name = "Leonard Langenscheidt" || current_user.name = "Jennifer Liu")
+		# if current_user && (current_user.name = "Leonard Langenscheidt" || current_user.name = "Jennifer Liu")
 			@earring = Earring.new
-		else
-			flash[:notice] = "Please don't mess around with our backend!"
-			redirect_to earrings_path
-		end
+		# else
+		# 	flash[:notice] = "Please don't mess around with our backend!"
+		# 	redirect_to earrings_path
+		# end
 	end
 
 	# GET /earrings/1/edit
