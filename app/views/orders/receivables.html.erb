@@ -6,7 +6,7 @@ first try <br>
 second try<br>
 <%@orders.each do |order|%>
 	<%if order.address.buy == false %>
-		<%= order.id %>
+		<%= order.status %>
 	<%end%>
 <%end%><br>
 <h4>Outstanding</h4>
