@@ -1,4 +1,3 @@
-<h1 style="text-align:center">Enter Shipping Address</h1>
 <div class="container">
 	<div class="row bbg">
 		<div class="span6">
@@ -16,35 +15,36 @@
 		</div>
 
 		<div class="span6">
+			<h3 style="text-align:center">Enter Shipping Address</h3>
 			<%= simple_form_for(@address, html: { class: "form-horizontal"}) do |f| %>
 			<%= f.error_notification %>
 
 			<%unless current_user.addresses.count==0%>
 				<div class="form-inputs">
-						<%= f.input :street, :input_html => { :value => @lastaddress.street} %>
-						<%= f.input :street2, :input_html => { :value => @lastaddress.street2} %>
-						<%= f.input :city, :input_html => { :value => @lastaddress.city} %>
-						<%= f.input :state, :input_html => { :value => @lastaddress.state} %>
-						<%= f.input :zip, :input_html => { :value => @lastaddress.zip} %>
-						<%= f.hidden_field :earring_id, :value => @earring.id %>
-						<%= f.hidden_field :buy, :value => @buy %>
-						<%= f.hidden_field :right, :value => @right %>
-						<%= f.hidden_field :used, :value => @used %>
+					<%= f.input :street, :input_html => { :value => @lastaddress.street} %>
+					<%= f.input :street2, :input_html => { :value => @lastaddress.street2} %>
+					<%= f.input :city, :input_html => { :value => @lastaddress.city} %>
+					<%= f.input :state, :input_html => { :value => @lastaddress.state} %>
+					<%= f.input :zip, :input_html => { :value => @lastaddress.zip} %>
+					<%= f.hidden_field :earring_id, :value => @earring.id %>
+					<%= f.hidden_field :buy, :value => @buy %>
+					<%= f.hidden_field :right, :value => @right %>
+					<%= f.hidden_field :used, :value => @used %>
 				</div>
 			<% else %>
-					<div class="form-inputs">
-						<%= f.input :street%>
-						<%= f.input :street2%>
-						<%= f.input :city%>
-						<%= f.input :state%>
-						<%= f.input :zip%>
-						<%= f.hidden_field :earring_id, :value => @earring.id %>
-						<%= f.hidden_field :buy, :value => @buy %>
-						<%= f.hidden_field :right, :value => @right %>
-						<%= f.hidden_field :used, :value => @used %>
+				<div class="form-inputs">
+					<%= f.input :street%>
+					<%= f.input :street2%>
+					<%= f.input :city%>
+					<%= f.input :state%>
+					<%= f.input :zip%>
+					<%= f.hidden_field :earring_id, :value => @earring.id %>
+					<%= f.hidden_field :buy, :value => @buy %>
+					<%= f.hidden_field :right, :value => @right %>
+					<%= f.hidden_field :used, :value => @used %>
 				</div>
 			<% end %>
-				<div class="form-actions">
+				<div class="form-actions bbg">
 					<%= f.button :submit, "Show Order Summary" %>
 				</div>
 			<% end %>
