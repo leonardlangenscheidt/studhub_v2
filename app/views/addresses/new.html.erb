@@ -1,21 +1,19 @@
 <div class="container">
-	<div class="row bbg">
+	<div class="row-fluid bbg">
 		<div class="span6">
 			<div id="earrings">
 				<div class="box box-large">
 					<%= image_tag @earring.image(:medium)%>
-					<div class="description">
-						<strong>Vendor:</strong> <%=@earring.vendor%></br>
-						<strong>Collection:</strong> <%=@earring.collection%></br>
-						<strong>Design:</strong> <%=@earring.design%></br>
-						<strong>Material:</strong> <%=@earring.material%></br>
-					</div>
 				</div>
 			</div>
 		</div>
 
 		<div class="span6">
 			<h3 style="text-align:center">Enter Shipping Address</h3>
+			<strong>Vendor:</strong> <%=@earring.vendor%></br>
+			<strong>Collection:</strong> <%=@earring.collection%></br>
+			<strong>Design:</strong> <%=@earring.design%></br>
+			<strong>Material:</strong> <%=@earring.material%></br>
 			<%= simple_form_for(@address, html: { class: "form-horizontal"}) do |f| %>
 			<%= f.error_notification %>
 
