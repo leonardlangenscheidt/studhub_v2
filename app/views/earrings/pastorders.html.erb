@@ -13,7 +13,7 @@
 	</thead>
 	<tbody>
 		<%@orders.each do |order| %>
-			<%if order.earring.id == @earring.id && order.address.used == false%>
+			<%if order.address.used == false%>
 				<tr>
 					<td><%=order.created_at.strftime("%d-%m-%Y at %H:%M")%></td>
 					<td>
@@ -70,7 +70,7 @@
 	</thead>
 	<tbody>
 		<%@orders.each do |order| %>
-			<%if order.earring.id == @earring.id && order.address.used == true%>
+			<%if order.address.used == true%>
 				<tr>
 					<td>
 						<%if order.address.buy==true%>

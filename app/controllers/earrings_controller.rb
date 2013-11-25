@@ -67,7 +67,7 @@ class EarringsController < ApplicationController
 	end
 
 	def pastorders
-		@orders = Order.all
+		@orders = @earring.orders
 	end
 
 	# DELETE /earrings/1

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131122160205) do
+ActiveRecord::Schema.define(version: 20131125214353) do
 
   create_table "addresses", force: true do |t|
     t.string   "street"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20131122160205) do
     t.boolean  "buy"
     t.boolean  "right"
     t.boolean  "used"
+    t.integer  "order_id"
   end
 
   create_table "earrings", force: true do |t|

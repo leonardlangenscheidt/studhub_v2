@@ -73,6 +73,8 @@ class OrdersController < ApplicationController
 					@earring.inventory = @earring.inventory - 1
 				end
 				@earring.save
+				@address.order_id = @order.id
+				@address.save
 				UserMailer.purchase_email(@order).deliver
 		  		flash[:notice] = %Q[Thank you! You just purchased the #{@earring.material} #{@earring.design} earring from the #{@earring.vendor} #{@earring.collection} collection for $#{@earring.price}.00! <a href="#" onclick="
 				window.open(
@@ -83,6 +85,8 @@ class OrdersController < ApplicationController
 			else
 				@earring.used_inventory = @earring.used_inventory + 1
 				@earring.save
+				@address.order_id = @order.id
+				@address.save
 				UserMailer.sell_email(@order).deliver
 				flash[:notice] = %Q[Thank you! You just sold the #{@earring.material} #{@earring.design} earring from the #{@earring.vendor} #{@earring.collection} collection for $#{@earring.price}.00! <a href="#" onclick="
 				window.open(
