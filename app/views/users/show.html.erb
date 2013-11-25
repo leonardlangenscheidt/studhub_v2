@@ -57,7 +57,7 @@
 			<div id="earrings">
 				<% unless @user.orders.count == 0 %>
 					<% @user.orders.reverse.each do |order| %>
-						<div class="box box-large">
+						<div class="box bbg">
 							<div class="description">
 								<% if order.address.buy==true %>
 									Purchased:
