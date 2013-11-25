@@ -20,19 +20,8 @@
 				<ul class="nav pull-right">
 					<%if current_user%>
 						<li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
-						<%if current_user.identities.first.provider == 'facebook' || current_user.identities.last.provider == 'facebook'%>
-							<li><%= link_to 'Signed in via Facebook', '/user' %></li>
-						<%else%>
-							<li><%= link_to "Sign in with Facebook", '/auth/facebook' %></li>
-						<%end%>
-						<%if current_user.identities.first.provider == 'paypal' || current_user.identities.last.provider == 'paypal'%>
-							<li><%= link_to 'Signed in via Paypal', '/user' %></li>
-						<%else%>
-							<li><%= link_to "Sign in with Paypal", '/auth/paypal' %></li>
-						<%end%>
 					<%else%>
 						<li><%= link_to "Sign in with Facebook", '/auth/facebook' %></li>
-						<li><%= link_to "Sign in with Paypal", '/auth/paypal' %></li>
 					<%end%>
 				</ul>
 			</div>

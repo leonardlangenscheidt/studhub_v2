@@ -1,5 +1,4 @@
-<h1 style="text-align:center">Your Order</h1>
-</br>
+
 <div class="container">
 	<div class="row bbg">
 		<div class="span6">
@@ -13,13 +12,13 @@
 			<h4>Your order</h4>
 			<table class="table">
 				<tbody>
-					<tr><td colspan="2">
+					<tr><td>
 					<% if @order.address.buy==true %>
 						Purchased:
 					<% else %>
 						Sold:
-					<% end %>
-					<%=@order.created_at.strftime("%d-%m-%Y at %H:%M")%></td></tr>
+					<% end %></td>
+					<td><%=@order.created_at.strftime("%d-%m-%Y at %H:%M")%></td></tr>
 					<tr><td>Vendor:</td><td><%=@order.earring.vendor %></td></tr>
 					<tr><td>Collection:</td><td><%=@order.earring.collection%></td></tr>
 					<tr><td>Design</td><td><%=@order.earring.design%></td></tr>
@@ -33,7 +32,7 @@
 				</tbody>
 			</table>
 			<p><%=@order.earring.description%></p>
-			<h4>Shipping Address</h4>
+			<h4>Shipping Information</h4>
 			<table class="table">
 				<tbody>
 					<tr><td>Name:</td><td><%=current_user.name %></td></tr>
@@ -42,6 +41,10 @@
 					<tr><td>City:</td><td><%=@order.address.city%></td></tr>
 					<tr><td>State:</td><td><%=@order.address.state%></td></tr>
 					<tr><td>ZIP Code:</td><td><%=@order.address.zip%></td></tr>
+					<tr><td>Status:</td><td><%=@order.status%></td></td>
+					<tr><td>Tracking:</td><td>
+						<%if @order.tracking%><%=link_to @order.tracking, "https://tools.usps.com/go/TrackConfirmAction?tLabels=#{@order.tracking}" %><%end%>
+					</td>
 				</tbody>
 			</table>
 		</div>

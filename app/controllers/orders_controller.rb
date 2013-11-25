@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
 	def arrival
 		@order.status = "Received"
 		@order.save
-		redirect_to inv_reveivables_path
+		redirect_to inv_receivables_path
 		UserMailer.arrival_email(@order).deliver
 	end
 

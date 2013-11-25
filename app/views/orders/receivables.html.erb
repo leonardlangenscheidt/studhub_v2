@@ -49,19 +49,21 @@
 	<tbody>
 		<% @orders.each do |order| %>
 			<%if order.address.buy == false%>
-				<tr>
-					<td><%=order.id%></td>
-					<td><%=order.user.name%></td>
-					<td>
-						<%=order.address.street%><br>
-						<%=order.address.street2%><br>
-						<%=order.address.city%>, <%=order.address.state%> <%=order.address.zip%>
-					</td>
-					<td><%=order.earring.sku%></td>
-					<td><%= link_to (image_tag order.earring.image(:small)), "/earrings/#{order.earring.id}/pastorders"%></td>
-					<td><%=order.status %></td>
-					<td><%unless order.status=="Received"%><%=link_to 'Received!', "/orders/#{order.id}/arrival", class:"btn"%><%end%></td>
-				</tr>
+				<%unless order.status == 'Received' %>
+					<tr>
+						<td><%=order.id%></td>
+						<td><%=order.user.name%></td>
+						<td>
+							<%=order.address.street%><br>
+							<%=order.address.street2%><br>
+							<%=order.address.city%>, <%=order.address.state%> <%=order.address.zip%>
+						</td>
+						<td><%=order.earring.sku%></td>
+						<td><%= link_to (image_tag order.earring.image(:small)), "/earrings/#{order.earring.id}/pastorders"%></td>
+						<td><%=order.status %></td>
+						<td><%unless order.status=="Received"%><%=link_to 'Received!', "/orders/#{order.id}/arrival", class:"btn"%><%end%></td>
+					</tr>
+				<%end%>
 			<%end%>
 		<%end%>
 	</tbody>
