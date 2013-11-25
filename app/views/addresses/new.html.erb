@@ -14,6 +14,7 @@
 			<strong>Collection:</strong> <%=@earring.collection%></br>
 			<strong>Design:</strong> <%=@earring.design%></br>
 			<strong>Material:</strong> <%=@earring.material%></br>
+			<br>
 			<%= simple_form_for(@address, html: { class: "form-horizontal"}) do |f| %>
 			<%= f.error_notification %>
 
@@ -48,6 +49,7 @@
 			<% end %>
 		</div>
 	</div>
+	<br>
 	<div style="text-align: center">
 		<%= link_to 'Back to Earring', earring_path(@earring) %>
 	</div>
