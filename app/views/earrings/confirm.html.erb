@@ -52,7 +52,7 @@
 					<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
 					</form>
 
-					<%end%>
+
 
 				<% else %>
 					<%= link_to "Submit", orders_path(:earring_id =>@earring.id, :address_id =>@address.id, :buy => @buy, :used => true), :method => :post, class:'btn btn-large' %>
