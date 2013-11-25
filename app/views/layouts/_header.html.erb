@@ -16,6 +16,9 @@
 					<%if current_user%>
 						<li><%= link_to 'Profile', '/user' %></li>
 					<%end%>
+					<%if current_user.addresses.last.order == nil %>
+						<li><%= link_to 'Continue last order', "/earrings/#{current_user.addresses.last.earring.id}/confirm" %></li>
+					<%end%>
 				</ul>
 				<ul class="nav pull-right">
 					<%if current_user%>

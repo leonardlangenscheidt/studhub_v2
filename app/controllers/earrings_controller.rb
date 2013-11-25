@@ -1,5 +1,5 @@
 class EarringsController < ApplicationController
-	before_action :set_earring, only: [:show, :update, :destroy, :restock, :confirm, :pastorders]
+	before_action :set_earring, only: [:show, :update, :destroy, :restock, :pastorders]
 
 	def index
 		@earrings = Earring.all
@@ -82,6 +82,7 @@ class EarringsController < ApplicationController
 
 	def confirm
 		@address = current_user.addresses.last
+		@earring = @address.earring
 		@buy = @address.buy
 		@right = @address.right
 		@used = @address.used
