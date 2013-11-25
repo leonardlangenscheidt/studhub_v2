@@ -10,13 +10,17 @@ class OrdersController < ApplicationController
 	end
 
 	def update
-		unless @order.status == 'Shipped'
+		if @order.status == 'Confirmed'
 			@order.update(order_params)
 			redirect_to inv_deliverables_path
 			UserMailer.shipping_email(@order).deliver
-		else
+		elsif @order.status == 'Awaiting Shipment'
 			@order.update(order_params)
-			redirect_to inv_deliverables_path
+			redirect_to inv_receivables_path
+			UserMailer.arrival_email(@order).deliver
+		else
+			flash[:notice] = 'Not a valid update'
+			redirect_to inv_path
 		end
 	end
 
