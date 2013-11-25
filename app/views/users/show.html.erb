@@ -60,13 +60,7 @@
 						<div class="box bbg">
 							<%= link_to (image_tag order.earring.image(:medium)),  "/user/orders/#{order.id}"%></br>
 							<div class="description">
-								<% if order.address.buy==true %>
-									Purchased:
-								<% else %>
-									Sold:
-								<% end %>
-								<%=order.created_at.strftime("%d-%m-%Y at %H:%M")%></br>
-								Type: <%=order.earring.vendor%> <%=order.earring.collection%> <%=order.earring.material%> <%=order.earring.design%></br>
+								<%=order.earring.vendor%> <%=order.earring.collection%> <%=order.earring.material%> <%=order.earring.design%></br>
 								Status: <%=order.status%></br>
 								<!--<%= link_to 'Destroy', "/user/orders/#{order.id}", method: :delete, data: { confirm: 'Are you sure?' } %>-->
 							</div>
