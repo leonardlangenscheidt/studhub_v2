@@ -9,12 +9,6 @@
 		</div>
 
 		<div class="span6">
-			<h3 style="text-align:center">Enter Shipping Address</h3>
-			<!-- <strong>Vendor:</strong> <%=@earring.vendor%></br>
-			<strong>Collection:</strong> <%=@earring.collection%></br>
-			<strong>Design:</strong> <%=@earring.design%></br>
-			<strong>Material:</strong> <%=@earring.material%></br>
-			<br> -->
 			<table class="table">
 				<thead>
 					<tr><th colspan="2">Order</th></tr>
@@ -26,6 +20,7 @@
 					<tr><td>Material:</td><td><%=@earring.material%></td></tr>
 				</tbody>
 			</table>
+			<h3 style="text-align:center">Enter Shipping Address</h3>
 			<%= simple_form_for(@address, html: { class: "form-horizontal"}) do |f| %>
 			<%= f.error_notification %>
 

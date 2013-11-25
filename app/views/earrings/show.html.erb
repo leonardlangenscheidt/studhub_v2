@@ -9,7 +9,7 @@
 		</div>
 
 		<div class="span6">
-			<h3><%=@earring.vendor%> <%=@earring.collection%> <%=@earring.material%> <%=@earring.design%></h3>
+			<!-- <h3><%=@earring.vendor%> <%=@earring.collection%> <%=@earring.material%> <%=@earring.design%></h3>
 			<strong>Vendor:</strong> <%=@earring.vendor%></br>
 			<strong>Collection:</strong> <%=@earring.collection%></br>
 			<strong>Design:</strong> <%=@earring.design%></br>
@@ -17,7 +17,20 @@
 			<%unless @earring.size==nil%>
 				<strong>Size:</strong> <%=@earring.size%>mm</br>
 			<%end%>
-			<strong>Description:</strong>  <%=@earring.description%></br></br>
+			<strong>Description:</strong>  <%=@earring.description%></br></br> -->
+			<table class="table">
+				<thead>
+					<tr><th colspan="2">Your missing earring</th></tr>
+				</thead>
+				<tbody>
+					<tr><td>Vendor:</td><td><%=@earring.vendor %></td></tr>
+					<tr><td>Collection:</td><td><%=@earring.collection%></td></tr>
+					<tr><td>Design</td><td><%=@earring.design%></td></tr>
+					<tr><td>Material:</td><td><%=@earring.material%></td></tr>
+				</tbody>
+			</table>
+			<p><%=@earring.description%></p>
+
 			<%if current_user%>
 				<%= link_to "Buy new for $#{@earring.price}.00", new_address_path(:earring_id => @earring.id, :buy => true, :right => false, :used => false), class:'btn btn-large'%>
 				<%= link_to "Buy new left for $#{@earring.price}.00", new_address_path(:earring_id => @earring.id, :buy => true, :right => false, :used => false), class:'btn btn-large'%>
