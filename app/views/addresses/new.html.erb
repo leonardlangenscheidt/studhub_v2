@@ -9,10 +9,8 @@
 		</div>
 
 		<div class="span6">
+			<h4>Your missing earring</h4>
 			<table class="table">
-				<thead>
-					<tr><th colspan="2">Order</th></tr>
-				</thead>
 				<tbody>
 					<tr><td>Vendor:</td><td><%=@earring.vendor %></td></tr>
 					<tr><td>Collection:</td><td><%=@earring.collection%></td></tr>
@@ -20,6 +18,7 @@
 					<tr><td>Material:</td><td><%=@earring.material%></td></tr>
 				</tbody>
 			</table>
+			<p><%=@earring.description%></p>
 			<h4 style="text-align:center">Enter Shipping Address</h4>
 			<%= simple_form_for(@address, html: { class: "form-horizontal"}) do |f| %>
 			<%= f.error_notification %>

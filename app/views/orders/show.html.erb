@@ -2,10 +2,50 @@
 </br>
 <div class="container">
 	<div class="row bbg">
-		<div class="box">
-			<%= image_tag @order.earring.image(:medium)%>
+		<div class="span6">
+			<div id="earrings">
+				<div class="box box-large">
+					<%= image_tag @earring.image(:medium)%>
+				</div>
+			</div>
 		</div>
-		<div class="span4">
+		<div class="span6">
+			<h4>Your order</h4>
+			<table class="table">
+				<tbody>
+					<tr><td colspan="2">
+					<% if @order.address.buy==true %>
+						Purchased:
+					<% else %>
+						Sold:
+					<% end %>
+					<%=@order.created_at.strftime("%d-%m-%Y at %H:%M")%></td></tr>
+					<tr><td>Vendor:</td><td><%=@order.earring.vendor %></td></tr>
+					<tr><td>Collection:</td><td><%=@order.earring.collection%></td></tr>
+					<tr><td>Design</td><td><%=@order.earring.design%></td></tr>
+					<tr><td>Material:</td><td><%=@order.earring.material%></td></tr>
+					<tr><td>Condition:</td><td>
+					<%if @order.address.used==true%>
+						Used
+					<%else%>
+						New
+					<%end%></td>
+				</tbody>
+			</table>
+			<p><%=@order.earring.description%></p>
+			<h4>Shipping Address</h4>
+			<table class="table">
+				<tbody>
+					<tr><td>Name:</td><td><%=current_user.name %></td></tr>
+					<tr><td>Street:</td><td><%=@order.address.street%></td></tr>
+					<tr><td></td><td><%=@order.address.street2%></td></tr>
+					<tr><td>City:</td><td><%=@order.address.city%></td></tr>
+					<tr><td>State:</td><td><%=@order.address.state%></td></tr>
+					<tr><td>ZIP Code:</td><td><%=@order.address.zip%></td></tr>
+				</tbody>
+			</table>
+		</div>
+<!-- 		<div class="span4">
 			<div style:"margin:auto">
 				<h3>Details:</h3>
 				<strong>
@@ -41,7 +81,7 @@
 					</td>
 				</table>
 			</div>
-		</div>
+		</div> -->
 	</div>
 	<div class="row" style="text-align:center">
 		<%=link_to "Back to Profile", '/user' %>
