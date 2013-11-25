@@ -24,13 +24,6 @@ class OrdersController < ApplicationController
 		end
 	end
 
-	def arrival
-		@order.status = "Received"
-		@order.save
-		redirect_to inv_receivables_path
-		UserMailer.arrival_email(@order).deliver
-	end
-
 	def show
 		@user = current_user
 	end
@@ -58,13 +51,19 @@ class OrdersController < ApplicationController
 	  	@earring = Earring.find(params[:earring_id])
 	  	@address = Address.find(params[:address_id])
 	  	@user = current_user
+	  	if @address.buy == true
+	  		@status = "Confirmed"
+	  	else
+	  		@status = "Awaiting Shipment"
+	  	end
 		@order = Order.create(
 		:user_id => @user.id,
 		:earring_id => @earring.id,
 		:price_paid => @earring.price,
 		:address_id => @address.id,
 		:tax => 0,
-		:number => 1
+		:number => 1,
+		:status => @status
 		)
 		if @order.save
 			if @order.address.buy == true
@@ -74,8 +73,6 @@ class OrdersController < ApplicationController
 					@earring.inventory = @earring.inventory - 1
 				end
 				@earring.save
-				@order.status = "Confirmed"
-				@order.save
 				UserMailer.purchase_email(@order).deliver
 		  		flash[:notice] = %Q[Thank you! You just purchased the #{@earring.material} #{@earring.design} earring from the #{@earring.vendor} #{@earring.collection} collection for $#{@earring.price}.00! <a href="#" onclick="
 				window.open(
@@ -86,8 +83,6 @@ class OrdersController < ApplicationController
 			else
 				@earring.used_inventory = @earring.used_inventory + 1
 				@earring.save
-				@order.status = "Awaiting Shipment"
-				@order.save
 				UserMailer.sell_email(@order).deliver
 				flash[:notice] = %Q[Thank you! You just sold the #{@earring.material} #{@earring.design} earring from the #{@earring.vendor} #{@earring.collection} collection for $#{@earring.price}.00! <a href="#" onclick="
 				window.open(
