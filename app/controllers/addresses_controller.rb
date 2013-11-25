@@ -7,7 +7,7 @@ class AddressesController < ApplicationController
     @right = params[:right]
     @used = params[:used]
     @lastaddress = current_user.addresses.last
-    @address = Addresses.new
+    @address = Address.new
   end
 
 
