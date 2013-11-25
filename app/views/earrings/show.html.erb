@@ -1,9 +1,9 @@
 <div class="container">
-	<div class="row-fluid">
+	<div class="row-fluid bbg">
 		<div class="span6">
 			<div id="earrings">
 				<div class="box box-large">
-					<%= image_tag @earring.image(:medium)%>
+					<%= image_tag @earring.image(:large)%>
 				</div>
 			</div>
 		</div>
@@ -36,7 +36,7 @@
 	</div>
 </div>
 
-
+<br>
 <div class="links" style="clear:both; text-align:center">
 	<%= link_to 'Back to Earring Selection', earrings_path %>
 </div>

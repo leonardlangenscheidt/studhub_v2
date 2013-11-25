@@ -1,5 +1,5 @@
 * {
-    font-family: helvetica, sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 h1{
@@ -41,13 +41,15 @@ form {
     -moz-border-radius: 5px;
     border-radius: 5px;
     box-shadow: 1px 1px 10px #444;*/
-    width: 180px;
-
-    background-color: #ddd;
+    width: 250px;
 }
 
 .box-large {
-    width: 250px;
+    width: 500px;
+}
+
+.bbg {
+    background-color: #acd8e1;
 }
 
 .box img {
@@ -75,5 +77,9 @@ form {
     width:auto;
     margin-left:auto;
     margin-right:auto;
+}
+
+.nav li {
+    font-size:1.5em;
 }
 

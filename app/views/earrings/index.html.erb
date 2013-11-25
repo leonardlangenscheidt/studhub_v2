@@ -1,7 +1,7 @@
 <div id="earrings">
 	<div class="inner-container">
 		<% @earrings.each do |earring| %>
-			<div class="box box-large">
+			<div class="box bbg">
 				<%= link_to (image_tag earring.image(:medium)),  earring_path(earring)%>
 				<div class="description">
 					<%=earring.vendor%> <%=earring.design%>
