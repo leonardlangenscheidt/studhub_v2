@@ -1,14 +1,16 @@
 <h1 style="text-align:center">Order Confirmation</h1>
 <div class="container">
 	<div class="row bbg">
-		<div>
-			<div class="box">
-				<%= image_tag @earring.image(:medium)%>
-				<div class="description">
-					<strong>Vendor:</strong> <%=@earring.vendor%></br>
-					<strong>Collection:</strong> <%=@earring.collection%></br>
-					<strong>Design:</strong> <%=@earring.design%></br>
-					<strong>Material:</strong> <%=@earring.material%></br>
+		<div class="span6">
+			<div id="earrings">
+				<div class="box box-large">
+					<%= image_tag @earring.image(:medium)%>
+					<div class="description">
+						<strong>Vendor:</strong> <%=@earring.vendor%></br>
+						<strong>Collection:</strong> <%=@earring.collection%></br>
+						<strong>Design:</strong> <%=@earring.design%></br>
+						<strong>Material:</strong> <%=@earring.material%></br>
+					</div>
 				</div>
 			</div>
 		</div>

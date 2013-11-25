@@ -1,14 +1,16 @@
 <h1 style="text-align:center">Enter Shipping Address</h1>
 <div class="container">
 	<div class="row bbg">
-		<div>
-			<div class="box" style="margin:0 10px 10px">
-				<%= image_tag @earring.image(:medium)%>
-				<div class="description">
-					<strong>Vendor:</strong> <%=@earring.vendor%></br>
-					<strong>Collection:</strong> <%=@earring.collection%></br>
-					<strong>Design:</strong> <%=@earring.design%></br>
-					<strong>Material:</strong> <%=@earring.material%></br>
+		<div class="span6">
+			<div id="earrings">
+				<div class="box box-large">
+					<%= image_tag @earring.image(:medium)%>
+					<div class="description">
+						<strong>Vendor:</strong> <%=@earring.vendor%></br>
+						<strong>Collection:</strong> <%=@earring.collection%></br>
+						<strong>Design:</strong> <%=@earring.design%></br>
+						<strong>Material:</strong> <%=@earring.material%></br>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -42,7 +44,7 @@
 						<%= f.hidden_field :used, :value => @used %>
 				</div>
 			<% end %>
-				<div class="form-actions" style="background-color:white;">
+				<div class="form-actions">
 					<%= f.button :submit, "Show Order Summary" %>
 				</div>
 			<% end %>
