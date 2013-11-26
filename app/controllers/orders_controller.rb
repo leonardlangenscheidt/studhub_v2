@@ -43,6 +43,7 @@ class OrdersController < ApplicationController
 	def create
 		@order = Order.new(order_params)
 		@earring = @order.earring
+		@address = @order.address
 		if @order.save
 			if @order.address.id == 73
 				@earring.inventory = @earring.inventory + @order.number
