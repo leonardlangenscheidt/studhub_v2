@@ -86,6 +86,7 @@ class EarringsController < ApplicationController
 		@buy = @address.buy
 		@right = @address.right
 		@used = @address.used
+		@order = Order.new
 	end
 
 	private
