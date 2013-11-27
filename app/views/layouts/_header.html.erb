@@ -15,8 +15,10 @@
 					</li>
 					<%if current_user%>
 						<li><%= link_to 'Profile', '/user' %></li>
-						<%if current_user.addresses.last.order == nil %>
-							<li><%= link_to 'Continue last order', "/earrings/#{current_user.addresses.last.earring.id}/confirm" %></li>
+						<%unless current_user.addresses.last == nil %>
+							<%if current_user.addresses.last.order == nil %>
+								<li><%= link_to 'Continue last order', "/earrings/#{current_user.addresses.last.earring.id}/confirm" %></li>
+							<%end%>
 						<%end%>
 					<%end%>
 				</ul>
