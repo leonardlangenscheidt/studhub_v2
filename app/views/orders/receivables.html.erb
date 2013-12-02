@@ -1,46 +1,6 @@
 <h3>Receivables</h3>
-<h4>All</h4>
-<table class="table table-striped">
-	<thead>
-		<tr>
-			<th>Order ID</th>
-			<th>User</th>
-			<th>Address</th>
-			<th>Sku</th>
-			<th>Picture</th>
-			<th>Status</th>
-			<th>Received</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @orders.each do |order| %>
-			<%if order.address.buy == false%>
 
-					<tr>
-						<td><%=order.id%></td>
-						<td><%=order.user.name%></td>
-						<td>
-							<%=order.address.street%><br>
-							<%=order.address.street2%><br>
-							<%=order.address.city%>, <%=order.address.state%> <%=order.address.zip%>
-						</td>
-						<td><%=order.earring.sku%></td>
-						<td><%= link_to (image_tag order.earring.image(:small)), "/earrings/#{order.earring.id}/pastorders"%></td>
-						<td><%=order.status %></td>
-						<td><%unless order.status=="Received"%>
-							<%= simple_form_for(order) do |f| %>
-							<%= f.hidden_field :status, :value => 'Received' %>
-							<%= f.button :submit, "Received!", class: "btn" %>
-							<% end %>
-						<%end%></td>
-					</tr>
-
-			<%end%>
-		<%end%>
-	</tbody>
-</table>
-<br>
-<h4>Unless</h4>
+<h4>Outstanding</h4>
 <table class="table table-striped">
 	<thead>
 		<tr>
@@ -80,7 +40,7 @@
 		<%end%>
 	</tbody>
 </table>
-<h4>If</h4>
+<h4>Completed</h4>
 <table class="table table-striped">
 	<thead>
 		<tr>
@@ -90,7 +50,6 @@
 			<th>Sku</th>
 			<th>Picture</th>
 			<th>Status</th>
-			<th>Received</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -108,12 +67,6 @@
 						<td><%=order.earring.sku%></td>
 						<td><%= link_to (image_tag order.earring.image(:small)), "/earrings/#{order.earring.id}/pastorders"%></td>
 						<td><%=order.status %></td>
-						<td><%unless order.status=="Received"%>
-							<%= simple_form_for(order) do |f| %>
-							<%= f.hidden_field :status, :value => 'Received' %>
-							<%= f.button :submit, "Received!", class: "btn" %>
-							<% end %>
-						<%end%></td>
 					</tr>
 				<%end%>
 			<%end%>
