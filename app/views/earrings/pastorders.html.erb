@@ -60,6 +60,7 @@
 <h4>Used - Currently <%=@earring.used_inventory%> in stock</h4>
 <table class="table">
 	<thead>
+		<th>Date</th>
 		<th>Amount</th>
 		<th>Paid per Earring</th>
 		<th>Type</th>
@@ -72,6 +73,7 @@
 		<%@orders.each do |order| %>
 			<%if order.address.used == true%>
 				<tr>
+					<td><%=order.created_at.strftime("%d-%m-%Y at %H:%M")%></td>
 					<td>
 						<%if order.address.buy==true%>
 							-<%=order.number%>

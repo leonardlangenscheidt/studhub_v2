@@ -16,7 +16,7 @@
 	<tbody>
 		<% @orders.each do |order| %>
 			<%if order.address.buy == false%>
-				<%unless order.status=="Received"%>
+				<%if order.status=="Awaiting Shipment"%>
 					<tr>
 						<td><%=order.id%></td>
 						<td><%=order.user.name%></td>
@@ -73,4 +73,33 @@
 		<%end%>
 	</tbody>
 </table>
+<h4>Receipts</h4>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Order ID</th>
+			<th>User</th>
+			<th>Sku</th>
+			<th>Picture</th>
+			<th>Status</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @orders.each do |order| %>
+			<%if order.address.buy == false%>
+				<%if order.status=="Purchased"%>
+					<tr>
+						<td><%=order.id%></td>
+						<td><%=order.user.name%></td>
+						<td><%=order.earring.sku%></td>
+						<td><%= link_to (image_tag order.earring.image(:small)), "/earrings/#{order.earring.id}/pastorders"%></td>
+						<td><%=order.status %></td>
+					</tr>
+				<%end%>
+			<%end%>
+		<%end%>
+	</tbody>
+</table>
+
+
 <%= link_to 'Back to Dashboard', '/inv' %>

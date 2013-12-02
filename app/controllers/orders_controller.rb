@@ -48,7 +48,7 @@ class OrdersController < ApplicationController
 			if @order.address.id == 73
 				@earring.inventory = @earring.inventory + @order.number
 				flash[:notice] = 'Receipt was successfully created.'
-				redirect_to inv_reveivables_path
+				redirect_to inv_receivables_path
 			else
 				@earring.used_inventory = @earring.used_inventory + @order.number
 				@earring.save
