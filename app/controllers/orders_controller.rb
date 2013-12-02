@@ -25,7 +25,17 @@ class OrdersController < ApplicationController
 	end
 
 	def show
-		@user = current_user
+		@user = @order.user
+		if signed_in?
+			if current_user == @user
+				render "show"
+			elsif (current_user.name == "Leonard Langenscheidt" || current_user.name == "Jennifer Liu")
+				render "adminshow"
+			else
+				flash[:notice] = "Please don't mess around with our backend!"
+				redirect_to root_path
+			end
+		end
 	end
 
 	def destroy
