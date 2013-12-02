@@ -26,7 +26,7 @@ class OrdersController < ApplicationController
 
 	def show
 		@user = @order.user
-		if signed_in?
+		if current_user
 			if current_user == @user
 				render "show"
 			elsif (current_user.name == "Leonard Langenscheidt" || current_user.name == "Jennifer Liu")
