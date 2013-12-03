@@ -19,13 +19,13 @@ Studhub::Application.routes.draw do
 	get 'inv/deliverables' => 'orders#deliverables'
 	get 'inv/receivables' => 'orders#receivables'
 	get 'inv/inventory' => 'earrings#inventory'
-	get 'earrings/:id/pastorders' => 'earrings#pastorders'
+	get 'inv/inventory/:id/pastorders' => 'earrings#pastorders'
+	# get 'earrings/:id/pastorders' => 'earrings#pastorders'
 
 	#ordercreation
 	match 'orders/:id/update' => 'orders#update', :via => [:patch]
 	get 'user/orders/:id' => 'orders#show'
 	get 'orders/:id' => 'orders#show'
-	# match 'earrings/:earring_id/orders' => 'orders#create', :via => [:get, :post]
 
 	resources :orders
 
