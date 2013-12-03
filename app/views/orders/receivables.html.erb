@@ -18,7 +18,7 @@
 			<%if order.address.buy == false%>
 				<%if order.status=="Awaiting Shipment"%>
 					<tr>
-						<td><%=order.id%></td>
+						<td><%=link_to order.id, "/orders/#{order.id}"%></td>
 						<td><%=order.user.name%></td>
 						<td>
 							<%=order.address.street%><br>
