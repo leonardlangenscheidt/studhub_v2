@@ -30,10 +30,26 @@ class ChargesController < ApplicationController
 			:status => "Confirmed"
 			)
 			@order.save
-			if @order.address.used == true
-				@earring.used_inventory = @earring.used_inventory - 1
+			if @earring.sides == true
+				if @address.used == true
+					if @address.right == true
+						@earring.used_inventory = @earring.used_inventory - 1
+					else
+						@earring.used_inventory = @earring.used_inventory - 1000
+					end
+				else
+					if @address.right == true
+						@earring.inventory = @earring.inventory - 1
+					else
+						@earring.inventory = @earring.inventory - 1000
+					end
+				end
 			else
-				@earring.inventory = @earring.inventory - 1
+				if @address.used == true
+					@earring.used_inventory = @earring.used_inventory - 1
+				else
+					@earring.inventory = @earring.inventory - 1
+				end
 			end
 			@earring.save
 			@address.order_id = @order.id

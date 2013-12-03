@@ -56,11 +56,24 @@ class OrdersController < ApplicationController
 		@address = @order.address
 		if @order.save
 			if @order.address.id == 73
-				@earring.inventory = @earring.inventory + @order.number
+				if @earring.sides == true
+					@earring.inventory = @earring.inventory + 1001*@order.number
+				else
+					@earring.inventory = @earring.inventory + 2*@order.number
+				end
+				@earring.save
 				flash[:notice] = 'Receipt was successfully created.'
 				redirect_to inv_receivables_path
 			else
-				@earring.used_inventory = @earring.used_inventory + @order.number
+				if @earring.sides == true
+					if @address.right == true
+						@earring.used_inventory = @earring.used_inventory + @order.number
+					else
+						@earring.used_inventory = @earring.used_inventory + 1000*@order.number
+					end
+				else
+					@earring.used_inventory = @earring.used_inventory + @order.number
+				end
 				@earring.save
 				@address.order_id = @order.id
 				@address.save
