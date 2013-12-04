@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
 		if current_user
 			if current_user == @user
 				render "show"
-			elsif (current_user.name == "Leonard Langenscheidt" || current_user.name == "Jennifer Liu")
+			elsif current_user.admin == true
 				render "adminshow"
 			else
 				flash[:notice] = "Please don't mess around with our backend!"

@@ -6,7 +6,7 @@ class EarringsController < ApplicationController
 	end
 
 	def inventory
-		if current_user && (current_user.name = "Leonard Langenscheidt" || current_user.name = "Jennifer Liu")
+		if current_user && current_user.admin == true
 			@earrings = Earring.all
 		else
 			flash[:notice] = "Please don't mess around with our backend!"
@@ -18,17 +18,17 @@ class EarringsController < ApplicationController
 	end
 
 	def new
-		# if current_user && (current_user.name = "Leonard Langenscheidt" || current_user.name = "Jennifer Liu")
+		if current_user && current_user.admin == true
 			@earring = Earring.new
-		# else
-		# 	flash[:notice] = "Please don't mess around with our backend!"
-		# 	redirect_to earrings_path
-		# end
+		else
+			flash[:notice] = "Please don't mess around with our backend!"
+			redirect_to earrings_path
+		end
 	end
 
 	# GET /earrings/1/edit
 	def edit
-		if current_user && (current_user.name = "Leonard Langenscheidt" || current_user.name = "Jennifer Liu")
+		if current_user && current_user.admin == true
 			@earring = Earring.find(params[:id])
 		else
 			flash[:notice] = "Please don't mess around with our backend!"
