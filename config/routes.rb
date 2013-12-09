@@ -32,7 +32,7 @@ Studhub::Application.routes.draw do
 	resources :earrings do
 		resource :charges
 	end
-	get 'earrings/confirm' => 'earrings#confirm'
+	get 'confirm' => 'earrings#confirm'
 
 	#facebook routes
 	match 'auth/:provider/callback', to: 'sessions#create', :via => [:get, :post]
