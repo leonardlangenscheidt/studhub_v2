@@ -1,5 +1,7 @@
 class Earring < ActiveRecord::Base
-	has_attached_file :image, styles: { large: "640x480>", medium: "320x240>", :small => "160x120>"}
+	has_attached_file :image, styles: { large: "980x980>", medium: "480x480>", :small => "240x240>"}
+	has_attached_file :imageleft, styles: { large: "980x980>", medium: "480x480>", :small => "240x240>"}
+	has_attached_file :imageright, styles: { large: "980x980>", medium: "480x480>", :small => "240x240>"}
 	validates_attachment :image, presence: true
 	has_many :orders
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131204151046) do
+ActiveRecord::Schema.define(version: 20131209182522) do
 
   create_table "addresses", force: true do |t|
     t.string   "street"
@@ -48,6 +48,14 @@ ActiveRecord::Schema.define(version: 20131204151046) do
     t.boolean  "sides"
     t.boolean  "easyRestock"
     t.integer  "used_inventory"
+    t.string   "imageleft_file_name"
+    t.string   "imageleft_content_type"
+    t.integer  "imageleft_file_size"
+    t.datetime "imageleft_updated_at"
+    t.string   "imageright_file_name"
+    t.string   "imageright_content_type"
+    t.integer  "imageright_file_size"
+    t.datetime "imageright_updated_at"
   end
 
   create_table "identities", force: true do |t|

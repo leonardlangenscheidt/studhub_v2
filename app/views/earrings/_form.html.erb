@@ -16,6 +16,8 @@
   <%= f.input :easyRestock, as: :boolean%>
   <%= f.input :description, as: :text, input_html: { rows: "3" } %>
   <%= f.input :image, label: "Upload an image" %>
+  <%= f.input :imageleft, label: "Upload an image for the left side" %>
+  <%= f.input :imageright, label: "Upload an image for the right side" %>
 
   <div class="form-actions">
     <%= f.button :submit, class: "btn btn-primary" %>
