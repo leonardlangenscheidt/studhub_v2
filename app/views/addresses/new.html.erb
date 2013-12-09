@@ -12,12 +12,13 @@
 				<div class="box box-large">
 					<%if @earring.sides == true%>
 						<%if @right == true%>
-							<%= image_tag @earring.imageright(:medium)%>
+							<%= image_tag @earring.imageright(:large)%>
 						<%else%>
-							<%= image_tag @earring.imageleft(:medium)%>
+							<%= image_tag @earring.imageleft(:large)%>
 						<%end%>
+						<%=@buy%>
 					<%else%>
-						<%= image_tag @earring.image(:medium)%>
+						<%= image_tag @earring.image(:large)%>
 					<%end%>
 				</div>
 			</div>
