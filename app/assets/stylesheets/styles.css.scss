@@ -179,17 +179,17 @@ ol.steps {
 
     li.current {
         color: #fff;
-        background: #7b7b7b;
+        background: #acd8e1;
 
         // Appended arrow.
         &:after {
-          border-left-color: #7b7b7b;
+          border-left-color: #acd8e1;
         }
 
         span {
             // Prepended arrow.
             &:after {
-                border-color: #7b7b7b;
+                border-color: #acd8e1;
                 border-left-color: transparent;
             }
         }
