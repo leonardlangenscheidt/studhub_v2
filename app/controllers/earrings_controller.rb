@@ -67,7 +67,12 @@ class EarringsController < ApplicationController
 	end
 
 	def pastorders
-		@orders = @earring.orders
+		if current_user && current_user.admin == true
+			@orders = @earring.orders
+		else
+			flash[:notice] = "Please don't mess around with our backend!"
+			redirect_to earrings_path
+		end
 	end
 
 	# DELETE /earrings/1
@@ -81,12 +86,16 @@ class EarringsController < ApplicationController
 	end
 
 	def confirm
-		@address = current_user.addresses.last
-		@earring = @address.earring
-		@buy = @address.buy
-		@right = @address.right
-		@used = @address.used
-		@order = Order.new
+		if current_user
+			@address = current_user.addresses.last
+			@earring = @address.earring
+			@buy = @address.buy
+			@right = @address.right
+			@used = @address.used
+			@order = Order.new
+		else
+			redirect_to root_path
+		end
 	end
 
 	private
