@@ -25,7 +25,6 @@ Studhub::Application.routes.draw do
 	#ordercreation
 	match 'orders/:id/update' => 'orders#update', :via => [:patch]
 	get 'user/orders/:id' => 'orders#show'
-	get 'orders/:id' => 'orders#show'
 
 	resources :orders
 
