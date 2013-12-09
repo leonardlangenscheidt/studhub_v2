@@ -15,30 +15,10 @@
 			</div>
 		</div>
 		<div class="span6">
-			<h3 style="text-align:center">Order Confirmation</h3>
-<!-- 			<h4>Order<h4>
-			<strong>Vendor:</strong> <%=@earring.vendor%></br>
-			<strong>Collection:</strong> <%=@earring.collection%></br>
-			<strong>Design:</strong> <%=@earring.design%></br>
-			<strong>Material:</strong> <%=@earring.material%></br>
-			<h4>Address<h4>
-			<strong>Name:</strong> <%=current_user.name%><br>
-			<strong>Street:</strong> <%=@address.street%><br>
-			<strong>Added:</strong> <%=@address.street2%><br>
-			<strong>City:</strong> <%=@address.city%><br>
-			<strong>State:</strong> <%=@address.state%><br>
-			<strong>ZIP Code:</strong> <%=@address.zip%><br> -->
+			<h3 style="text-align:center">Confirmation</h3>
 
-			<h4><%=@earring.vendor%> <%=@earring.collection%> <%=@earring.material%> <%=@earring.design%></h4>
-			<table class="table">
-				<tbody>
-					<tr><td>Vendor:</td><td><%=@earring.vendor %></td></tr>
-					<tr><td>Collection:</td><td><%=@earring.collection%></td></tr>
-					<tr><td>Design</td><td><%=@earring.design%></td></tr>
-					<tr><td>Material:</td><td><%=@earring.material%></td></tr>
-				</tbody>
-			</table>
-			<p><%=@earring.description%></p>
+			<%= render(:partial => "earrings/table")%>
+
 			<h4>Shipping Address</h4>
 			<table class="table">
 				<tbody>

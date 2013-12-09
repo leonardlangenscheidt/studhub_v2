@@ -16,25 +16,8 @@
 		</div>
 
 		<div class="span6">
-			<!-- <h3><%=@earring.vendor%> <%=@earring.collection%> <%=@earring.material%> <%=@earring.design%></h3>
-			<strong>Vendor:</strong> <%=@earring.vendor%></br>
-			<strong>Collection:</strong> <%=@earring.collection%></br>
-			<strong>Design:</strong> <%=@earring.design%></br>
-			<strong>Material:</strong> <%=@earring.material%></br>
-			<%unless @earring.size==nil%>
-				<strong>Size:</strong> <%=@earring.size%>mm</br>
-			<%end%>
-			<strong>Description:</strong>  <%=@earring.description%></br></br> -->
-			<h4><%=@earring.vendor%> <%=@earring.collection%> <%=@earring.material%> <%=@earring.design%></h4>
-			<table class="table">
-				<tbody>
-					<tr><td>Vendor:</td><td><%=@earring.vendor %></td></tr>
-					<tr><td>Collection:</td><td><%=@earring.collection%></td></tr>
-					<tr><td>Design</td><td><%=@earring.design%></td></tr>
-					<tr><td>Material:</td><td><%=@earring.material%></td></tr>
-				</tbody>
-			</table>
-			<p><%=@earring.description%></p>
+			<h3 style="text-align:center">Select Earring</h3>
+			<%= render(:partial => "earrings/table")%>
 
 			<%if current_user%>
 				<%if @earring.sides == true %>
