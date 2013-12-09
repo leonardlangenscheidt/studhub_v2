@@ -15,9 +15,9 @@
 					</li>
 					<%if current_user%>
 						<li><%= link_to 'Profile', '/user' %></li>
-						<%unless current_user.addresses.last == nil && current_page?(confirm_path)%>
-							<%if current_user.addresses.last.order == nil %>
-								<li><%= link_to 'Continue last order', 'confirm' %></li>
+						<%unless  current_page?(confirm_path) %>
+							<%if current_user.addresses.last != nil && current_user.addresses.last.order==nil%>
+									<li><%= link_to 'Continue last order', 'confirm' %></li>
 							<%end%>
 						<%end%>
 					<%end%>
