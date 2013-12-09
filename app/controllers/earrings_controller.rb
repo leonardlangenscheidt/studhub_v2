@@ -80,7 +80,7 @@ class EarringsController < ApplicationController
 	def destroy
 		@earring.destroy
 		respond_to do |format|
-			format.html { redirect_to 'inv/inventory' }
+			format.html { redirect_to '/inv/inventory' }
 			format.json { head :no_content }
 		end
 	end
