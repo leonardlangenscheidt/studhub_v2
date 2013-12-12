@@ -62,7 +62,7 @@
 							<div class="description">
 								<%=order.earring.vendor%> <%=order.earring.collection%> <%=order.earring.material%> <%=order.earring.design%></br>
 								Status: <%=order.status%></br>
-								<!--<%= link_to 'Destroy', "/user/orders/#{order.id}", method: :delete, data: { confirm: 'Are you sure?' } %>-->
+								<%= link_to 'Destroy', "/user/orders/#{order.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
 							</div>
 						</div>
 					<% end %>
