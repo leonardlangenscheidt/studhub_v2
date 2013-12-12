@@ -1,5 +1,30 @@
+$tblue: #2c57a8;
+$tgrey: #dcdcdc;
+$tgrey2: #6b6b6b;
+$tred: #bb1c22;
+$tturq: #70c3cb;
+
+
 * {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.gill {
+    font-family: 'Lato', sans-serif;
+}
+
+.arrow {
+    width:22px;
+    margin:75px 30%;
+}
+
+.howto {
+    height:80px;
+    margin:20px 30%;
+}
+
+.btn, .btn-large {
+    background-color:$tred;
 }
 
 h1{
@@ -17,7 +42,6 @@ body{
     margin-top: 50px;
     background-color:#ddd;
     padding: 20px;
-    font-family: 'Playfair Display', serif;
     a {
         color: grey;
         padding: 20px;
@@ -33,7 +57,7 @@ form {
 
 .box {
     margin: 15px;
-    padding: 3px;
+    padding: 5px;
     font-size: 11px;
     line-height: 1.4em;
     float: left;
@@ -42,15 +66,21 @@ form {
     -moz-border-radius: 5px;
     border-radius: 5px;
     box-shadow: 1px 1px 10px #444;*/
-    width: 250px;
+    width: 190px;
+    height: 220px;
 }
 
 .box-large {
-    width: 550px;
+    width: 400px;
+}
+
+.bbt {
+    background-color: $tturq;
 }
 
 .bbg {
-    background-color: #acd8e1;
+    background-color: $tgrey;
+    color: $tblue;
 }
 
 .box img {
@@ -64,7 +94,7 @@ form {
     font-size: 1.3em;
     padding: 5px 0;
     text-align: center;
-    color: white;
+    color: $tblue;
 /*    -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;*/
@@ -81,8 +111,8 @@ form {
 }
 
 .nav li a {
-    font-size:1.5em;
-    font-family: 'Playfair Display', serif;
+    font-size:24px;
+    color: white;
 }
 /*progress bar*/
 
@@ -107,8 +137,8 @@ ol.steps {
         list-style-type: none;
         margin-left: 0;
         text-align: center;
-        color: #3a3a3a;
-        background: #dae4eb;
+        color: $tblue;
+        background: $tgrey;
         position: relative;
         margin-left: 5px + 2 * $arrow_size;
         width: 25%;
@@ -123,7 +153,7 @@ ol.steps {
             width: 0;
             pointer-events: none;
             border: solid transparent;
-            border-left-color: #dae4eb;
+            border-left-color: $tgrey;
             border-width: $arrow_size;
             margin-top: -$arrow_size;
         }
@@ -159,7 +189,7 @@ ol.steps {
                 height: 0;
                 width: 0;
                 pointer-events: none;
-                border: solid #dae4eb;
+                border: solid $tgrey;
                 border-left-color: transparent;
                 border-width: $arrow_size;
                 margin-top: -$arrow_size;
@@ -179,17 +209,17 @@ ol.steps {
 
     li.current {
         color: #fff;
-        background: #acd8e1;
+        background: $tblue;
 
         // Appended arrow.
         &:after {
-          border-left-color: #acd8e1;
+          border-left-color: $tblue;
         }
 
         span {
             // Prepended arrow.
             &:after {
-                border-color: #acd8e1;
+                border-color: $tblue;
                 border-left-color: transparent;
             }
         }
@@ -202,4 +232,5 @@ ol.steps {
         }
     }
 }
+
 

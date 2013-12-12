@@ -1,4 +1,4 @@
-<div class="center hero-unit">
+<!-- <div class="center hero-unit">
 	<h1>Welcome!</h1>
 	<p>to <%= link_to 'Studhub.com', '#' %></p>
 	<p style="text-align:right">
@@ -9,4 +9,53 @@
 	<%unless current_user%>
 		<p style="text-align:center"><%= link_to 'Sign up with Facebook!', '/auth/facebook', class:"btn btn-large" %></p>
 	<%end%>
+</div>
+ -->
+
+<div class="row">
+	<div class="span6">
+		<%=image_tag 'homephoto.jpg', style: "width:70%; margin:0 15% 50px" %>
+	</div>
+	<div class="span6" style="text-align:center">
+		<h3 style="font-size:48px">Perfectly Paired</h3>
+		<p style="font-size:18px" class="gill">
+			Stud & Found is an online community for people<br>who want to buy or sell their single earrings.
+		</p>
+		<p style="font-size:18px" class="gill">
+			We match your lonesome earring to their soulmates–<br>A Romeo for your Juliet,<br>a Lancelot to your Guinevere–<br>and provide an opportunity to sell your earrings<br>so they can find a new home.
+		</p>
+		<p style="text-align:center"><%= link_to 'Sign up and get paired!', '/auth/facebook', class:"btn btn-large" %></p>
+	</div>
+</div>
+<div class="row bbt">
+	<div class="span2">
+		<%=image_tag 'step1.png', class:"howto" %>
+		<h4>Locate Single Earring</h4>
+		<p>Dig out those lonely studs, they still have a chance!<p>
+	</div>
+	<div class="span1">
+		<%=image_tag 'arrow.png', class:"arrow" %>
+	</div>
+	<div class="span2">
+		<%=image_tag 'step2.png', class:"howto"%>
+		<h4>Find the Perfect Match</h4>
+		<p>There's an earring matchmaker guru in everyone.<p>
+	</div>
+	<div class="span1">
+		<%=image_tag 'arrow.png', class:"arrow" %>
+	</div>
+	<div class="span3">
+		<%=image_tag 'step3.1.png', style: "height:80px; margin:20px 0px 15px 10%" %>
+		<%=image_tag 'step3.2.png', style: "height:80px; margin:20px 10px 15px 0px" %>
+		<h4>Get Paired (or get paid)</h4>
+		<p>Decide if you want the earring match to come to you or send yours out to be matched.<p>
+	</div>
+	<div class="span1">
+		<%=image_tag 'arrow.png', class:"arrow" %>
+	</div>
+	<div class="span2">
+		<%=image_tag 'step4.png', style: "height:80px; margin:20px" %>
+		<h4>Shipping</h4>
+		<p>Unite with a new love in 7 to 10 business days.<p>
+	</div>
 </div>
