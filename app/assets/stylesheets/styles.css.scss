@@ -28,7 +28,7 @@ $tturq: #70c3cb;
 }
 
 h1{
-    margin: 25px 50px;
+    margin: 25px 50px 5px;
     padding-bottom:10px;
     border-bottom:lightgrey 2px solid;
 }
@@ -124,7 +124,7 @@ ol.steps {
     $max_li: 10;
 
     list-style: none;
-    margin: 5px;
+    margin: 5px 5px 15px 5px;
     padding: 0;
     overflow: hidden;
     font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', 'Bitstream Vera Sans', 'Liberation Sans', Verdana, 'Verdana Ref', sans-serif;
