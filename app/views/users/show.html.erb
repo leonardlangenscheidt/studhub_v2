@@ -57,7 +57,7 @@
 			<div id="earrings">
 				<% unless @user.orders.count == 0 %>
 					<% @user.orders.reverse.each do |order| %>
-						<div class="box bbg">
+						<div class="box box-medium bbg">
 							<%= link_to (image_tag order.earring.image(:medium)),  "/user/orders/#{order.id}"%></br>
 							<div class="description">
 								<%=order.earring.vendor%> <%=order.earring.collection%> <%=order.earring.material%> <%=order.earring.design%></br>
