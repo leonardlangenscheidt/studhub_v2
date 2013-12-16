@@ -1,6 +1,10 @@
 <h3>Inventory</h3>
 <p><%=link_to 'Inventory', inv_inventory_path %> | <%=link_to 'Deliverables', inv_deliverables_path %> | <%=link_to 'Receivables', inv_receivables_path %></p>
 <p><%=link_to 'New Earring', new_earring_path %></p>
+
+<%=link_to "Show only Tiffany's", inv_inventory_path(:v=>"Tiffany & Co.")%>
+<%=link_to "Show only Chanel", inv_inventory_path(:v=>"Chanel")%>
+
 <table class="table table-striped">
 	<thead>
 		<tr>
@@ -17,20 +21,22 @@
 
 	<tbody>
 		<% @earrings.each do |earring| %>
-			<tr>
-				<td><%= link_to "#{earring.vendor} #{earring.collection} #{earring.design} #{earring.material}", "/inv/inventory/#{earring.id}/pastorders" %></td>
-				<td>
-					<%=earring.inventory%>
-				</td>
-				<td>
-					<%=earring.used_inventory%>
-				</td>
-				<td>$<%=earring.price%></td>
-				<td><%= image_tag earring.image(:small) %></td>
-				<td><%=link_to 'New Receipt', "/orders/new?earring_id=#{earring.id}"%></td>
-				<td><%= link_to 'Edit', edit_earring_path(earring) %></td>
-				<td><%= link_to 'Destroy', earring, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-			</tr>
+			<%if earring.vendor == @vendor  || @vendor == nil%>
+				<tr>
+					<td><%= link_to "#{earring.vendor} #{earring.collection} #{earring.design} #{earring.material}", "/inv/inventory/#{earring.id}/pastorders" %></td>
+					<td>
+						<%=earring.inventory%>
+					</td>
+					<td>
+						<%=earring.used_inventory%>
+					</td>
+					<td>$<%=earring.price%></td>
+					<td><%= image_tag earring.image(:small) %></td>
+					<td><%=link_to 'New Receipt', "/orders/new?earring_id=#{earring.id}"%></td>
+					<td><%= link_to 'Edit', edit_earring_path(earring) %></td>
+					<td><%= link_to 'Destroy', earring, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				</tr>
+			<%end%>
 		<% end %>
 	</tbody>
 </table>

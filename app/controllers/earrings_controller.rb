@@ -7,6 +7,7 @@ class EarringsController < ApplicationController
 	end
 
 	def inventory
+		@vendor = params[:v]
 		if current_user && current_user.admin == true
 			@earrings = Earring.all
 		else
