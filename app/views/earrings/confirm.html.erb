@@ -7,7 +7,7 @@
 		</ol>
 	</div>
 	<div class="row-fluid bbg">
-		<div class="span6">
+		<div class="span4">
 			<div id="earrings">
 				<div class="box box-large">
 					<%if @earring.sides == true%>
@@ -22,10 +22,12 @@
 				</div>
 			</div>
 		</div>
-		<div class="span6">
+		<div class="span4">
 			<h3 style="text-align:center">Confirmation</h3>
 
 			<%= render(:partial => "earrings/table")%>
+		</div>
+		<div class="span4">
 
 			<h4>Shipping Address</h4>
 			<table class="table">

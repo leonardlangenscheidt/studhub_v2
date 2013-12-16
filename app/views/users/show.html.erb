@@ -58,7 +58,16 @@
 				<% unless @user.orders.count == 0 %>
 					<% @user.orders.reverse.each do |order| %>
 						<div class="box box-medium bbg">
-							<%= link_to (image_tag order.earring.image(:medium)),  "/user/orders/#{order.id}"%></br>
+							<%if @earring.sides == true%>
+								<%if @right == 'true'%>
+									<%= link_to (image_tag order.earring.imageright(:medium)),  "/user/orders/#{order.id}"%>
+								<%else%>
+									<%= link_to (image_tag order.earring.imageleft(:medium)),  "/user/orders/#{order.id}"%>
+								<%end%>
+							<%else%>
+								<%= link_to (image_tag order.earring.image(:medium)),  "/user/orders/#{order.id}"%>
+							<%end%>
+							</br>
 							<div class="description">
 								<%=order.earring.vendor%> <%=order.earring.collection%> <%=order.earring.material%> <%=order.earring.design%></br>
 								Status: <%=order.status%></br>

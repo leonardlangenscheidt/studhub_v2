@@ -5,7 +5,15 @@
 		<div class="span6">
 			<div id="earrings">
 				<div class="box box-large">
-					<%= image_tag @order.earring.image(:medium)%>
+					<%if @order.earring.sides == true%>
+						<%if @order.address.right == true%>
+							<%= image_tag @order.earring.imageright(:medium)%>
+						<%else%>
+							<%= image_tag @order.earring.imageleft(:medium)%>
+						<%end%>
+					<%else%>
+						<%= image_tag @order.earring.image(:medium)%>
+					<%end%>
 				</div>
 			</div>
 		</div>
