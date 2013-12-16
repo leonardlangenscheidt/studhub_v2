@@ -3,6 +3,7 @@ class EarringsController < ApplicationController
 
 	def index
 		@earrings = Earring.all
+		@vendor = params[:v]
 	end
 
 	def inventory

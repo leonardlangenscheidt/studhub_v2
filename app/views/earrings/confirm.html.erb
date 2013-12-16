@@ -1,4 +1,5 @@
 <div class="container">
+
 	<div class="row-fluid">
 		<ol class="steps">
 		    <li class="step1 current"><span>Select Earring</span></li>
@@ -6,6 +7,7 @@
 		    <li class="step3 current"><span>Confirmation</span></li>
 		</ol>
 	</div>
+
 	<div class="row-fluid bbg">
 		<div class="span4">
 			<div id="earrings">
@@ -22,13 +24,14 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="span4">
 			<h3 style="text-align:center">Confirmation</h3>
 
 			<%= render(:partial => "earrings/table")%>
 		</div>
-		<div class="span4">
 
+		<div class="span4">
 			<h4>Shipping Address</h4>
 			<table class="table">
 				<tbody>
@@ -87,6 +90,6 @@
 				<% end %>
 			</div>
 		</div>
-		<%= link_to "Edit Shipping Address", new_address_path(:earring_id => @address.earring.id, :buy => @address.buy, :right => @address.right, :used => @address.used)%>
 	</div>
+	<%= link_to "Edit Shipping Address", new_address_path(:earring_id => @address.earring.id, :buy => @address.buy, :right => @address.right, :used => @address.used)%>
 </div>
