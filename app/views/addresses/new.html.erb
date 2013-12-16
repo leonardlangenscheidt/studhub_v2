@@ -30,7 +30,7 @@
 		</div>
 		<div class="span4">
 			<h4 style="text-align:center">Enter Shipping Address</h4>
-			<%= simple_form_for(@address, html: { class: "form-horizontal"}) do |f| %>
+			<%= simple_form_for(@address) do |f| %>
 			<%= f.error_notification %>
 
 			<%unless current_user.addresses.count==0%>
