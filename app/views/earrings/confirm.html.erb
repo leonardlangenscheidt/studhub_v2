@@ -87,6 +87,6 @@
 				<% end %>
 			</div>
 		</div>
-
+		<%= link_to "Edit Shipping Address", new_address_path(:earring_id => @address.earring.id, :buy => @address.buy, :right => @address.right, :used => @address.used)%>
 	</div>
 </div>
