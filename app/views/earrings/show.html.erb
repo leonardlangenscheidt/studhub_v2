@@ -66,8 +66,10 @@
 						Sorry! No used matches left! Check back later.
 					<%end%>
 					<%= link_to "Sell for $#{@earring.price-20}.00", new_address_path(:earring_id => @earring.id, :buy => false, :right => false, :used => true), class:'btn btn-large'%>
-
 				<%end%>
+				<br>
+				<h4>Which side of earring should I buy?</h4>
+				<p>The best way to figure out which side you need to take out your existing earring and hold it up against the screen, facing you. If that one matches the earring displayed on the left, then you have a “left” earring. If you want to purchase it’s match, then buy the “right” earring.</p>
 			<%else%>
 				To continue please</br>
 				<%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in", class:'btn btn-large' %>

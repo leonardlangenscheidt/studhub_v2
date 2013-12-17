@@ -10,8 +10,8 @@
   <%= f.input :size, as: :integer%>
   <%= f.input :price, as: :integer%>
   <%= f.input :sku, as: :string%>
-  <%= f.input :inventory, as: :integer%>
-  <%= f.input :used_inventory, as: :integer%>
+  <%= f.hidden_field :inventory, :value => 0%>
+  <%= f.hidden_field :used_inventory, :value => 0%>
   <%= f.input :sides, as: :boolean%>
   <%= f.input :easyRestock, as: :boolean%>
   <%= f.input :description, as: :text, input_html: { rows: "3" } %>

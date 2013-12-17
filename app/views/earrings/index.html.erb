@@ -1,10 +1,27 @@
-<%=link_to "Show only Tiffany's", earrings_path(:v=>"Tiffany & Co.")%>
-<%=link_to "Show only Chanel", earrings_path(:v=>"Chanel")%>
+<!--<%=link_to "Show only Tiffany's", earrings_path(:v=>"Tiffany & Co.")%>
+<%=link_to "Show only Chanel", earrings_path(:v=>"Chanel")%>-->
 
+<h4>Tiffany & Co.</h4>
 <div id="earrings">
 	<div class="inner-container">
 		<% @earrings.each do |earring| %>
-			<%if earring.vendor == @vendor  || @vendor == nil%>
+			<%if earring.vendor == 'Tiffany & Co.'%>
+				<div class="box box-small bbg">
+					<%= link_to (image_tag earring.image(:medium)),  earring_path(earring)%>
+					<div class="description">
+						<%=earring.vendor%> <%=earring.design%>
+					</div>
+				</div>
+			<%end%>
+		<% end %>
+	</div>
+</div>
+
+<h4>Chanel</h4>
+<div id="earrings">
+	<div class="inner-container">
+		<% @earrings.each do |earring| %>
+			<%if earring.vendor == 'Chanel'%>
 				<div class="box box-small bbg">
 					<%= link_to (image_tag earring.image(:medium)),  earring_path(earring)%>
 					<div class="description">

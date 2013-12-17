@@ -1,9 +1,7 @@
 <h3>Inventory</h3>
 <p><%=link_to 'Inventory', inv_inventory_path %> | <%=link_to 'Deliverables', inv_deliverables_path %> | <%=link_to 'Receivables', inv_receivables_path %></p>
 <p><%=link_to 'New Earring', new_earring_path %></p>
-
-<%=link_to "Show only Tiffany's", inv_inventory_path(:v=>"Tiffany & Co.")%>
-<%=link_to "Show only Chanel", inv_inventory_path(:v=>"Chanel")%>
+<p><%=link_to "Show only Tiffany's", inv_inventory_path(:v=>"Tiffany & Co.")%> | <%=link_to "Show only Chanel", inv_inventory_path(:v=>"Chanel")%></p>
 
 <table class="table table-striped">
 	<thead>
@@ -18,7 +16,7 @@
 			<th></th>
 		</tr>
 	</thead>
-
+Vendor Collection Design Material Size Cost SKU Photo
 	<tbody>
 		<% @earrings.each do |earring| %>
 			<%if earring.vendor == @vendor  || @vendor == nil%>
