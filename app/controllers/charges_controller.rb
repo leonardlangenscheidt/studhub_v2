@@ -60,7 +60,7 @@ class ChargesController < ApplicationController
 			  'http://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://studandfound.com/&p[images][0]=&p[title]=Stud%20and%20Found&p[summary]=I%20just%20bought%20a%20match%20for%20the%20single%20earring%20I%20had%20left%20over.%20Woohoo!',
 			  'facebook-share-dialog',
 			  'width=626,height=436');
-			return false;"><img src="/assets/facebook-441709af3a1f0540fb0901dc0927001f.png" alt="Share on facebook"></a>].html_safe
+			return false;"><img src="/assets/facebook-441709af3a1f0540fb0901dc0927001f.png" style="height:28px" alt="Share on facebook"></a>].html_safe
 			redirect_to "/user/orders/#{@order.id}"
 	  	else
 	  		flash[:notice] = Stripe::CardError.message
