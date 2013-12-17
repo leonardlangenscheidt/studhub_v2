@@ -8,6 +8,8 @@
 		</ol>
 	</div>
 
+	<h3 style="text-align:center">Confirmation</h3>
+
 	<div class="row-fluid bbg">
 		<div class="span4">
 			<div id="earrings">
@@ -26,8 +28,6 @@
 		</div>
 
 		<div class="span4">
-			<h3 style="text-align:center">Confirmation</h3>
-
 			<%= render(:partial => "earrings/table")%>
 		</div>
 
@@ -92,5 +92,10 @@
 			</div>
 		</div>
 	</div>
+</div>
+
+<br>
+<div class="links" style="clear:both; text-align:center">
 	<%= link_to "Edit Shipping Address", new_address_path(:earring_id => @address.earring.id, :buy => @address.buy, :right => @address.right, :used => @address.used)%>
 </div>
+
