@@ -5,6 +5,7 @@
 		<tr><td>Collection:</td><td><%=@earring.collection%></td></tr>
 		<tr><td>Design</td><td><%=@earring.design%></td></tr>
 		<tr><td>Material:</td><td><%=@earring.material%></td></tr>
+		<tr><td>Price:</td><td><%="$#{@earring.price-20}.00"%></td></tr>
 		<tr><td colspan="2"><%=@earring.description%></td></tr>
 	</tbody>
 </table>

@@ -55,12 +55,12 @@ class ChargesController < ApplicationController
 			@address.order_id = @order.id
 			@address.save
 			UserMailer.purchase_email(@order).deliver
-	  		flash[:notice] = %Q[Thank you! You just purchased the #{@earring.material} #{@earring.design} earring from the #{@earring.vendor} #{@earring.collection} collection for $#{@earring.price}.00! <a href="#" onclick="
+	  		flash[:notice] = %Q[You are such a Stud! Tell your friends about your purchase! <a href="#" onclick="
 			window.open(
 			  'http://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://studandfound.com/&p[images][0]=&p[title]=Stud%20and%20Found&p[summary]=I%20just%20bought%20a%20match%20for%20the%20single%20earring%20I%20had%20left%20over.%20Woohoo!',
 			  'facebook-share-dialog',
 			  'width=626,height=436');
-			return false;">Share on Facebook</a>].html_safe
+			return false;"><%=image_tag 'facebook.png' %></a>].html_safe
 			redirect_to "/user/orders/#{@order.id}"
 	  	else
 	  		flash[:notice] = Stripe::CardError.message
