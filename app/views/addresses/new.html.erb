@@ -44,10 +44,10 @@
 					<%= f.hidden_field :right, :value => @right %>
 					<%= f.hidden_field :used, :value => @used %> -->
 					<%= f.input :street, label: false, :input_html => { :value => @lastaddress.street} %>
-					<%= f.input :street2, label: false, :input_html => { :value => @lastaddress.street2} %> %>
+					<%= f.input :street2, label: false, :input_html => { :value => @lastaddress.street2} %>
 					<%= f.input :city, label: false, :input_html => { :value => @lastaddress.city} %>
-					<%= f.input :state, :input_html => { :value => @lastaddress.state} %>
-					<%= f.input :zip, :input_html => { :value => @lastaddress.zip} %>
+					<%= f.input :state, label: false, :input_html => { :value => @lastaddress.state} %>
+					<%= f.input :zip, label: false, :input_html => { :value => @lastaddress.zip} %>
 					<%= f.hidden_field :earring_id, :value => @earring.id %>
 					<%= f.hidden_field :buy, :value => @buy %>
 					<%= f.hidden_field :right, :value => @right %>
