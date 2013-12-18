@@ -1,8 +1,9 @@
 <h3>Admin Order View</h3>
 <p><%=link_to 'Inventory', inv_inventory_path %> | <%=link_to 'Deliverables', inv_deliverables_path %> | <%=link_to 'Receivables', inv_receivables_path %></p>
+
 <div class="container">
 	<div class="row bbg">
-		<div class="span6">
+		<div class="span4">
 			<div id="earrings">
 				<div class="box">
 					<%if @order.earring.sides == true%>
@@ -17,8 +18,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="span6">
-			<h4><%=@user.name%>'s order</h4>
+		<div class="span4">
+			<h4 style="text-align:center"><%=@user.name%>'s order</h4>
 			<table class="table">
 				<tbody>
 					<tr><td>
@@ -37,11 +38,13 @@
 						Used
 					<%else%>
 						New
-					<%end%></td>
+					<%end%></td></tr>
+					<tr><td colspan="2"><%=@order.earring.description%></td></tr>
 				</tbody>
 			</table>
-			<p><%=@order.earring.description%></p>
-			<h4>Shipping Information</h4>
+		</div>
+		<div class="span4">
+			<h4 style="text-align:center">Shipping Information</h4>
 			<table class="table">
 				<tbody>
 					<tr><td>Name:</td><td><%=current_user.name %></td></tr>
@@ -58,8 +61,8 @@
 			</table>
 		</div>
 	</div>
-	<div class="row" style="text-align:center">
-		<%=link_to "Back to Past Orders", "/inv/inventory/#{@order.earring.id}/pastorders" %>
-	</div>
 </div>
-
+<br>
+<div class="row" style="text-align:center">
+	<%=link_to "Back to Past Orders", "/inv/inventory/#{@order.earring.id}/pastorders" %>
+</div>
