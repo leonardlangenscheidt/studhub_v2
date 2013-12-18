@@ -29,9 +29,9 @@
 					<td><%= link_to earring.collection, "/inv/inventory/#{earring.id}/pastorders" %></td>
 					<td><%= link_to earring.design, "/inv/inventory/#{earring.id}/pastorders" %></td>
 					<td><%= link_to earring.material, "/inv/inventory/#{earring.id}/pastorders" %></td>
-					<%unless earring.size==nil%>
-						<td><%= link_to earring.size, "/inv/inventory/#{earring.id}/pastorders" %></td>
-					<%end%>
+					<td><%unless earring.size==nil%>
+						<%= link_to earring.size, "/inv/inventory/#{earring.id}/pastorders" %>
+					<%end%></td>
 					<td>$<%=earring.price%></td>
 					<td>$<%=earring.sku%></td>
 					<td><%=earring.inventory%></td>
