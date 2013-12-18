@@ -28,7 +28,7 @@
 		</div>
 		<div class="span4">
 			<h4 style="text-align:center">Enter Shipping Address</h4>
-			<%= simple_form_for(@address, html: { style: "margin:18% 5%; width:70%"}) do |f| %>
+			<%= simple_form_for(@address, html: { style: "margin:18% 0px; width:70%"}) do |f| %>
 			<%= f.error_notification %>
 
 			<%unless current_user.addresses.count==0%>

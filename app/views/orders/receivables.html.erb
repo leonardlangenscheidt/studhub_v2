@@ -26,7 +26,7 @@
 							<%=order.address.city%>, <%=order.address.state%> <%=order.address.zip%>
 						</td>
 						<td><%=order.earring.sku%></td>
-						<td><%= link_to (image_tag order.earring.image(:small)), "/earrings/#{order.earring.id}/pastorders"%></td>
+						<td><%= link_to (image_tag order.earring.image(:small)), "/inv/inventory/#{order.earring.id}/pastorders"%></td>
 						<td><%=order.status %></td>
 						<td><%unless order.status=="Received"%>
 							<%= simple_form_for(order) do |f| %>
