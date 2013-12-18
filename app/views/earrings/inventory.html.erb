@@ -6,29 +6,34 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th>Earring</th>
+			<th>Vendor</th>
+			<th>Collection</th>
+			<th>Design</th>
+			<th>Material</th>
+			<th>Size</th>
+			<th>Price</th>
+			<th>SKU</th>
 			<th>Inventory</th>
 			<th>Used Inventory</th>
-			<th>Price</th>
 			<th>Image</th>
 			<th>Create Receipt</th>
 			<th></th>
 			<th></th>
 		</tr>
 	</thead>
-Vendor Collection Design Material Size Cost SKU Photo
 	<tbody>
 		<% @earrings.each do |earring| %>
 			<%if earring.vendor == @vendor  || @vendor == nil%>
 				<tr>
-					<td><%= link_to "#{earring.vendor} #{earring.collection} #{earring.design} #{earring.material}", "/inv/inventory/#{earring.id}/pastorders" %></td>
-					<td>
-						<%=earring.inventory%>
-					</td>
-					<td>
-						<%=earring.used_inventory%>
-					</td>
+					<td><%= link_to earring.vendor, "/inv/inventory/#{earring.id}/pastorders" %></td>
+					<td><%= link_to earring.collection, "/inv/inventory/#{earring.id}/pastorders" %></td>
+					<td><%= link_to earring.design, "/inv/inventory/#{earring.id}/pastorders" %></td>
+					<td><%= link_to earring.material, "/inv/inventory/#{earring.id}/pastorders" %></td>
+					<td><%= link_to earring.size, "/inv/inventory/#{earring.id}/pastorders" %></td>
 					<td>$<%=earring.price%></td>
+					<td>$<%=earring.sku%></td>
+					<td><%=earring.inventory%></td>
+					<td><%=earring.used_inventory%></td>
 					<td><%= image_tag earring.image(:small) %></td>
 					<td><%=link_to 'New Receipt', "/orders/new?earring_id=#{earring.id}"%></td>
 					<td><%= link_to 'Edit', edit_earring_path(earring) %></td>

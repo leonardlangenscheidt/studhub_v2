@@ -22,7 +22,7 @@ class AddressesController < ApplicationController
         format.html { redirect_to "/confirm" }
         format.json { render action: 'show', status: :created, location: @address }
       else
-        format.html { render action: 'new' }
+        format.html { redirect_to "/addresses/new?earring_id=#{@earring.id}&buy=#{@address.buy}&right=#{@address.buy}&used=#{@address.used}" }
         format.json { render json: @address.errors, status: :unprocessable_entity }
       end
     end
