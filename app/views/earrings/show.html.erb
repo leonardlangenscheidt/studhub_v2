@@ -31,24 +31,24 @@
 							<%if (@earring.inventory - @earring.inventory%1000)>0%>
 								<%= link_to "Buy new left for $#{@earring.price}.00", new_address_path(:earring_id => @earring.id, :buy => true, :right => false, :used => false), class:'btn btn-large fxwd'%>
 							<%else%>
-								Sorry! No new, left matches left! Check back later.
+								<div class="fxwd">Sorry! No new, left matches left! Check back later.</div>
 							<%end%>
 							<%if @earring.inventory%1000>0%>
 								<%= link_to "Buy new right for $#{@earring.price}.00", new_address_path(:earring_id => @earring.id, :buy => true, :right => true, :used => false), class:'btn btn-large fxwd'%>
 							<%else%>
-								Sorry! No new, right matches left! Check back later.
+								<div class="fxwd">Sorry! No new, right matches left! Check back later.</div>
 							<%end%>
 						<%end%>
 						<br>
 						<%if (@earring.used_inventory - @earring.used_inventory%1000)>0%>
 							<%= link_to "Buy used left for $#{@earring.price-10}.00", new_address_path(:earring_id => @earring.id, :buy => true, :right => false, :used => true), class:'btn btn-large fxwd'%>
 						<%else%>
-							Sorry! No used, right matches left! Check back later.
+							<div class="fxwd">Sorry! No used, right matches left! Check back later.</div>
 						<%end%>
 						<%if @earring.used_inventory%1000>0%>
 							<%= link_to "Buy used right for $#{@earring.price-10}.00", new_address_path(:earring_id => @earring.id, :buy => true, :right => true, :used => true), class:'btn btn-large fxwd'%>
 						<%else%>
-							Sorry! No used, left matches left! Check back later.
+							<div class="fxwd">Sorry! No used, left matches left! Check back later.</div>
 						<%end%>
 						<br>
 						<%= link_to "Sell left for $#{@earring.price-20}.00", new_address_path(:earring_id => @earring.id, :buy => false, :right => false, :used => true), class:'btn btn-large fxwd'%>
@@ -59,12 +59,12 @@
 						<%if @earring.easyRestock == true || @earring.inventory > 0 %>
 							<%= link_to "Buy new for $#{@earring.price}.00", new_address_path(:earring_id => @earring.id, :buy => true, :right => false, :used => false), class:'btn btn-large fxwd'%>
 						<%else%>
-							Sorry! No new matches left! Check back later.
+							<div class="fxwd">Sorry! No new matches left! Check back later.</div>
 						<%end%>
 						<%if @earring.used_inventory > 0 %>
 							<%= link_to "Buy used for $#{@earring.price-10}.00", new_address_path(:earring_id => @earring.id, :buy => true, :right => false, :used => true), class:'btn btn-large fxwd'%>
 						<%else%>
-							Sorry! No used matches left! Check back later.
+							<div class="fxwd">Sorry! No used matches left! Check back later.</div>
 						<%end%>
 						<%= link_to "Sell for $#{@earring.price-20}.00", new_address_path(:earring_id => @earring.id, :buy => false, :right => false, :used => true), class:'btn btn-large fxwd'%>
 					<%end%>
