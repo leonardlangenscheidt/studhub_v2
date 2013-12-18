@@ -5,7 +5,7 @@ $tred: #bb1c22;
 $tturq: #4ebcd8;
 
 .landingimg {
-    background-image: url('/assets/langind2.png');
+    background: url('http://studandfound.com/assets/langind2.png');
 }
 
 * {
@@ -91,6 +91,7 @@ form {
 }
 
 .bbg {
+
     background-color: $tgrey;
     color: $tblue;
 }
