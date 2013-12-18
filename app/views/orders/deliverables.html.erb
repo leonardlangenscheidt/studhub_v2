@@ -4,6 +4,7 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
+			<th>Created</th>
 			<th>Order ID</th>
 			<th>User</th>
 			<th>Address</th>
@@ -18,6 +19,7 @@
 		<% @orders.each do |order| %>
 			<%if order.address.buy == true && order.tracking == nil%>
 				<tr>
+					<td><%=order.created_at.strftime("%d-%m-%Y at %H:%M")%></td>
 					<td><%=link_to order.id, "/orders/#{order.id}"%></td>
 					<td><%=order.user.name%></td>
 					<td>
@@ -26,7 +28,17 @@
 						<%=order.address.city%>, <%=order.address.state%> <%=order.address.zip%>
 					</td>
 					<td><%=order.earring.sku%></td>
-					<td><%= link_to (image_tag order.earring.image(:small)), "/inv/inventory/#{order.earring.id}/pastorders"%></td>
+					<td>
+						<%if order.earring.sides == true%>
+							<%if order.address.right == true%>
+								<%= link_to (image_tag order.earring.imageright(:small)), "/inv/inventory/#{order.earring.id}/pastorders"%>
+							<%else%>
+								<%= link_to (image_tag order.earring.imageleft(:small)), "/inv/inventory/#{order.earring.id}/pastorders"%>
+							<%end%>
+						<%else%>
+							<%= link_to (image_tag order.earring.image(:small)), "/inv/inventory/#{order.earring.id}/pastorders"%>
+						<%end%>
+					</td>
 					<td><%=order.status %></td>
 					<td><%=order.tracking %></td>
 					<td>
@@ -46,6 +58,7 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
+			<th>Created</th>
 			<th>Order ID</th>
 			<th>User</th>
 			<th>Address</th>
@@ -60,6 +73,7 @@
 		<% @orders.each do |order| %>
 			<%if order.address.buy == true && order.tracking != nil %>
 				<tr>
+					<td><%=order.created_at.strftime("%d-%m-%Y at %H:%M")%></td>
 					<td><%=link_to order.id, "/orders/#{order.id}"%></td>
 					<td><%=order.user.name%></td>
 					<td>
@@ -68,7 +82,17 @@
 						<%=order.address.city%>, <%=order.address.state%> <%=order.address.zip%>
 					</td>
 					<td><%=order.earring.sku%></td>
-					<td><%= link_to (image_tag order.earring.image(:small)), "/earrings/#{order.earring.id}/pastorders"%></td>
+					<td>
+						<%if order.earring.sides == true%>
+							<%if order.address.right == true%>
+								<%= link_to (image_tag order.earring.imageright(:small)), "/inv/inventory/#{order.earring.id}/pastorders"%>
+							<%else%>
+								<%= link_to (image_tag order.earring.imageleft(:small)), "/inv/inventory/#{order.earring.id}/pastorders"%>
+							<%end%>
+						<%else%>
+							<%= link_to (image_tag order.earring.image(:small)), "/inv/inventory/#{order.earring.id}/pastorders"%>
+						<%end%>
+					</td>
 					<td><%=order.status %></td>
 					<td><%=order.tracking %></td>
 					<td>

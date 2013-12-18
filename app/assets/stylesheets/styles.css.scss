@@ -4,13 +4,7 @@ $tgrey2: #6b6b6b;
 $tred: #bb1c22;
 $tturq: #4ebcd8;
 
-.landingimg {
-    background: url('http://www.studandfound.com/assets/langindpage2-6a592ea9220278929d36e563371eb098.png');
-    background-size: cover;
-    background-position: center;
-    margin:50px 0px 50px -20px;
-    height: 400px;
-}
+
 
 * {
     font-family: 'Open Sans Condensed', sans-serif;
@@ -23,6 +17,18 @@ $tturq: #4ebcd8;
 .arrow {
     width:22px;
     margin:75px 30%;
+}
+
+.landingimg {
+    background: url('http://www.studandfound.com/assets/langindpage2-6a592ea9220278929d36e563371eb098.png');
+    background-size: cover;
+    background-position: center;
+    margin:50px 0px 50px -20px;
+    height: 400px;
+}
+
+.fxwd {
+    width: 137px;
 }
 
 .howto {
