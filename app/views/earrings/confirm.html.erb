@@ -12,7 +12,7 @@
 			<div id="earrings">
 				<div class="box">
 					<%if @earring.sides == true%>
-						<%if @address.right == true%>
+						<%if @address.detail.right == true%>
 							<%= image_tag @earring.imageright(:large)%>
 						<%else%>
 							<%= image_tag @earring.imageleft(:large)%>
