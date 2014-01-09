@@ -81,10 +81,10 @@
 			<%= f.error_notification %>
 
 				<div class="form-inputs">
-					<%= f.input :buy, as: :radio_buttons%>
-					<%= f.input :right, as: :radio_buttons%>
-					<%= f.input :used, as: :radio_buttons%>
-					<%= f.hidden_field :user_id, :value => 1 %>
+					<%= f.input :buy%>
+					<%= f.input :right%>
+					<%= f.input :used%>
+					<%= f.hidden_field :user_id, :value => current_user.id %>
 					<%= f.hidden_field :earring_id, :value => @earring.id %>
 				</div>
 				<div class="form-actions bbg">
