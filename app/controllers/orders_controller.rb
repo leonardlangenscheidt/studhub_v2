@@ -26,6 +26,8 @@ class OrdersController < ApplicationController
 
 	def show
 		@user = @order.user
+		@address = @order.address
+		@detail = @address.detail
 		if current_user
 			if current_user == @user
 				render "show"

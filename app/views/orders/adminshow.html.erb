@@ -1,19 +1,20 @@
 <h3>Admin Order View</h3>
 <p><%=link_to 'Inventory', inv_inventory_path %> | <%=link_to 'Deliverables', inv_deliverables_path %> | <%=link_to 'Receivables', inv_receivables_path %></p>
 
+
 <div class="container">
 	<div class="row bbg">
 		<div class="span4">
 			<div id="earrings">
 				<div class="box">
-					<%if @order.earring.sides == true%>
-						<%if @order.address.right == true%>
-							<%= image_tag @order.earring.imageright(:medium)%>
+					<%if @detail.earring.sides == true%>
+						<%if @detail.right == true%>
+							<%= image_tag @detail.earring.imageright(:medium)%>
 						<%else%>
-							<%= image_tag @order.earring.imageleft(:medium)%>
+							<%= image_tag @detail.earring.imageleft(:medium)%>
 						<%end%>
 					<%else%>
-						<%= image_tag @order.earring.image(:medium)%>
+						<%= image_tag @detail.earring.image(:medium)%>
 					<%end%>
 				</div>
 			</div>
@@ -23,23 +24,23 @@
 			<table class="table">
 				<tbody>
 					<tr><td>
-					<% if @order.address.buy==true %>
+					<% if @detail.buy==true %>
 						Purchased:
 					<% else %>
 						Sold:
 					<% end %></td>
 					<td><%=@order.created_at.strftime("%d-%m-%Y at %H:%M")%></td></tr>
-					<tr><td>Vendor:</td><td><%=@order.earring.vendor %></td></tr>
-					<tr><td>Collection:</td><td><%=@order.earring.collection%></td></tr>
-					<tr><td>Design</td><td><%=@order.earring.design%></td></tr>
-					<tr><td>Material:</td><td><%=@order.earring.material%></td></tr>
+					<tr><td>Vendor:</td><td><%=@detail.earring.vendor %></td></tr>
+					<tr><td>Collection:</td><td><%=@detail.earring.collection%></td></tr>
+					<tr><td>Design</td><td><%=@detail.earring.design%></td></tr>
+					<tr><td>Material:</td><td><%=@detail.earring.material%></td></tr>
 					<tr><td>Condition:</td><td>
-					<%if @order.address.used==true%>
+					<%if @detail.used==true%>
 						Used
 					<%else%>
 						New
 					<%end%></td></tr>
-					<tr><td colspan="2"><%=@order.earring.description%></td></tr>
+					<tr><td colspan="2"><%=@detail.earring.description%></td></tr>
 				</tbody>
 			</table>
 		</div>
@@ -48,11 +49,11 @@
 			<table class="table">
 				<tbody>
 					<tr><td>Name:</td><td><%=current_user.name %></td></tr>
-					<tr><td>Street:</td><td><%=@order.address.street%></td></tr>
-					<tr><td></td><td><%=@order.address.street2%></td></tr>
-					<tr><td>City:</td><td><%=@order.address.city%></td></tr>
-					<tr><td>State:</td><td><%=@order.address.state%></td></tr>
-					<tr><td>ZIP Code:</td><td><%=@order.address.zip%></td></tr>
+					<tr><td>Street:</td><td><%=@address.street%></td></tr>
+					<tr><td></td><td><%=@address.street2%></td></tr>
+					<tr><td>City:</td><td><%=@address.city%></td></tr>
+					<tr><td>State:</td><td><%=@address.state%></td></tr>
+					<tr><td>ZIP Code:</td><td><%=@address.zip%></td></tr>
 					<tr><td>Status:</td><td><%=@order.status%></td></td>
 					<tr><td>Tracking:</td><td>
 						<%if @order.tracking%><%=link_to @order.tracking, "https://tools.usps.com/go/TrackConfirmAction?tLabels=#{@order.tracking}" %><%end%>
@@ -64,5 +65,5 @@
 </div>
 <br>
 <div class="row" style="text-align:center">
-	<%=link_to "Back to Past Orders", "/inv/inventory/#{@order.earring.id}/pastorders" %>
+	<%=link_to "Back to Profile", '/user' %>
 </div>
