@@ -5,6 +5,7 @@ class UserMailer < ActionMailer::Base
 		@user = order.user
 		@order = order
 		@address = order.address
+            @detail = @address.detail
 		# @url  = 'http://example.com/login'
 		mail(to: @user.email, subject: 'Your Purchase on Stud & Found')
   	end
@@ -12,6 +13,7 @@ class UserMailer < ActionMailer::Base
 		@user = order.user
 		@order = order
 		@address = order.address
+            @detail = @address.detail
 		# @url  = 'http://example.com/login'
 		mail(to: @user.email, subject: 'Your Sale on Stud & Found')
   	end
