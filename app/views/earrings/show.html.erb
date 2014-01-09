@@ -21,6 +21,7 @@
 		</div>
 		<div class="span4">
 			<div style="margin:30px 15px 30px 0px">
+				<!--
 				<%if current_user%>
 					<%if @earring.sides == true %>
 
@@ -74,7 +75,23 @@
 				<%else%>
 					To continue please</br>
 					<%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in", class:'btn btn-large fxwd' %>
-				<%end%>
+				<%end%> -->
+
+			<%= simple_form_for(@detail, html: { style: "margin: 0px 18%; width:70%"}) do |f| %>
+			<%= f.error_notification %>
+
+				<div class="form-inputs">
+					<%= f.input :buy%>
+					<%= f.input :right%>
+					<%= f.input :used%>
+					<%= f.hidden_field :user_id, :value => 1 %>
+					<%= f.hidden_field :earring_id, :value => @earring.id %>
+				</div>
+				<div class="form-actions bbg">
+					<%= f.button :submit, "Continue", class: "btn btn-primary"  %>
+				</div>
+			<% end %>
+
 			</div>
 		</div>
 	</div>

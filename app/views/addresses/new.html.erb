@@ -38,10 +38,7 @@
 					<%= f.input :city, label: false, :input_html => { :value => @lastaddress.city} %>
 					<%= f.input :state, label: false, :input_html => { :value => @lastaddress.state} %>
 					<%= f.input :zip, label: false, :input_html => { :value => @lastaddress.zip} %>
-					<%= f.hidden_field :earring_id, :value => @earring.id %>
-					<%= f.hidden_field :buy, :value => @buy %>
-					<%= f.hidden_field :right, :value => @right %>
-					<%= f.hidden_field :used, :value => @used %>
+					<%= f.hidden_field :detail_id, :value => @detail.id %>
 				</div>
 			<% else %>
 				<div class="form-inputs">
@@ -50,10 +47,7 @@
 					<%= f.input :city, label: false, placeholder: 'City'%>
 					<%= f.input :state, label: false, placeholder: 'State'%>
 					<%= f.input :zip, label: false, placeholder: 'Zip Code'%>
-					<%= f.hidden_field :earring_id, :value => @earring.id %>
-					<%= f.hidden_field :buy, :value => @buy %>
-					<%= f.hidden_field :right, :value => @right %>
-					<%= f.hidden_field :used, :value => @used %>
+					<%= f.hidden_field :detail_id, :value => @detail.id %>
 				</div>
 			<% end %>
 				<div class="form-actions bbg">

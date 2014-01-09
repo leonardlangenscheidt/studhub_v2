@@ -5,15 +5,6 @@ Studhub::Application.routes.draw do
 	get 'about' => 'pages#about'
 	get 'terms' => 'pages#terms'
 
-	resources :addresses
-
-	#profile and orders
-	resource :user
-	# resource :user do
-	# 	resources :orders
-	# end
-	# resources :orders
-
 	#inventory system
 	get 'inv' => 'pages#dashboard'
 	get 'inv/deliverables' => 'orders#deliverables'
@@ -27,6 +18,9 @@ Studhub::Application.routes.draw do
 	get 'user/orders/:id' => 'orders#show'
 
 	resources :orders
+	resources :addresses
+	resources :details
+	resource :user
 
 	#earring routes
 	resources :earrings do

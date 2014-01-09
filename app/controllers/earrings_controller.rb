@@ -17,6 +17,7 @@ class EarringsController < ApplicationController
 	end
 
 	def show
+		@detail = Detail.new
 	end
 
 	def new
@@ -90,10 +91,10 @@ class EarringsController < ApplicationController
 	def confirm
 		if current_user
 			@address = current_user.addresses.last
-			@earring = @address.earring
-			@buy = @address.buy
-			@right = @address.right
-			@used = @address.used
+			@earring = Earring.find(@address.detail.earring_id)
+			@buy = @address.detail.buy
+			@right = @address.detail.right
+			@used = @address.detail.used
 			@order = Order.new
 		else
 			redirect_to root_path
