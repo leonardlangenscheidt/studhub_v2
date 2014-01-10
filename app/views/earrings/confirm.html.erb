@@ -12,7 +12,7 @@
 			<div id="earrings">
 				<div class="box">
 					<%if @earring.sides == true%>
-						<%if @address.detail.right == true%>
+						<%if @detail.right == true%>
 							<%= image_tag @earring.imageright(:large)%>
 						<%else%>
 							<%= image_tag @earring.imageleft(:large)%>
@@ -41,7 +41,7 @@
 				</tbody>
 			</table>
 			<div style="text-align:center">
-				<% if @buy == true %>
+				<% if @detail.buy == true %>
 					<%= form_tag earring_charges_path(:earring_id =>@earring.id, :address_id =>@address.id) do %>
 						<script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
 						data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
@@ -61,7 +61,7 @@
 					<input type="hidden" name="currency_code" value="USD">
 					<input type="hidden" name="button_subtype" value="services">
 					<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
-					<input type="hidden" name="return" value="http://studandfound.com/remotecreate?earring_id=#{@earring.id}&address_id=#{@address.id}&buy=#{@buy}&used=false"/>
+					<input type="hidden" name="return" value="http://studandfound.com/remotecreate?earring_id=#{@earring.id}&address_id=#{@address.id}&buy=#{@detail.buy}&used=false"/>
 					<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 					<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
 					</form>
