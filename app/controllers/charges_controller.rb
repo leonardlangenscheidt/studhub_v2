@@ -5,6 +5,7 @@ class ChargesController < ApplicationController
 	def create
 	  	@earring = Earring.find(params[:earring_id])
 	  	@address = Address.find(params[:address_id])
+	  	@detail = @address.detail
 	  	@user = current_user
 
 	  	customer = Stripe::Customer.create(
@@ -30,21 +31,21 @@ class ChargesController < ApplicationController
 			)
 			@order.save
 			if @earring.sides == true
-				if @address.used == true
-					if @address.right == true
+				if @detail.used == true
+					if @detail.right == true
 						@earring.used_inventory = @earring.used_inventory - 1
 					else
 						@earring.used_inventory = @earring.used_inventory - 1000
 					end
 				else
-					if @address.right == true
+					if @detail.right == true
 						@earring.inventory = @earring.inventory - 1
 					else
 						@earring.inventory = @earring.inventory - 1000
 					end
 				end
 			else
-				if @address.used == true
+				if @detail.used == true
 					@earring.used_inventory = @earring.used_inventory - 1
 				else
 					@earring.inventory = @earring.inventory - 1
