@@ -22,11 +22,10 @@ class ChargesController < ApplicationController
 	  	if charge
 	  		@order = Order.create(
 			:user_id => @user.id,
-			:earring_id => @earring.id,
 			:price_paid => @earring.price,
 			:address_id => @address.id,
 			:tax => 0,
-			:number => 1,
+			:quantity => 1,
 			:status => "Confirmed"
 			)
 			@order.save
