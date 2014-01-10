@@ -27,16 +27,16 @@
 						<%=order.address.street2%><br>
 						<%=order.address.city%>, <%=order.address.state%> <%=order.address.zip%>
 					</td>
-					<td><%=order.earring.sku%></td>
+					<td><%=order.address.detail.earring.sku%></td>
 					<td>
-						<%if order.earring.sides == true%>
+						<%if order.address.detail.earring.sides == true%>
 							<%if order.address.detail.right == true%>
-								<%= link_to (image_tag order.earring.imageright(:small)), "/inv/inventory/#{order.earring.id}/pastorders"%>
+								<%= link_to (image_tag order.address.detail.earring.imageright(:small)), "/inv/inventory/#{order.address.detail.earring.id}/pastorders"%>
 							<%else%>
-								<%= link_to (image_tag order.earring.imageleft(:small)), "/inv/inventory/#{order.earring.id}/pastorders"%>
+								<%= link_to (image_tag order.address.detail.earring.imageleft(:small)), "/inv/inventory/#{order.address.detail.earring.id}/pastorders"%>
 							<%end%>
 						<%else%>
-							<%= link_to (image_tag order.earring.image(:small)), "/inv/inventory/#{order.earring.id}/pastorders"%>
+							<%= link_to (image_tag order.address.detail.earring.image(:small)), "/inv/inventory/#{order.address.detail.earring.id}/pastorders"%>
 						<%end%>
 					</td>
 					<td><%=order.status %></td>
@@ -81,16 +81,16 @@
 						<%=order.address.street2%><br>
 						<%=order.address.city%>, <%=order.address.state%> <%=order.address.zip%>
 					</td>
-					<td><%=order.earring.sku%></td>
+					<td><%=order.address.detail.earring.sku%></td>
 					<td>
-						<%if order.earring.sides == true%>
+						<%if order.address.detail.earring.sides == true%>
 							<%if order.address.detail.right == true%>
-								<%= link_to (image_tag order.earring.imageright(:small)), "/inv/inventory/#{order.earring.id}/pastorders"%>
+								<%= link_to (image_tag order.address.detail.earring.imageright(:small)), "/inv/inventory/#{order.address.detail.earring.id}/pastorders"%>
 							<%else%>
-								<%= link_to (image_tag order.earring.imageleft(:small)), "/inv/inventory/#{order.earring.id}/pastorders"%>
+								<%= link_to (image_tag order.address.detail.earring.imageleft(:small)), "/inv/inventory/#{order.address.detail.earring.id}/pastorders"%>
 							<%end%>
 						<%else%>
-							<%= link_to (image_tag order.earring.image(:small)), "/inv/inventory/#{order.earring.id}/pastorders"%>
+							<%= link_to (image_tag order.address.detail.earring.image(:small)), "/inv/inventory/#{order.address.detail.earring.id}/pastorders"%>
 						<%end%>
 					</td>
 					<td><%=order.status %></td>
