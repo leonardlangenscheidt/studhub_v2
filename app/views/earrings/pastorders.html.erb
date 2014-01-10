@@ -14,14 +14,14 @@
 	</thead>
 	<tbody>
 		<%@orders.each do |order| %>
-			<%if order.address.used == false%>
+			<%if order.address.detail.used == false%>
 				<tr>
 					<td><%=order.created_at.strftime("%d-%m-%Y at %H:%M")%></td>
 					<td>
-						<%if order.address.buy==true%>
-							-<%=order.number%>
+						<%if order.address.detail.buy==true%>
+							-<%=order.quantity%>
 						<%else%>
-							+<%=order.number%>
+							+<%=order.quantity%>
 						<%end%>
 					</td>
 					<td><%=order.price_paid + order.tax%></td>
@@ -33,7 +33,7 @@
 						<%end%>
 					</td>
 					<td>
-						<%if order.address.buy==true%>
+						<%if order.address.detail.buy==true%>
 							Deliverable
 						<%else%>
 							Receivable
@@ -72,14 +72,14 @@
 	</thead>
 	<tbody>
 		<%@orders.each do |order| %>
-			<%if order.address.used == true%>
+			<%if order.address.detail.used == true%>
 				<tr>
 					<td><%=order.created_at.strftime("%d-%m-%Y at %H:%M")%></td>
 					<td>
-						<%if order.address.buy==true%>
-							-<%=order.number%>
+						<%if order.address.detail.buy==true%>
+							-<%=order.quantity%>
 						<%else%>
-							+<%=order.number%>
+							+<%=order.quantity%>
 						<%end%>
 					</td>
 					<td><%=order.price_paid + order.tax%></td>
@@ -91,13 +91,13 @@
 						<%end%>
 					</td>
 					<td>
-						<%if order.address.buy==true%>
+						<%if order.address.detail.buy==true%>
 							Deliverable
 						<%else%>
 							Receivable
 						<%end%>
 					</td>
-					<td><%=order.user.id%></td>
+					<td><%=order.user.name%></td>
 					<td><%=order.id%></td>
 					<td>
 						<%if order.tracking == nil %>

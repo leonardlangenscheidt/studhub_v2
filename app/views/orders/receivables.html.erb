@@ -16,7 +16,7 @@
 	</thead>
 	<tbody>
 		<% @orders.each do |order| %>
-			<%if order.address.buy == false%>
+			<%if order.address.detail.buy == false%>
 				<%if order.status=="Awaiting Shipment"%>
 					<tr>
 						<td><%=order.created_at.strftime("%d-%m-%Y at %H:%M")%></td>
@@ -30,7 +30,7 @@
 						<td><%=order.earring.sku%></td>
 						<td>
 							<%if order.earring.sides == true%>
-								<%if order.address.right == true%>
+								<%if order.address.detail.right == true%>
 									<%= link_to (image_tag order.earring.imageright(:small)), "/inv/inventory/#{order.earring.id}/pastorders"%>
 								<%else%>
 									<%= link_to (image_tag order.earring.imageleft(:small)), "/inv/inventory/#{order.earring.id}/pastorders"%>
@@ -67,7 +67,7 @@
 	</thead>
 	<tbody>
 		<% @orders.each do |order| %>
-			<%if order.address.buy == false%>
+			<%if order.address.detail.buy == false%>
 				<%if order.status=="Received"%>
 					<tr>
 						<td><%=order.created_at.strftime("%d-%m-%Y at %H:%M")%></td>
@@ -81,7 +81,7 @@
 						<td><%=order.earring.sku%></td>
 						<td>
 							<%if order.earring.sides == true%>
-								<%if order.address.right == true%>
+								<%if order.address.detail.right == true%>
 									<%= link_to (image_tag order.earring.imageright(:small)), "/inv/inventory/#{order.earring.id}/pastorders"%>
 								<%else%>
 									<%= link_to (image_tag order.earring.imageleft(:small)), "/inv/inventory/#{order.earring.id}/pastorders"%>
@@ -111,7 +111,7 @@
 	</thead>
 	<tbody>
 		<% @orders.each do |order| %>
-			<%if order.address.buy == false%>
+			<%if order.address.detail.buy == false%>
 				<%if order.status=="Purchased"%>
 					<tr>
 						<td><%=order.created_at.strftime("%d-%m-%Y at %H:%M")%></td>

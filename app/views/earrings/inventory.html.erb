@@ -33,7 +33,7 @@
 						<%= link_to earring.size, "/inv/inventory/#{earring.id}/pastorders" %>
 					<%end%></td>
 					<td>$<%=earring.price%></td>
-					<td>$<%=earring.sku%></td>
+					<td><%=earring.sku%></td>
 					<td><%=earring.inventory%></td>
 					<td><%=earring.used_inventory%></td>
 					<td><%= image_tag earring.image(:small) %></td>
