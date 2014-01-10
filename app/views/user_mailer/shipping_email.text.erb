@@ -2,7 +2,7 @@ Hi <%=@user.name%>,
 
 Your purchase of:
 
-<%=@order.earring.vendor%> <%=@order.earring.collection%> <%=@order.earring.design%> in <%=@order.earring.material%>
+<%=@order.address.detail.earring.vendor%> <%=@order.address.detail.earring.collection%> <%=@order.address.detail.earring.design%> in <%=@order.address.detail.earring.material%>
 
 has been shipped!!! It'll be with you shortly, but if you want to keep an eye on it you can click <%=link_to 'here', "https://tools.usps.com/go/TrackConfirmAction?tLabels=#{@order.tracking}" %> to follow its journey.
 
