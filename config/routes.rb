@@ -1,5 +1,7 @@
 Studhub::Application.routes.draw do
 
+  resources :comments
+
 	#static routes
 	root :to => 'pages#home'
 	get 'about' => 'pages#about'
